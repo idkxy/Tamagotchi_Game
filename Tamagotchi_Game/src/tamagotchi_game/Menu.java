@@ -21,13 +21,19 @@ public class Menu {
     
     public static void mainMenu() throws FileNotFoundException
     {
+        boolean valid = false;
+        InputValidation val = new InputValidation();
+        
         System.out.println("-----   MAIN MENU   -----");
         System.out.println("1. New Game\n2. Load Game");
         scan = new Scanner(System.in);
         
         while (!input.equalsIgnoreCase("1") && !input.equalsIgnoreCase("2"))
         {
-            input = scan.nextLine();
+            //Input validation class being run
+            System.out.print("User Input: ");
+            input = val.numbers(scan);
+            
             switch(input)
             {
                 case "1":
@@ -38,7 +44,7 @@ public class Menu {
                     loadGame();
                     break;
                 default:
-                    System.out.println("Error: Please enter a valid input.");
+                    System.out.println("PLACEHOLDER - TEMP");
                     break;
             }    
         }
