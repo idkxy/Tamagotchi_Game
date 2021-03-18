@@ -1,4 +1,4 @@
-//hello
+
 
 package tamagotchi_game;
 
