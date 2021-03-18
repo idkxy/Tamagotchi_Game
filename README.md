@@ -1,4 +1,4 @@
--------------------------------------GAMES ADDITIONS-------------------------------------
+### GAMES ADDITIONS
 * [x] Select save screen.
 * [ ] Ability to load save
 * [x] Ability to create new save (with new pet)
@@ -16,7 +16,7 @@
 * [ ] Ability to breed pet (so long as player has two pets)
 * [ ] Ability to make purchases in the in game store
 
--------------------------------------GAMES LONGEVITY-------------------------------------
+### GAMES LONGEVITY
 * [ ] User input verification
 * [ ] Debug mode for testing
 * [ ] 
