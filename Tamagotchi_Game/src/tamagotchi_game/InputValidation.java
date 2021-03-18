@@ -1,28 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tamagotchi_game;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
-/**
- *
- * @author Liam
- */
 public class InputValidation {
+
     String input = "";
-    public String numbers(Scanner scan){
+    
+    /**
+     * test test 123
+     * @param scan The scanner which is taking input.
+     * @param min Minimum number wanted in input range.
+     * @param max Maximum number wanted in input range.
+     * @return the input value
+     */
+    public String numbers(Scanner scan, int min, int max) {
         input = scan.nextLine();
-        
-        while (!input.matches("^[1-2]{1}$"))
-            {
-                System.out.print("invalid input! try again: ");
-                input = scan.nextLine();
-            }
-        
+
+        while (!input.matches("^[" + min + "-" + max + "2]{1}$")) {
+            System.out.print("invalid input! try again: ");
+            input = scan.nextLine();
+        }
+
         return input;
     }
 }

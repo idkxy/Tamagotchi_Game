@@ -32,7 +32,7 @@ public class Menu {
         {
             //Input validation class being run
             System.out.print("User Input: ");
-            input = val.numbers(scan);
+            input = val.numbers(scan, 1, 2);
             
             switch(input)
             {
