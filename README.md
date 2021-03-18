@@ -20,11 +20,3 @@
 * [ ] User input verification
 * [ ] Debug mode for testing
 * [ ] 
-* [ ]
-* [ ]
-* [ ]
-* [ ]
-* [ ]
-* [ ]
-* [ ]
-* [ ]
