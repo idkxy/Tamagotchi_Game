@@ -1,3 +1,5 @@
+//hello
+
 package tamagotchi_game;
 
 import java.io.FileNotFoundException;
