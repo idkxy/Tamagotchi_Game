@@ -1,5 +1,5 @@
--------------------------------------GAMES ADDITIONS-------------------------------------
-[x] Select save screen.
+*-------------------------------------GAMES ADDITIONS-------------------------------------
+*[x] Select save screen.
 [ ] Ability to load save
 [x] Ability to create new save (with new pet)
 [ ] Ability to close game and save progress
