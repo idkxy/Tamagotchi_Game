@@ -15,6 +15,7 @@
 * [ ] Ability to sell the pet for games currency
 * [ ] Ability to breed pet (so long as player has two pets)
 * [ ] Ability to make purchases in the in game store
+
 -------------------------------------GAMES LONGEVITY-------------------------------------
 * [ ] User input verification
 * [ ] Debug mode for testing
