@@ -2,7 +2,6 @@ package tamagotchi_game;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Main {
 
