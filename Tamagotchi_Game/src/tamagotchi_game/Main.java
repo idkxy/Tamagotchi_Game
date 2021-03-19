@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Main {
 
-    public static HashMap petCollection = new HashMap<String, Pet>();
+    public static ArrayList petCollection = new ArrayList<Pet>();
 
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
         Menu.intro();
