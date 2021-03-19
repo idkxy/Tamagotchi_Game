@@ -25,6 +25,7 @@ public class InputValidation {
             }
         }
         regex += "{1}$";
+        
         //polls for valid input
         while (!input.matches(regex)) {
             System.out.print("invalid input! try again: ");

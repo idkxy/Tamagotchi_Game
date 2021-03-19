@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class Menu {
     
     private static Scanner scan = new Scanner(System.in);
-    private static String input = "";
     
 //    Intro credits
     public static void intro()
@@ -25,26 +24,25 @@ public class Menu {
         System.out.println("-----   MAIN MENU   -----");
         System.out.println("1. New Game\n2. Load Game");
         scan = new Scanner(System.in);
-
-        //Input validation class being run
-
+        String input;
         input = InputValidation.regexValidate(scan, "12");
 
         switch (input) {
             case "1":
                 newGame();
-                input = "1";
                 break;
             case "2":
                 loadGame();
                 break;
             default:
+                System.out.println("error");
                 break;
         }
     }
     
     private static void newGame() throws FileNotFoundException
     {
+        String input;
         //create new pet collection for new player
         HashMap petCollection = new HashMap<String, Pet>();        
         //create starter pets
