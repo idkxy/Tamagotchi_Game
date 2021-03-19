@@ -19,34 +19,28 @@ public class Menu {
         System.out.println("-------------------------\n\n");
     }
     
-    public static void mainMenu() throws FileNotFoundException
-    {
+    public static void mainMenu() throws FileNotFoundException {
         boolean valid = false;
         InputValidation val = new InputValidation();
-        
+
         System.out.println("-----   MAIN MENU   -----");
         System.out.println("1. New Game\n2. Load Game");
         scan = new Scanner(System.in);
-        
-        while (!input.equalsIgnoreCase("1") && !input.equalsIgnoreCase("2"))
-        {
-            //Input validation class being run
-            System.out.print("User Input: ");
-            input = val.numbers(scan, 1, 2);
-            
-            switch(input)
-            {
-                case "1":
-                    newGame();
-                    input = "1";
-                    break;
-                case "2":
-                    loadGame();
-                    break;
-                default:
-                    System.out.println("PLACEHOLDER - TEMP");
-                    break;
-            }    
+
+        //Input validation class being run
+        System.out.print("User Input: ");
+        input = val.regexValidate(scan, "12345");
+
+        switch (input) {
+            case "1":
+                newGame();
+                input = "1";
+                break;
+            case "2":
+                loadGame();
+                break;
+            default:
+                break;
         }
     }
     

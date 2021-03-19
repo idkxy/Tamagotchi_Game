@@ -4,23 +4,31 @@ import java.util.Scanner;
 
 public class InputValidation {
 
-    String input = "";
-    
     /**
-     * test test 123
+     * Validates input through the power of regex
+     *
      * @param scan The scanner which is taking input.
-     * @param min Minimum number wanted in input range.
-     * @param max Maximum number wanted in input range.
+     * @param values The only valid inputs the scanner should take.
      * @return the input value
      */
-    public String numbers(Scanner scan, int min, int max) {
-        input = scan.nextLine();
+    public String regexValidate(Scanner scan, String values) {
+        String input = scan.nextLine();
+        String regex = "^";
 
-        while (!input.matches("^[" + min + "-" + max + "2]{1}$")) {
+        String[] temp = values.split("");
+
+        for (int i = 0; i < temp.length; i++) {
+            regex += "[" + temp[i] + "]";
+            if (i < temp.length - 1) {
+                regex += "|";
+            }
+        }
+        regex += "{1}$";
+
+        while (!input.matches(regex)) {
             System.out.print("invalid input! try again: ");
             input = scan.nextLine();
         }
-
         return input;
     }
 }
