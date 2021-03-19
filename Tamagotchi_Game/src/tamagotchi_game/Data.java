@@ -14,6 +14,7 @@ public class Data {
         PrintWriter pw = new PrintWriter(new FileOutputStream(fileName));
         pw.println("@PETS");
         petCollection.forEach((k, v) -> pw.println(k +","+ v.getHunger() +","+ v.getThirst() +","+ v.getEnergy()));
+        pw.println("@TEST");
         pw.close();
     }
 }

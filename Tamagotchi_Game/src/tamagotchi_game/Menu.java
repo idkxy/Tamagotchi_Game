@@ -9,8 +9,6 @@ import java.util.Scanner;
 
 public class Menu {
     
-    private static Scanner scan = new Scanner(System.in);
-    
 //    Intro credits
     public static void intro()
     {
@@ -19,17 +17,17 @@ public class Menu {
         System.out.println("-------------------------\n\n");
     }
     
-    public static void mainMenu() throws FileNotFoundException {
+    public static void mainMenu(HashMap petCollection) throws FileNotFoundException {
 
         System.out.println("-----   MAIN MENU   -----");
         System.out.println("1. New Game\n2. Load Game");
-        scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         String input;
         input = InputValidation.regexValidate(scan, "12");
 
         switch (input) {
             case "1":
-                newGame();
+                newGame(petCollection);
                 break;
             case "2":
                 loadGame();
@@ -40,11 +38,10 @@ public class Menu {
         }
     }
     
-    private static void newGame() throws FileNotFoundException
+    private static void newGame(HashMap petCollection) throws FileNotFoundException
     {
         String input;
-        //create new pet collection for new player
-        HashMap petCollection = new HashMap<String, Pet>();        
+        Scanner scan = new Scanner(System.in);      
         //create starter pets
         Pet[] starterPet = new Pet[3];
         for (int i = 0; i < starterPet.length; i++)
@@ -66,30 +63,36 @@ public class Menu {
 
         System.out.println("You have selected " + petCollection.keySet() + "!");
         System.out.println("You now own " + petCollection.size() + " pet" + (petCollection.size() > 1 ? "s." : "."));
+        
+        Data.saveGame(petCollection);
     }
-    
+
     private static void loadGame() throws FileNotFoundException {
         File file = new File("./resources/save.txt");
-        Scanner scan = new Scanner(file);
-        HashMap petCollection = new HashMap<String, Pet>();
-        String[] pets;
+        try {
+            Scanner scan = new Scanner(file);
+            HashMap petCollection = new HashMap<String, Pet>();
+            String[] pets;
 
-        while (scan.hasNextLine()) {
-            String line = scan.nextLine();
-            if (line.equals("@PETS")) {
-                line = scan.nextLine();
-                while (!line.contains("@")) {
-                    pets = line.split(",");
-                    Pet currentPet = new Pet(pets[0], Integer.parseInt(pets[1]), Integer.parseInt(pets[2]), Integer.parseInt(pets[3]));
-                    petCollection.put(pets[0], currentPet);
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                if (line.equals("@PETS")) {
                     line = scan.nextLine();
-                }
-                if (line.equals("@TEST")) {
-                    System.out.println("reached test");
-                    System.out.println(petCollection.keySet());
+                    while (!line.contains("@")) {
+                        pets = line.split(",");
+                        Pet currentPet = new Pet(pets[0], Integer.parseInt(pets[1]), Integer.parseInt(pets[2]), Integer.parseInt(pets[3]));
+                        petCollection.put(pets[0], currentPet);
+                        line = scan.nextLine();
+                    }
+                    if (line.equals("@TEST")) {
+                        System.out.println("reached test");
+                        System.out.println(petCollection.keySet());
+                    }
                 }
             }
+            scan.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("No save games found in " + file + "!");
         }
-        scan.close();
     }
 }
