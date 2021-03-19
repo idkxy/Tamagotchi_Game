@@ -20,16 +20,15 @@ public class Menu {
     }
     
     public static void mainMenu() throws FileNotFoundException {
-        boolean valid = false;
-        InputValidation val = new InputValidation();
+        //InputValidation val = new InputValidation();
 
         System.out.println("-----   MAIN MENU   -----");
         System.out.println("1. New Game\n2. Load Game");
         scan = new Scanner(System.in);
 
         //Input validation class being run
-        System.out.print("User Input: ");
-        input = val.regexValidate(scan, "12345");
+
+        input = InputValidation.regexValidate(scan, "12345");
 
         switch (input) {
             case "1":
