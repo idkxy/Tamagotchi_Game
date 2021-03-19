@@ -17,6 +17,6 @@
 * [ ] Ability to make purchases in the in game store
 
 ### GAMES LONGEVITY
-* [ ] User input verification
+* [x] User input verification
 * [ ] Debug mode for testing
 * [ ] 
