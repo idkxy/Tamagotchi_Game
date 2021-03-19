@@ -50,10 +50,10 @@ public class Menu {
         System.out.println("Pet Name | Hunger | Thirst | Energy |");
         int count = 1;
         for (Pet x : starterPet) {
-            System.out.println(count + ". " + x.getName() + " " + x.getHunger() + " " + x.getThirst() + " " + x.getEnergy());
+            System.out.println(count + ". " + x.getName() + " " + x.stats.getHunger() + " " + x.stats.getThirst() + " " + x.stats.getEnergy());
             count++;
         }
-        input = scan.nextLine();
+        input = InputValidation.regexValidate(scan, "123");
         //add choice to pet collection
         Pet.setCurrentPet(starterPet[Integer.parseInt(input) - 1]);
         petCollection.add(Pet.currentPet);
@@ -61,7 +61,7 @@ public class Menu {
         System.out.println("You have selected " + Pet.currentPet.getName() + "!");
         System.out.println("You now own " + petCollection.size() + " pet" + (petCollection.size() > 1 ? "s." : "."));
 
-        //Data.saveGame(petCollection);
+        Data.saveGame(petCollection);
     }
 
     private static void loadGame() throws FileNotFoundException {

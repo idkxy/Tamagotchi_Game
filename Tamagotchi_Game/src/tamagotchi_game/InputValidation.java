@@ -10,6 +10,7 @@ public class InputValidation {
      * @param scan The scanner which is taking input.
      * @param values The only valid inputs the scanner should take.
      * @return the input value
+     * TODO: make case insensitive
      */
     public static String regexValidate(Scanner scan, String values) {
         System.out.print("User: ");
