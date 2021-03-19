@@ -2,6 +2,7 @@
 
 package tamagotchi_game;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -20,7 +21,6 @@ public class Menu {
     }
     
     public static void mainMenu() throws FileNotFoundException {
-        //InputValidation val = new InputValidation();
 
         System.out.println("-----   MAIN MENU   -----");
         System.out.println("1. New Game\n2. Load Game");
@@ -28,7 +28,7 @@ public class Menu {
 
         //Input validation class being run
 
-        input = InputValidation.regexValidate(scan, "12345");
+        input = InputValidation.regexValidate(scan, "12");
 
         switch (input) {
             case "1":
@@ -70,9 +70,28 @@ public class Menu {
         System.out.println("You now own " + petCollection.size() + " pet" + (petCollection.size() > 1 ? "s." : "."));
     }
     
-    private static void loadGame()
-    {
-        
+    private static void loadGame() throws FileNotFoundException {
+        File file = new File("./resources/save.txt");
+        Scanner scan = new Scanner(file);
+        HashMap petCollection = new HashMap<String, Pet>();
+        String[] pets;
+
+        while (scan.hasNextLine()) {
+            String line = scan.nextLine();
+            if (line.equals("@PETS")) {
+                line = scan.nextLine();
+                while (!line.contains("@")) {
+                    pets = line.split(",");
+                    Pet currentPet = new Pet(pets[0], Integer.parseInt(pets[1]), Integer.parseInt(pets[2]), Integer.parseInt(pets[3]));
+                    petCollection.put(pets[0], currentPet);
+                    line = scan.nextLine();
+                }
+                if (line.equals("@TEST")) {
+                    System.out.println("reached test");
+                    System.out.println(petCollection.keySet());
+                }
+            }
+        }
+        scan.close();
     }
-    
 }

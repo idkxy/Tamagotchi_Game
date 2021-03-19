@@ -1,3 +1,4 @@
 @PETS
 pet1,5,4,5
 pet2,2,1,2
+@TEST
