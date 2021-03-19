@@ -1,6 +1,7 @@
 package tamagotchi_game;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {
@@ -11,7 +12,6 @@ public class Main {
         Menu.intro();
         //Thread.sleep(2000);
         Menu.mainMenu(petCollection);
-
     }
 
 }
