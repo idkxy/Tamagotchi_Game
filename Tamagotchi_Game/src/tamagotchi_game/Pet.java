@@ -9,7 +9,6 @@ public class Pet{
 
     private String name;
     Stats stats;
-    public static final int MAX_HUNGER = 10, MAX_THIRST = 10, MAX_HAPPINESS = 10, MAX_ENERGY = 10;
 
     public Pet(String name, int hunger, int thirst, int happiness, int energy ){
         this.name = name;

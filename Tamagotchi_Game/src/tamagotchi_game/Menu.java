@@ -42,7 +42,7 @@ public class Menu {
         //create starter pets
         Pet[] starterPet = new Pet[3];
         for (int i = 0; i < starterPet.length; i++) {
-            starterPet[i] = new Pet("pet" + i, Misc.RNG(1, Pet.MAX_HUNGER - 5), Misc.RNG(1, Pet.MAX_THIRST - 5), Misc.RNG(1, Pet.MAX_ENERGY - 5), 5);
+            starterPet[i] = new Pet("pet" + i, Misc.RNG(1, Stats.MAX_HUNGER - 5), Misc.RNG(1, Stats.MAX_THIRST - 5), Misc.RNG(1, Stats.MAX_ENERGY - 5), 5);
         }
         System.out.println("Creating a new game...\n");
         System.out.println("Select starting pet:");

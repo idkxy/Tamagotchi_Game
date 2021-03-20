@@ -3,6 +3,7 @@ package tamagotchi_game;
 class Stats {
 
     private int hunger, thirst, happiness, energy;
+    public static final int MAX_HUNGER = 10, MAX_THIRST = 10, MAX_HAPPINESS = 10, MAX_ENERGY = 10;
     
     public Stats(int hunger, int thirst, int happiness, int energy)
     {
