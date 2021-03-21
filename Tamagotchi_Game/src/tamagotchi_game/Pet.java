@@ -36,11 +36,12 @@ public class Pet{
     public void setName(String name) {
         this.name = name;
     }
-
+    
     //this gotta be fixed perhaps, could probably just use tthe getters for info if we need it
-//    @Override
-//    public String toString() {
-//        return ("" + this.getHunger() + this.getThirst() + this.getEnergy());
-//    }
+    @Override
+    public String toString() {
+        return ("Name: " + currentPet.getName() + "\nEnergy: " + currentPet.stats.getEnergy() + "\nHunger: " +
+                currentPet.stats.getHunger() + "\nThirst: " + currentPet.stats.getThirst());
+    }
 
 }

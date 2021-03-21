@@ -26,7 +26,7 @@ public class SubMenuOptions extends Game{
 
                         for (int num = 0; num < Main.petCollection.size(); num++){
                             System.out.println("--PET " + num + "--");
-                            System.out.println(Main.petCollection.get(num));
+                            System.out.println(Main.petCollection.get(num).toString());
                         }
 
                         System.out.println("Please select desired pet");

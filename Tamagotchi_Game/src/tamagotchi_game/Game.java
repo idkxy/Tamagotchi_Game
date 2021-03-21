@@ -4,13 +4,16 @@ import java.util.Scanner;
 
 public class Game extends Main{
     
-    static Player play = new Player(25, 10, 10);
+    static Player play = new Player(9999, 10, 10);
     
     public void mainGame(){
         Scanner scan = new Scanner(System.in);
         String user = "";
         
         for (;;){
+            //Might change location of this function later.
+            Misc.clearConsole();
+            
             MenuLook.look(Pet.currentPet.stats.getEnergy(), Pet.currentPet.stats.getHunger(), Pet.currentPet.stats.getThirst(), Pet.currentPet.stats.getHappiness());
             
             user = InputValidation.regexValidate(scan, "ifcs");
@@ -32,7 +35,7 @@ public class Game extends Main{
                   break;
                 case "s":
                   MenuLook.selectionS(play.getCurrency(), play.getFoodAmount(), play.getWaterAmount());
-                  user = InputValidation.regexValidate(scan, "1234");
+                  user = InputValidation.regexValidate(scan, "12345");
                   SubMenuOptions.inputS(Integer.parseInt(user));
                   break;
                 default:
