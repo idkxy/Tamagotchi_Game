@@ -34,3 +34,4 @@ NOTE FROM LIAM R: I have finished many of the ticked functions without updating 
 It will be properly uploaded after some more testing.
 
 Note from Daisy: We need to decide on the depreciation rate for the stats levels over time and shall i add a variable called coins under pet?
+Also, could I please ask Liam to explain how the points earned works as idk why it says  if pointsearned == 100 pointsearned == 130. Thanks!
