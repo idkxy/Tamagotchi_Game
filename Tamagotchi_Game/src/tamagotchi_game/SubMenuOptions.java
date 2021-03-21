@@ -24,10 +24,8 @@ public class SubMenuOptions extends Game{
                     if (Main.petCollection.size() > 1){
                         System.out.println("Player pets:");
 
-                        for (int num = 0; num < Main.petCollection.size(); num++){
-                            System.out.println("--PET " + num + "--");
-                            System.out.println(Main.petCollection.get(num).toString());
-                        }
+                        
+                        Main.petCollection.forEach((v) -> {System.out.println(v);});
 
                         System.out.println("Please select desired pet");
                         input = InputValidation.regexValidate(scan, "0123456789");
@@ -213,7 +211,8 @@ public class SubMenuOptions extends Game{
                         input = scan.nextLine();
                       //TODO: Add ability to purchace pet with random stats.
                         Pet temp = new Pet(input, Misc.RNG(1, Stats.MAX_HUNGER), Misc.RNG(1, Stats.MAX_THIRST), Misc.RNG(1, Stats.MAX_ENERGY), 5);
-                        petCollection.add(temp);
+                        Main.petCollection.add(temp);
+                        Main.petCollection.forEach((v) -> {System.out.println(v);});
                     }
                     else{
                         System.out.println("Player did not have sufficient currency, could not purchase.");
