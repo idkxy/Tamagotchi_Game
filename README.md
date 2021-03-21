@@ -23,8 +23,11 @@
 
 
 TODO: Add ability to breed pets
+
 TODO: Add ability to purchace pets from the games store (important)
+
 TODO: Add maturity of pets. Required for several of the games functions
+
 TODO: Add competition. Still thinking of a wat to impliment this feature for now. Feel free to provide any suggestions.
 
 NOTE FROM LIAM R: I have finished many of the ticked functions without updating github. This is because If i break the game I do not wish for it to effect anyone elses code.
