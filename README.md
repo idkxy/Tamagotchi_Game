@@ -33,4 +33,4 @@ TODO: Add competition. Still thinking of a wat to impliment this feature for now
 NOTE FROM LIAM R: I have finished many of the ticked functions without updating github. This is because If i break the game I do not wish for it to effect anyone elses code.
 It will be properly uploaded after some more testing.
 
-Note from Daisy: We need to decide on the depreciation rate for the stats levels over time 
+Note from Daisy: We need to decide on the depreciation rate for the stats levels over time and shall i add a variable called coins under pet?
