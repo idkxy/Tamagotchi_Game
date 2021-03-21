@@ -3,7 +3,6 @@ package tamagotchi_game;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Menu {
@@ -53,7 +52,7 @@ public class Menu {
             System.out.println(count + ". " + x.getName() + " " + x.stats.getHunger() + " " + x.stats.getThirst() + " " + x.stats.getEnergy());
             count++;
         }
-        input = InputValidation.regexValidate(scan, "123");
+        input = InputValidation.regexValidate(scan, "12");
         //add choice to pet collection
         Pet.setCurrentPet(starterPet[Integer.parseInt(input) - 1]);
         petCollection.add(Pet.currentPet);

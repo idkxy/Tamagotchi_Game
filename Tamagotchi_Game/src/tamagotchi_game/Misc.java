@@ -8,4 +8,9 @@ public class Misc {
         return (int)(Math.random() * ((max - min) + 1)) + min;
     }
     
+    public static void clearConsole()
+    {
+        System.out.println(new String(new char[100]).replace("\0", "\r\n"));
+    }
+    
 }
