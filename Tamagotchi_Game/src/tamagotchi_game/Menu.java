@@ -28,7 +28,7 @@ public class Menu {
                 newGame(petCollection);
                 break;
             case "2":
-                loadGame();
+                loadGame(petCollection);
                 break;
             default:
                 System.out.println("error");
@@ -61,14 +61,13 @@ public class Menu {
         System.out.println("You have selected " + Pet.currentPet.getName() + "!");
         System.out.println("You now own " + petCollection.size() + " pet" + (petCollection.size() > 1 ? "s." : "."));
 
-        Data.saveGame(petCollection);
+        //Data.saveGame(petCollection);
     }
 
-    private static void loadGame() throws FileNotFoundException {
-        File file = new File("./resources/save.txt");
+    private static void loadGame(ArrayList<Pet> petCollection) throws FileNotFoundException {
+        File file = new File("save.txt");
         try {
             Scanner scan = new Scanner(file);
-            HashMap petCollection = new HashMap<String, Pet>();
             String[] pets;
 
             while (scan.hasNextLine()) {
@@ -77,13 +76,12 @@ public class Menu {
                     line = scan.nextLine();
                     while (!line.contains("@")) {
                         pets = line.split(",");
-                        Pet currentPet = new Pet(pets[0], Integer.parseInt(pets[1]), Integer.parseInt(pets[2]), Integer.parseInt(pets[3]), Integer.parseInt(pets[4]));
-                        petCollection.put(pets[0], currentPet);
+                        Pet pet = new Pet(pets[0], Integer.parseInt(pets[1]), Integer.parseInt(pets[2]), Integer.parseInt(pets[3]), Integer.parseInt(pets[4]));
+                        petCollection.add(pet);
                         line = scan.nextLine();
                     }
                     if (line.equals("@TEST")) {
                         System.out.println("reached test");
-                        System.out.println(petCollection.keySet());
                     }
                 }
             }
