@@ -9,7 +9,7 @@ public class Data {
         
     public static void saveGame(ArrayList<Pet> petCollection) throws FileNotFoundException
     {
-        String fileName = "./resources/save.txt";
+        String fileName = "save.txt";
         PrintWriter pw = new PrintWriter(new FileOutputStream(fileName));
         pw.println("@PETS");
         petCollection.forEach((v) -> pw.println(v.getName() + "," + v.stats.getHunger() + "," + v.stats.getThirst() + "," + v.stats.getEnergy() + "," + v.stats.getHappiness()));
