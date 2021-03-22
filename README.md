@@ -1,7 +1,7 @@
 ### GAMES ADDITIONS
-* [x] Select save screen.
-* [x] Ability to load save
-* [x] Ability to create new save (with new pet)
+* [x] Select save screen. - Liam Y
+* [x] Ability to load save - Liam Y
+* [x] Ability to create new save (with new pet) - Liam Y
 * [ ] Ability to close game and save progress
 * [ ] Ability to enter pet into competition (and win reward)
 * [x] Ability to save players current currency and items
@@ -17,7 +17,7 @@
 * [X] Ability to make purchases in the in game store
 
 ### GAMES LONGEVITY
-* [x] User input verification
+* [x] User input verification - Liam Y
 * [ ] Debug mode for testing
 * [ ] 
 
@@ -29,9 +29,6 @@ TODO: Add ability to purchace pets from the games store (important)
 TODO: Add maturity of pets. Required for several of the games functions
 
 TODO: Add competition. Still thinking of a wat to impliment this feature for now. Feel free to provide any suggestions.
-
-NOTE FROM LIAM R: I have finished many of the ticked functions without updating github. This is because If i break the game I do not wish for it to effect anyone elses code.
-It will be properly uploaded after some more testing.
 
 Note from Daisy: We need to decide on the depreciation rate for the stats levels over time and shall i add a variable called coins under pet?
 Also, could I please ask Liam to explain how the points earned works as idk why it says  if pointsearned == 100 pointsearned == 130. Thanks!
