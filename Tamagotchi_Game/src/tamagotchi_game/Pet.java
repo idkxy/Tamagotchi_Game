@@ -3,13 +3,21 @@
  */
 package tamagotchi_game;
 
+import java.time.Instant;
+import java.util.Date;
+
 public class Pet{
 
     public static Pet currentPet = new Pet("", 0, 0, 0, 0);
-
+    private Species s;
+    private int value;
     private String name;
     Stats stats;
-
+    private Date created;
+    private boolean maturity;
+    
+    
+   
     public Pet(String name, int hunger, int thirst, int happiness, int energy ){
         this.name = name;
         stats = new Stats(hunger, thirst, happiness, energy);
@@ -36,7 +44,61 @@ public class Pet{
     public void setName(String name) {
         this.name = name;
     }
+
+    /**
+     * @return the s
+     */
+    public Species getS() {
+        return s;
+    }
+
+    /**
+     * @param s the s to set
+     */
+    public void setS(Species s) {
+        this.s = s;
+    }
+    /**
+     * @param value the value to set
+     */
+    public void setValue(int value) {
+        this.value = value;
+    }
+    /**
+     * @return the value
+     */
+    public int getValue() {
+        return value;
+    }
     
+    /**
+     * @return the maturity
+     */
+    public boolean isMaturity() {
+        return maturity;
+    }
+
+    /**
+     * @param maturity the maturity to set
+     */
+    public void setMaturity(boolean maturity) {
+        this.maturity = maturity;
+    }
+
+    /**
+     * @return the created
+     */
+    public Date getCreated() {
+        return created;
+    }
+
+    /**
+     * @param created the created to set
+     */
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
     //this gotta be fixed perhaps, could probably just use tthe getters for info if we need it
     @Override
     public String toString() {
