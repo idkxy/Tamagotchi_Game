@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tamagotchi_game;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Liam
- */
 public class Breed extends Game{
     public static void breedOptions(int petCount){
         Scanner scan = new Scanner(System.in);

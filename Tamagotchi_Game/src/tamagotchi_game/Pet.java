@@ -1,9 +1,5 @@
-/*TODO:
-    - kinda forgot tbh
- */
 package tamagotchi_game;
 
-import java.time.Instant;
 import java.util.Date;
 
 public class Pet{
