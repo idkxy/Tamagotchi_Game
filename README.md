@@ -1,34 +1,40 @@
-### GAMES ADDITIONS
-* [x] Select save screen. - Liam Y
-* [x] Ability to load save - Liam Y
-* [x] Ability to create new save (with new pet) - Liam Y
-* [ ] Ability to close game and save progress
-* [ ] Ability to enter pet into competition (and win reward)
-* [x] Ability to save players current currency and items
-* [x] Ability to open games store
-* [x] Ability to make purchases in games store
-* [x] Ability to view pets current stats
-* [x] Ability for pets stats to change and be re displayed after a competition
-* [x] Ability to consume energy after competition (as well as other stats if desired in future)
-* [x] Ability to interact with pet (clean, breed, feed, rest (or others in future)) ------> STILL WORKING ON BREED <-------
-* [x] Ability to view pets maturity levels(partially done as I dont know how many stages we want for maturity) - Daisy
-* [X] Ability to sell the pet for games currency
-* [x] Ability to breed pet (so long as player has two pets) - Daisy
-* [X] Ability to make purchases in the in game store
-
-### GAMES LONGEVITY
-* [x] User input verification - Liam Y
-* [ ] Debug mode for testing
-* [ ] 
+## Misc:
+- [ ] Reward system for competition
+- [ ] ASCII for pets - do 3 different methods to make sure pet is in bounds(?)
+- [ ] Support for multiple players
+- [ ] Stats degradation rate
+- [ ] Energy gain over time (1/hr)
 
 
-TODO: Add ability to breed pets(done)
+## Shop:
+- [ ] Interact for sell pet
+- [ ] Update currency after spending
+- [ ] Generate a list of pets to purchase in shop > confirmation screen > ask for pet name > add pet to list
+- [ ] Fix pet shop printout(?) - include ASCII art
 
-TODO: Add ability to purchace pets from the games store (important)
+## Menu:
+- [ ] Option menu for choosing pet once current pet is sold
+- [ ] Finish C
+- [ ] Input I - Case 2 broken
+- [ ] Missing pet name on UI
+- [ ] Fix screen clearing
+- [ ] Fix purchase pet option
+- [ ] Fix same pet showing after purchase (happened once so must be a bug somewhere, need to test)
+- [ ] Fix new game menu > add species > dont clear screen during start > add gender > set maturity level (baby/adult)
+- [ ] Increase happiness only once per hour through petting - compare current time to last pet time
+- [ ] Countdown timer showing how long until next +1 energy (maybe)
 
-TODO: Add maturity of pets. Required for several of the games functions
+## Pet:
+- [ ] Pet maturity rate overtime
+- [ ] Pet constructor needs species
 
-TODO: Add competition. Still thinking of a wat to impliment this feature for now. Feel free to provide any suggestions.
+## Pet Exploration:
+- [ ] During game loading, show the player how long the pets have been out for & check if player wants to terminate exploration
+- [ ] Set time limit for exploration > pet will be back after x amount of time
+- [ ] When back, text will be shown displaying the amount of currency or items retrieved
+- [ ] Stats level will decrease during time
 
-Note from Daisy: We need to decide on the depreciation rate for the stats levels over time and shall i add a variable called coins under pet?
-Also, could I please ask Liam to explain how the points earned works as idk why it says  if pointsearned == 100 pointsearned == 130. Thanks!
+## Competition:
+- [ ] Validation for pet stats before entering competition
+- [ ] Decrease energy after competition (unsure of rate) & currency(?)
+- [ ] Multiple competiions
