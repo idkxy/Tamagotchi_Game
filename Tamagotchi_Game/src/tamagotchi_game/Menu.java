@@ -37,6 +37,7 @@ public class Menu {
 
     private static void newGame(ArrayList<Pet> petCollection) throws FileNotFoundException {
         String input;
+        Player player = new Player(100, 0, 0);
         Scanner scan = new Scanner(System.in);
         //create starter pets
         Pet[] starterPet = new Pet[3];
@@ -60,7 +61,7 @@ public class Menu {
         System.out.println("You have selected " + Pet.currentPet.getName() + "!");
         System.out.println("You now own " + petCollection.size() + " pet" + (petCollection.size() > 1 ? "s." : "."));
 
-        //Data.saveGame(petCollection);
+        Data.saveGame(petCollection, player);
     }
 
     private static void loadGame(ArrayList<Pet> petCollection) throws FileNotFoundException {
@@ -69,8 +70,14 @@ public class Menu {
             Scanner scan = new Scanner(file);
             String[] pets;
 
+            
+            //TODO: perhaps turn into a case for each section of data needed to load
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
+                if (line.equals("@P_STATS"))
+                {
+                    
+                }
                 if (line.equals("@PETS")) {
                     line = scan.nextLine();
                     while (!line.contains("@")) {

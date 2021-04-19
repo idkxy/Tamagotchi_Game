@@ -21,18 +21,18 @@ public class Player {
     }
     
     public int getFoodAmount() {
-        return currency;
+        return foodAmount;
     }
 
     public void setFoodAmount(int currency) {
-        this.currency = currency;
+        this.foodAmount = foodAmount;
     }
     
     public int getWaterAmount() {
-        return currency;
+        return waterAmount;
     }
 
     public void setWaterAmount(int currency) {
-        this.currency = currency;
+        this.waterAmount = waterAmount;
     }
 }
