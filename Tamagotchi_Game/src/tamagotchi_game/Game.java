@@ -1,12 +1,13 @@
 package tamagotchi_game;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Game extends Main{
     
     static Player play = new Player(9999, 10, 10);
     
-    public void mainGame(){
+    public void mainGame() throws FileNotFoundException{
         Scanner scan = new Scanner(System.in);
         String user = "";
         
@@ -16,7 +17,7 @@ public class Game extends Main{
             
             MenuLook.look(Pet.currentPet.stats.getEnergy(), Pet.currentPet.stats.getHunger(), Pet.currentPet.stats.getThirst(), Pet.currentPet.stats.getHappiness());
             
-            user = InputValidation.regexValidate(scan, "ifcs");
+            user = InputValidation.regexValidate(scan, "ifcsq");
             
             switch(user.toLowerCase()) {
                 case "i":
@@ -38,6 +39,11 @@ public class Game extends Main{
                   user = InputValidation.regexValidate(scan, "12345");
                   SubMenuOptions.inputS(Integer.parseInt(user));
                   break;
+                case "q":
+                    Data.saveGame(Main.petCollection, Main.player);
+                    System.out.println("Game ends. Bye!");
+                    System.exit(0);
+                    break;
                 default:
                     System.out.println("Something went wrong...");
               }

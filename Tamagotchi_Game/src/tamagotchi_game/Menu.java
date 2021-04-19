@@ -14,7 +14,7 @@ public class Menu {
         System.out.println("-------------------------\n\n");
     }
 
-    public static void mainMenu(ArrayList<Pet> petCollection) throws FileNotFoundException {
+    public static void mainMenu(ArrayList<Pet> petCollection) throws FileNotFoundException, InterruptedException {
 
         System.out.println("-----   MAIN MENU   -----");
         System.out.println("1. New Game\n2. Load Game");
@@ -35,9 +35,8 @@ public class Menu {
         }
     }
 
-    private static void newGame(ArrayList<Pet> petCollection) throws FileNotFoundException {
+    private static void newGame(ArrayList<Pet> petCollection) throws FileNotFoundException, InterruptedException {
         String input;
-        Player player = new Player(100, 0, 0);
         Scanner scan = new Scanner(System.in);
         //create starter pets
         Pet[] starterPet = new Pet[3];
@@ -61,7 +60,10 @@ public class Menu {
         System.out.println("You have selected " + Pet.currentPet.getName() + "!");
         System.out.println("You now own " + petCollection.size() + " pet" + (petCollection.size() > 1 ? "s." : "."));
 
-        Data.saveGame(petCollection, player);
+         System.out.print(Pet.currentPet.getCreated());
+         Thread.sleep(2000);
+         System.out.println(Time.computeDifference(Pet.currentPet.getCreated()));
+         
     }
 
     private static void loadGame(ArrayList<Pet> petCollection) throws FileNotFoundException {

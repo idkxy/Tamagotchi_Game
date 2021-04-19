@@ -1,6 +1,8 @@
 package tamagotchi_game;
 
-import java.util.Date;
+import java.*;
+import java.time.LocalDateTime;
+import sun.util.calendar.BaseCalendar.Date;
 
 public class Pet{
 
@@ -9,14 +11,17 @@ public class Pet{
     private int value;
     private String name;
     Stats stats;
-    private Date created;
+    private LocalDateTime created;
     private MaturityLevel maturity = MaturityLevel.BABY;
     
     
+    
    
-    public Pet(String name, int hunger, int thirst, int happiness, int energy ){
+    public Pet(String name, int hunger, int thirst, int happiness, int energy){
         this.name = name;
         stats = new Stats(hunger, thirst, happiness, energy);
+        created = LocalDateTime.now();
+        
     }
 
     public static void setCurrentPet(Pet temp) {
@@ -84,16 +89,19 @@ public class Pet{
     /**
      * @return the created
      */
-    public Date getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
     /**
      * @param created the created to set
      */
-    public void setCreated(Date created) {
+    public void setCreated(LocalDateTime created) {
+        created = LocalDateTime.now();
         this.created = created;
     }
+    
+
 
     //this gotta be fixed perhaps, could probably just use tthe getters for info if we need it
     @Override
