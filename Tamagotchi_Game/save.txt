@@ -1,5 +1,4 @@
 @P_STATS
 100,0,0
 @PETS
-pet0,3,3,5,2
-@TEST
+pet2,3,5,5,2
