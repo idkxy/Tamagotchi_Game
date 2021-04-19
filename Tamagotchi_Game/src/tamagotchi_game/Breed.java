@@ -2,7 +2,7 @@ package tamagotchi_game;
 
 import java.util.*;
 
-public class Breed1 {
+public class Breed {
 
     private Pet mine;
     private Pet breed;
@@ -15,7 +15,7 @@ public class Breed1 {
     boolean run = true;
     private int petChosen;
 
-    public Breed1() {
+    public Breed() {
 
     }
 
