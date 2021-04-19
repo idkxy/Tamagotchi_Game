@@ -53,7 +53,7 @@ public class Menu {
             System.out.println(count + ". " + x.getName() + " " + x.stats.getHunger() + " " + x.stats.getThirst() + " " + x.stats.getEnergy());
             count++;
         }
-        input = InputValidation.regexValidate(scan, "12");
+        input = InputValidation.regexValidate(scan, "123");
         //add choice to pet collection
         Pet.setCurrentPet(starterPet[Integer.parseInt(input) - 1]);
         petCollection.add(Pet.currentPet);
