@@ -10,7 +10,7 @@ public class Pet{
     private String name;
     Stats stats;
     private Date created;
-    private boolean maturity;
+    private MaturityLevel maturity = MaturityLevel.BABY;
     
     
    
@@ -70,14 +70,14 @@ public class Pet{
     /**
      * @return the maturity
      */
-    public boolean isMaturity() {
+    public MaturityLevel isMaturity() {
         return maturity;
     }
 
     /**
      * @param maturity the maturity to set
      */
-    public void setMaturity(boolean maturity) {
+    public void setMaturity(MaturityLevel maturity) {
         this.maturity = maturity;
     }
 

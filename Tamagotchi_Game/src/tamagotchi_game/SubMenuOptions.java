@@ -135,6 +135,7 @@ public class SubMenuOptions extends Game{
                   break;
                 default:
                     System.out.println("Something went wrong...");
+                    break;
               }
     }
     

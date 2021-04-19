@@ -34,12 +34,10 @@ public class Maturity {
     {
         if(this.dInDay >= 3)
         {
-            pet.setMaturity(true);
+            pet.setMaturity(MaturityLevel.ADULT);
+                   
         }
-        else
-        {
-            pet.setMaturity(false);
-        }
+     
     }
   
     public String toString()

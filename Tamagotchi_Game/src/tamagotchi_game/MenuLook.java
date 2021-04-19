@@ -11,7 +11,7 @@ public class MenuLook {
         
         System.out.println("____________________________________________________________________________");
         System.out.println("|    __________________________________________________________________    |");
-        System.out.println("|   |      INTERACT (I)  |  FEED (F)  |  COMPETE (C)  |  SHOP (S)      |   |");
+        System.out.println("|   |  INTERACT (I) |  FEED (F) |  COMPETE (C) |  SHOP (S) |  QUIT (Q) |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|   |                                                                  |   |");
         System.out.println("|   |                                                                  |   |");
