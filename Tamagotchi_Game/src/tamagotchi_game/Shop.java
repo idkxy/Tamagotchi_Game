@@ -20,7 +20,7 @@ public class Shop {
             pets.get(i).setSpecies(Species.randomSpecies());
             pets.get(i).setGender(Gender.randomGender());
             pets.get(i).setMaturity(Maturity.randomMaturity());
-            pets.get(i).
+            pets.get(i).computeValue(pets.get(i));
         }
     }
     

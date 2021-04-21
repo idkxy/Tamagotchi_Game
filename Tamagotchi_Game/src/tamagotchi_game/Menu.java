@@ -27,7 +27,7 @@ public class Menu {
                 newGame(petCollection);
                 break;
             case "2":
-                loadGame(petCollection);
+                loadGame();
                 break;
             default:
                 System.out.println("error");
@@ -64,30 +64,30 @@ public class Menu {
          
     }
 
-    private static void loadGame(ArrayList<Pet> petCollection) throws FileNotFoundException {
+    private static void loadGame() throws FileNotFoundException {
         File file = new File("save.txt");
         try {
             Scanner scan = new Scanner(file);
             String[] pets;
+            String[] stats;
 
-            
             //TODO: perhaps turn into a case for each section of data needed to load
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
-                if (line.equals("@P_STATS"))
-                {
-                    
+                if (line.equals("@P_STATS")) {
+                    line = scan.nextLine();
+                    stats = line.split(",");
+                    Player.player.setCurrency(Integer.parseInt(stats[0]));
+                    Player.player.setFoodAmount(Integer.parseInt(stats[1]));
+                    Player.player.setWaterAmount(Integer.parseInt(stats[2]));
+
                 }
                 if (line.equals("@PETS")) {
                     line = scan.nextLine();
-                    while (!line.contains("@")) {
+                    while (scan.hasNextLine()) {
                         pets = line.split(",");
                         Pet pet = new Pet(pets[0], Integer.parseInt(pets[1]), Integer.parseInt(pets[2]), Integer.parseInt(pets[3]), Integer.parseInt(pets[4]));
-                        petCollection.add(pet);
-                        line = scan.nextLine();
-                    }
-                    if (line.equals("@TEST")) {
-                        System.out.println("reached test");
+                        Main.petCollection.add(pet);
                     }
                 }
             }

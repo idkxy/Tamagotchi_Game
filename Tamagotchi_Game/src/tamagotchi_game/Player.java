@@ -2,16 +2,16 @@ package tamagotchi_game;
 
 public class Player{
 
-    public static Player player = new Player(200,0,0);
+    public static Player player = new Player();
     private static int currency = 0;
 
     private int foodAmount = 0;
     private int waterAmount = 0;
     
-    public Player(int currency, int foodAmount, int waterAmount) {
-        this.currency = currency;
-        this.foodAmount = foodAmount;
-        this.waterAmount = waterAmount;
+    public Player() {
+        this.currency = 200;
+        this.foodAmount = 5;
+        this.waterAmount = 5;
     }
 
     public int getCurrency() {
