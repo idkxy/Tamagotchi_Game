@@ -3,7 +3,7 @@ package tamagotchi_game;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Game extends Main{
+public class Game{
     
     static Player play = new Player(9999, 10, 10);
     
@@ -21,14 +21,14 @@ public class Game extends Main{
             
             switch(user.toLowerCase()) {
                 case "i":
-                  MenuLook.selectionI();
+                  MenuLook.InteractMenu();
                   user = InputValidation.regexValidate(scan, "1234");
-                  SubMenuOptions.inputI(Integer.parseInt(user));
+                  Interact.Interact(Integer.parseInt(user));
                   break;
                 case "f":
                   MenuLook.selectionF();
                   user = InputValidation.regexValidate(scan, "123456");
-                  SubMenuOptions.inputF(Integer.parseInt(user));
+                  FeedOption.Feed(Integer.parseInt(user));
                   break;
                 case "c":
                   MenuLook.selectionC();
@@ -37,7 +37,7 @@ public class Game extends Main{
                 case "s":
                   MenuLook.selectionS(play.getCurrency(), play.getFoodAmount(), play.getWaterAmount());
                   user = InputValidation.regexValidate(scan, "12345");
-                  SubMenuOptions.inputS(Integer.parseInt(user));
+                  SubMenuOptions.Shop(Integer.parseInt(user));
                   break;
                 case "q":
                     Data.saveGame(Main.petCollection, Player.player);

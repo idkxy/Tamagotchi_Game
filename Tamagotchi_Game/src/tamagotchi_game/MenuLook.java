@@ -23,7 +23,7 @@ public class MenuLook {
         System.out.println("|__________________________________________________________________________|");
     }
     
-    public static void selectionI(){
+    public static void InteractMenu(){
         System.out.println("____________________________________________________________________________");
         System.out.println("|    __________________________________________________________________    |");       
         System.out.println("|   |       PAT (1) | BREED (2) | SELECT PET (3) | SELL PET (4)        |   |");
