@@ -60,15 +60,6 @@ public class Menu {
 
         System.out.println("You have selected " + Pet.currentPet.getName() + "!");
         System.out.println("You now own " + petCollection.size() + " pet" + (petCollection.size() > 1 ? "s." : "."));
-
-<<<<<<< Updated upstream
-         System.out.print(Pet.currentPet.getCreated());
-         Thread.sleep(2000);
-         Time.computeDifference(Pet.currentPet.getCreated());
-=======
-        //System.out.println(Time.computeDifference(Pet.currentPet.getCreated()));
-        System.out.println(Pet.currentPet.getSpecies());
->>>>>>> Stashed changes
          
     }
 

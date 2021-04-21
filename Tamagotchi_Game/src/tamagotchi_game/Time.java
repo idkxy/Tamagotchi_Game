@@ -13,23 +13,6 @@ public class Time {
     private static long dInMin;
     private static long dInHr;
     private static long dInDay;
-<<<<<<< Updated upstream
-    
-    
-    
-    public static void computeDifference(LocalDateTime created)
-    {
-       
-        setCreatedFor(Duration.between(created, getCurrentTime()).toMillis());
-        setdInSec((getCreatedFor() / 1000) % 60);
-        setdInMin((getCreatedFor() / (100 * 60)) % 60);
-        setdInHr((getCreatedFor() / (100 * 60 * 60)) % 24);
-        setdInDay((getCreatedFor() / (100 * 60 * 60 * 24)) % 365);
-        
-    }
-    
-   public String toString()
-=======
 
     public static long computeDifference(LocalDateTime time) {
 
