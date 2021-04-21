@@ -15,10 +15,6 @@ public class Breed {
     boolean run = true;
     private int petChosen;
 
-    public Breed() {
-
-    }
-
     public void create() {
         System.out.println("Do you wish to breed? Y/N");
         choice = input.next();

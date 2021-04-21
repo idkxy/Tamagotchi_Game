@@ -10,14 +10,13 @@ public class InputValidation {
      * @param scan The scanner which is taking input.
      * @param values The only valid inputs the scanner should take.
      * @return the input value
-     * TODO: make case insensitive ("i" regex)
      */
     public static String regexValidate(Scanner scan, String values) {
         System.out.print("User: ");
         String input = scan.nextLine();
 
         //creates regex string
-        String regex = "^";
+        String regex = "(?i)^";
         String[] temp = values.split("");
         for (int i = 0; i < temp.length; i++) {
             regex += "[" + temp[i] + "]";

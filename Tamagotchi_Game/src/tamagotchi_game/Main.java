@@ -10,10 +10,10 @@ public class Main {
     static Game game = new Game();
     
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
-        Menu.intro();
+        MainMenu.intro();
         //Thread.sleep(2000);
         
-        Menu.mainMenu(petCollection);
+        MainMenu.mainMenu(petCollection);
      
         game.mainGame();
         

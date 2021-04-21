@@ -3,8 +3,8 @@ package tamagotchi_game;
 import java.util.Random;
 
 public enum Gender {
-    M,
-    F;
+    MALE,
+    FEMALE;
     
     final static Gender randomGender()
     {

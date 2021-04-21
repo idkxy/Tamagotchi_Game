@@ -9,12 +9,12 @@ public class Interact {
 
     public static void Interact(int userInput) {
         Scanner scan = new Scanner(System.in);
-        String input = "";
+        String input;
         switch (userInput) {
             case 1:
                 //Will increase pet happiness by 1
-                long temp = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
-                if (Pet.currentPet.getLastpatTime() <= temp - 3600000) {
+                long currentTime = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+                if (Pet.currentPet.getLastpatTime() <= currentTime - 3600000) {
                     Pet.currentPet.stats.setHappiness(Pet.currentPet.stats.getHappiness() + 1);
                     Pet.currentPet.setLastpatTime(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
                 } else {

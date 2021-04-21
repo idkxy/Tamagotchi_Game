@@ -31,6 +31,7 @@ public class Pet {
         currentPet.stats.setThirst(temp.stats.getThirst());
         currentPet.setSpecies(temp.species);
         currentPet.setGender(temp.gender);
+        currentPet.setMaturity(temp.maturity);
     }
 
     /**

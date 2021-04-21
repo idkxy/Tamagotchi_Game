@@ -1,7 +1,5 @@
 package tamagotchi_game;
 
-import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -25,6 +23,7 @@ public class Time {
         
     }
 
+    @Override
     public String toString()
     {
         return "The pet has been created for: " + getdInDay() + "days, "+ getdInHr() + "hours, " + getdInMin() +"minutes, "+ getdInSec() + "seconds";

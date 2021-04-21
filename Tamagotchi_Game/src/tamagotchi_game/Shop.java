@@ -19,7 +19,7 @@ public class Shop {
     private final int WATER_COST = 10;
     private final int FOOD_COST = 18;
     
-    
+    //TODO: can go out of bounds
     public void generatePet()
     {
         for (int i = 0; i < 6; i++) {
