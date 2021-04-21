@@ -25,8 +25,7 @@ public class Time {
         
     }
 
-    /* public String toString()
->>>>>>> Stashed changes
+    public String toString()
     {
         return "The pet has been created for: " + getdInDay() + "days, "+ getdInHr() + "hours, " + getdInMin() +"minutes, "+ getdInSec() + "seconds";
     }
