@@ -16,7 +16,7 @@ public class Shop {
     public void generatePet()
     {
         for (int i = 0; i < 6; i++) {
-            pets.add(new Pet(names[i],rand.nextInt(10),rand.nextInt(10),rand.nextInt(10),rand.nextInt(10)));
+            pets.add(new Pet(names[i], rand.nextInt(10),rand.nextInt(10),rand.nextInt(10),rand.nextInt(10)));
         }
     }
     

@@ -2,8 +2,14 @@ package tamagotchi_game;
 
 public class Player {
 
+<<<<<<< Updated upstream
     public static Player player = new Player(200,0,0);
     private static int currency = 0;
+=======
+    public static Player player = new Player(0,0,0);
+    
+    private int currency = 0;
+>>>>>>> Stashed changes
     private int foodAmount = 0;
     private int waterAmount = 0;
     

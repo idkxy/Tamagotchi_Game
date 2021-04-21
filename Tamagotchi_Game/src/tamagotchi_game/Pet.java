@@ -1,27 +1,26 @@
 package tamagotchi_game;
 
-import java.*;
 import java.time.LocalDateTime;
-import sun.util.calendar.BaseCalendar.Date;
 
-public class Pet{
+public class Pet {
 
     public static Pet currentPet = new Pet("", 0, 0, 0, 0);
-    private Species s;
+    private Species species;
     private int value;
     private String name;
     Stats stats;
     private LocalDateTime created;
-    private MaturityLevel maturity = MaturityLevel.BABY;
-    
-    
-    
-   
-    public Pet(String name, int hunger, int thirst, int happiness, int energy){
+    private Maturity maturity = Maturity.BABY;
+    private Gender gender;
+    private long LastpatTime = 0;
+
+    public Pet(String name, int hunger, int thirst, int happiness, int energy) {
         this.name = name;
         stats = new Stats(hunger, thirst, happiness, energy);
         created = LocalDateTime.now();
-        
+        species = Species.randomSpecies();
+        gender = Gender.randomGender();
+        maturity = Maturity.randomMaturity();
     }
 
     public static void setCurrentPet(Pet temp) {
@@ -30,6 +29,8 @@ public class Pet{
         currentPet.stats.setHappiness(temp.stats.getHappiness());
         currentPet.stats.setHunger(temp.stats.getHunger());
         currentPet.stats.setThirst(temp.stats.getThirst());
+        currentPet.setSpecies(temp.species);
+        currentPet.setGender(temp.gender);
     }
 
     /**
@@ -49,40 +50,42 @@ public class Pet{
     /**
      * @return the s
      */
-    public Species getS() {
-        return s;
+    public Species getSpecies() {
+        return species;
     }
 
     /**
-     * @param s the s to set
+     * @param species the s to set
      */
-    public void setS(Species s) {
-        this.s = s;
+    public void setSpecies(Species species) {
+        this.species = species;
     }
+
     /**
      * @param value the value to set
      */
     public void setValue(int value) {
         this.value = value;
     }
+
     /**
      * @return the value
      */
     public int getValue() {
         return value;
     }
-    
+
     /**
      * @return the maturity
      */
-    public MaturityLevel isMaturity() {
-        return maturity;
+    public Maturity isMaturity() {
+        return getMaturity();
     }
 
     /**
      * @param maturity the maturity to set
      */
-    public void setMaturity(MaturityLevel maturity) {
+    public void setMaturity(Maturity maturity) {
         this.maturity = maturity;
     }
 
@@ -100,14 +103,47 @@ public class Pet{
         created = LocalDateTime.now();
         this.created = created;
     }
-    
-
 
     //this gotta be fixed perhaps, could probably just use tthe getters for info if we need it
     @Override
     public String toString() {
-        return ("Name: " + currentPet.getName() + "\nEnergy: " + currentPet.stats.getEnergy() + "\nHunger: " +
-                currentPet.stats.getHunger() + "\nThirst: " + currentPet.stats.getThirst());
+        return ("Name: " + currentPet.getName() + "\nEnergy: " + currentPet.stats.getEnergy() + "\nHunger: "
+                + currentPet.stats.getHunger() + "\nThirst: " + currentPet.stats.getThirst());
+    }
+
+    /**
+     * @return the gender
+     */
+    public Gender getGender() {
+        return gender;
+    }
+
+    /**
+     * @param gender the gender to set
+     */
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    /**
+     * @return the maturity
+     */
+    public Maturity getMaturity() {
+        return maturity;
+    }
+
+    /**
+     * @return the lastpatTime
+     */
+    public long getLastpatTime() {
+        return LastpatTime;
+    }
+
+    /**
+     * @param lastpatTime the lastpatTime to set
+     */
+    public void setLastpatTime(long lastpatTime) {
+        this.LastpatTime = lastpatTime;
     }
 
 }

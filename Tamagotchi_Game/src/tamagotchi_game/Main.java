@@ -6,7 +6,10 @@ import java.util.ArrayList;
 public class Main {
 
     public static ArrayList petCollection = new ArrayList<Pet>();
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
     static Game game = new Game();
     
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {

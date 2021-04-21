@@ -1,5 +1,7 @@
 package tamagotchi_game;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Scanner;
 
 public class SubMenuOptions extends Game{
@@ -10,10 +12,17 @@ public class SubMenuOptions extends Game{
         String input = "";
         switch(userInput) {
                 case 1:
-                    //Will set pet happiness to max if activated
-                    System.out.println("Pet happiness stat was maxed");
-                    Pet.currentPet.stats.setHappiness(10);//Change the '10' for happiness increase difference.
-                    
+                    //Will increase pet happiness by 1
+                    long temp = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+                    if (Pet.currentPet.getLastpatTime() <= temp-3600000)
+                    {
+                        Pet.currentPet.stats.setHappiness(Pet.currentPet.stats.getHappiness()+1);
+                        Pet.currentPet.setLastpatTime(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());                        
+                    }
+                    else
+                    {
+                        System.out.println(Pet.currentPet.getLastpatTime() + "minutes till next happiness increase through petting!");
+                    }
                   break;
                 case 2:
                     //TODO: Will ask user to select another pet to breed with current pet.

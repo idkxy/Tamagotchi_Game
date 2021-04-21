@@ -1,34 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package tamagotchi_game;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.Random;
 
 /**
  *
- * @author daisyxiao
+ * @author idkxy
  */
-public class Maturity {
+public enum Maturity {
+    BABY,
+    ADULT;
     
-    private final Pet pet;
-    
-    
-    public Maturity(Pet pet)
+    final static Maturity randomMaturity()
     {
-        this.pet = pet;
+        Maturity[] maturity = Maturity.values();
+        Random random = new Random();
+        return maturity[random.nextInt(maturity.length)];
     }
-    
-    
-    
-    public void maturityCheck()
-    {
-        if(Time.getdInDay() >= 3)
-        {
-            pet.setMaturity(MaturityLevel.ADULT);
-                   
-        }
-     
-    }
-    
-    
 }

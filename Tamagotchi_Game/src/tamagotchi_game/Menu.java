@@ -42,14 +42,15 @@ public class Menu {
         Pet[] starterPet = new Pet[3];
         for (int i = 0; i < starterPet.length; i++) {
             starterPet[i] = new Pet("pet" + i, Misc.RNG(1, Stats.MAX_HUNGER - 5), Misc.RNG(1, Stats.MAX_THIRST - 5), Misc.RNG(1, Stats.MAX_ENERGY - 5), 5);
+            starterPet[i].setMaturity(Maturity.BABY);
         }
         System.out.println("Creating a new game...\n");
         System.out.println("Select starting pet:");
         System.out.println("--------------------");
-        System.out.println("Pet Name | Hunger | Thirst | Energy |");
+        System.out.println(" | Name | Species | Gender | Maturity | Hunger | Thirst | Energy |");
         int count = 1;
         for (Pet x : starterPet) {
-            System.out.println(count + ". " + x.getName() + " " + x.stats.getHunger() + " " + x.stats.getThirst() + " " + x.stats.getEnergy());
+            System.out.println(count + ". " + x.getName() + " " + x.getSpecies() + " " + x.getGender() + " " + x.getMaturity() + " " + x.stats.getHunger() + " " + x.stats.getThirst() + " " + x.stats.getEnergy());
             count++;
         }
         input = InputValidation.regexValidate(scan, "123");
@@ -60,9 +61,14 @@ public class Menu {
         System.out.println("You have selected " + Pet.currentPet.getName() + "!");
         System.out.println("You now own " + petCollection.size() + " pet" + (petCollection.size() > 1 ? "s." : "."));
 
+<<<<<<< Updated upstream
          System.out.print(Pet.currentPet.getCreated());
          Thread.sleep(2000);
          Time.computeDifference(Pet.currentPet.getCreated());
+=======
+        //System.out.println(Time.computeDifference(Pet.currentPet.getCreated()));
+        System.out.println(Pet.currentPet.getSpecies());
+>>>>>>> Stashed changes
          
     }
 
