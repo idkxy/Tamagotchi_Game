@@ -10,7 +10,7 @@ public class MainMenu {
 //    Intro credits
     public static void intro() {
         System.out.println("\n\nWelcome to Magic Hand Eventually Extended to Sausage!");
-        System.out.println("\nDesigned and Developed by:\nLiam Rimmer\nDaisy Xiao\nLiam Yates\n");
+        System.out.println("\nDesigned and Developed by:\nLiam Yates\nDaisy Xiao\nLiam Rimmer\n");
         System.out.println("-------------------------\n\n");
     }
 
