@@ -26,7 +26,7 @@ public class Player{
         return foodAmount;
     }
 
-    public void setFoodAmount(int currency) {
+    public void setFoodAmount(int foodAmount) {
         this.foodAmount = foodAmount;
     }
     
@@ -34,7 +34,7 @@ public class Player{
         return waterAmount;
     }
 
-    public void setWaterAmount(int currency) {
+    public void setWaterAmount(int waterAmount) {
         this.waterAmount = waterAmount;
     }
 }

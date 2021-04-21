@@ -10,7 +10,6 @@ public class Game {
         String user;
 
         for (;;) {
-            //Might change location of this function later.
             Misc.clearConsole();
 
             Interface.dashBoard();
