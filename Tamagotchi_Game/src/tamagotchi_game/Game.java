@@ -33,11 +33,9 @@ public class Game{
                   user = InputValidation.regexValidate(scan, "PLACEHOLDER");
                   break;
                 case "s":
-
                   MenuLook.selectionS();
-
                   user = InputValidation.regexValidate(scan, "12345");
-                  //SubMenuOptions.Shop(Integer.parseInt(user));
+                  ShopOption.shopOption.shopInteract();
                   break;
                 case "q":
                     Data.saveGame(Main.petCollection);

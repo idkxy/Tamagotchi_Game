@@ -12,6 +12,7 @@ import java.util.Scanner;
  */
 public class ShopOption extends Shop {
     
+    public static ShopOption shopOption = new ShopOption();
     Scanner s = new Scanner(System.in);
     private String userInput;
     
@@ -34,7 +35,9 @@ public class ShopOption extends Shop {
                 purchaseCheck();
                 break;
             case 5:
-                shop.toString();
+                shop.generatePet();
+                shop.availablePets();
+                petChoice();
                 break;
         }
             

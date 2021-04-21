@@ -33,12 +33,12 @@ public class Shop {
         }
     }
     
-    public void availablePets(ArrayList<Pet> availablePets)
+    public void availablePets()
     {
         for(int i = 0; i < getPets().size();++i)
         {
-            getPets().get(i).computeValue(Pet.currentPet);
-            System.out.println((i +1) + ". " +getPets().get(i).toString());
+            getPets().get(i).computeValue(pets.get(0));
+            System.out.println((i +1) + ". " + pets.get(i).toString());
         }
     }
     
