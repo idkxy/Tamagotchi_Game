@@ -33,7 +33,7 @@ public class Breed {
                         System.out.println("Are you sure you want to choose this pet for breeding? Y/N");
                         check = input.next();
                         if (choice.trim().equalsIgnoreCase("y")) {
-                            if (petList.get(petChosen).isMaturity() == Maturity.ADULT) {
+                            if (petList.get(petChosen).getMaturity() == Maturity.ADULT) {
                                 System.out.println("Great! A new pet has been created!");
                                 System.out.println("Please give the new pet a name: ");
                                 name = input.nextLine();

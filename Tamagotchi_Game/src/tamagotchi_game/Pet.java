@@ -77,13 +77,6 @@ public class Pet {
     }
 
     /**
-     * @return the maturity
-     */
-    public Maturity isMaturity() {
-        return getMaturity();
-    }
-
-    /**
      * @param maturity the maturity to set
      */
     public void setMaturity(Maturity maturity) {
