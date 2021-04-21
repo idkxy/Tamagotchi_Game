@@ -2,7 +2,8 @@ package tamagotchi_game;
 
 public class Player {
 
-    private int currency = 0;
+    public static Player player = new Player(200,0,0);
+    private static int currency = 0;
     private int foodAmount = 0;
     private int waterAmount = 0;
     

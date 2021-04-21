@@ -1,7 +1,7 @@
 package tamagotchi_game;
 
 public class Competition {
-    
+
     /*public static int compete(int hunger, int thirst, int happy){
         //equation for money assuming max reward is 100 currency and base is 10:
         //reward = 10 + ((happy + hunger + thirst + energy) * 3)
@@ -19,9 +19,9 @@ public class Competition {
     private int total;
     private Pet myPet;
     private Pet opponent;
-    private int winCount;
-    private int loseCount;
-    private int energyConsumption;
+    private int winCount = 0 ;
+    private int loseCount= 0;
+
     
     
     public Competition(Pet petA, Pet petB)
@@ -72,14 +72,31 @@ public class Competition {
         this.opponent = opponent;
     }
 
-    public void computeResult()
+    public void entryCheck() throws InterruptedException
+    {
+        if(myPet.stats.getEnergy() == 0)
+        {
+            System.out.println("No energy left! Your pet can not enter game!");
+        }
+        else
+        {
+            computeResult();
+            myPet.stats.setEnergy(myPet.stats.getEnergy()-1);
+            Player.player.setCurrency(Player.player.getCurrency() - 100);
+            total ++;
+            
+        }
+    }
+    
+    public void computeResult() throws InterruptedException
     {
         System.out.println(myPet.getName() + " is now competing against " + opponent.getName() + " ......");
-        myPet.stats.setEnergy(myPet.stats.getEnergy() - energyConsumption);  
+        Thread.sleep(2000);
         if (this.myPet.stats.getEnergy() > this.opponent.stats.getEnergy() && this.myPet.stats.getHappiness()> this.opponent.stats.getHappiness() && this.myPet.stats.getHunger()> this.opponent.stats.getHunger() && this.myPet.stats.getThirst()> this.opponent.stats.getThirst())
         {
             this.winCount++;
             System.out.println("Congrats! " + myPet.getName() + " wins! :)");
+            //amount of currency earned from winning to be confirmed 
         }
         else
         {

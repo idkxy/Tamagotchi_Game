@@ -40,7 +40,7 @@ public class Game extends Main{
                   SubMenuOptions.inputS(Integer.parseInt(user));
                   break;
                 case "q":
-                    Data.saveGame(Main.petCollection, Main.player);
+                    Data.saveGame(Main.petCollection, Player.player);
                     System.out.println("Game ends. Bye!");
                     System.exit(0);
                     break;

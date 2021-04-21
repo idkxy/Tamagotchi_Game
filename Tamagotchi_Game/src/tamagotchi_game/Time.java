@@ -22,7 +22,7 @@ public class Time {
     
     
     
-    public static String computeDifference(LocalDateTime created)
+    public static void computeDifference(LocalDateTime created)
     {
        
         setCreatedFor(Duration.between(created, getCurrentTime()).toMillis());
@@ -30,14 +30,13 @@ public class Time {
         setdInMin((getCreatedFor() / (100 * 60)) % 60);
         setdInHr((getCreatedFor() / (100 * 60 * 60)) % 24);
         setdInDay((getCreatedFor() / (100 * 60 * 60 * 24)) % 365);
-        return  "The pet has been created for: " + getdInDay() + "days, "+ getdInHr() + "hours, " + getdInMin() +"minutes, "+ getdInSec() + "seconds";
-       
+        
     }
     
-   /* public String toString()
+   public String toString()
     {
-        return ("The pet has been created for: " + this.getdInDay() + "days, "+ this.getdInHr() + "hours, " + this.getdInMin() +"minutes, "+ this.getdInSec() + "seconds");
-    }/*
+        return "The pet has been created for: " + getdInDay() + "days, "+ getdInHr() + "hours, " + getdInMin() +"minutes, "+ getdInSec() + "seconds";
+    }
 
     /**
      * @return the currentTime

@@ -62,7 +62,7 @@ public class Menu {
 
          System.out.print(Pet.currentPet.getCreated());
          Thread.sleep(2000);
-         System.out.println(Time.computeDifference(Pet.currentPet.getCreated()));
+         Time.computeDifference(Pet.currentPet.getCreated());
          
     }
 
