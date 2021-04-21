@@ -4,13 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Game{
-<<<<<<< Updated upstream
-        
-=======
-    
-    static Player play = new Player();
-    
->>>>>>> Stashed changes
+
     public void mainGame() throws FileNotFoundException{
         Scanner scan = new Scanner(System.in);
         String user = "";
@@ -39,11 +33,9 @@ public class Game{
                   user = InputValidation.regexValidate(scan, "PLACEHOLDER");
                   break;
                 case "s":
-<<<<<<< Updated upstream
-                  MenuLook.selectionS(Player.player.getCurrency(), Player.player.getFoodAmount(), Player.player.getWaterAmount());
-=======
+
                   MenuLook.selectionS();
->>>>>>> Stashed changes
+
                   user = InputValidation.regexValidate(scan, "12345");
                   //SubMenuOptions.Shop(Integer.parseInt(user));
                   break;

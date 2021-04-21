@@ -23,19 +23,13 @@ public class Shop {
     public void generatePet()
     {
         for (int i = 0; i < 6; i++) {
-<<<<<<< Updated upstream
+
             pets.add(new Pet(names[i], rand.nextInt(10),rand.nextInt(10),rand.nextInt(10),rand.nextInt(10)));
             pets.get(i).setSpecies(Species.randomSpecies());
             pets.get(i).setGender(Gender.randomGender());
             pets.get(i).setMaturity(Maturity.randomMaturity());
             pets.get(i).computeValue(pets.get(i));
-=======
-            getPets().add(new Pet(names[i], rand.nextInt(10),rand.nextInt(10),rand.nextInt(10),rand.nextInt(10)));
-            getPets().get(i).setSpecies(Species.randomSpecies());
-            getPets().get(i).setGender(Gender.randomGender());
-            getPets().get(i).setMaturity(Maturity.randomMaturity());
-            getPets().get(i).computeValue(getPets().get(i));
->>>>>>> Stashed changes
+
         }
     }
     
