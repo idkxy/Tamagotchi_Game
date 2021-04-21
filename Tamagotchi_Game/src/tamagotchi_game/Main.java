@@ -6,6 +6,8 @@ import java.util.ArrayList;
 public class Main {
 
     public static ArrayList petCollection = new ArrayList<Pet>();
+    public static Player player = new Player(200,0,0);
+
 
     static Game game = new Game();
     

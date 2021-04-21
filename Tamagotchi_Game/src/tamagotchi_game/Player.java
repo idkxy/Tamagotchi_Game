@@ -1,6 +1,6 @@
 package tamagotchi_game;
 
-public class Player {
+public class Player{
 
     public static Player player = new Player(200,0,0);
     private static int currency = 0;
