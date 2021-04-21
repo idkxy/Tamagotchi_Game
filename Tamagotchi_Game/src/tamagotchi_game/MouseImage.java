@@ -38,13 +38,13 @@ public class MouseImage {
     "|                         {=  ^  =}                                |",};
 
     static void checkStatus(Pet p) {
-        if (p.stats.getHappiness() > 6) {
+        if (p.stats.getHappiness() >= 6) {
             mouse[2] = mouseHappy[0];
             mouse[3] = mouseHappy[1];
             for (int i = 0; i < mouse.length; ++i) {
                 System.out.println("|   " + mouse[i] + "   |");
             }
-        } else if (p.stats.getHappiness() < 3) {
+        } else if (p.stats.getHappiness() <= 3) {
             mouse[2] = mouseSad[0];
             mouse[3] = mouseSad[1];
             for (int i = 0; i < mouse.length; ++i) {

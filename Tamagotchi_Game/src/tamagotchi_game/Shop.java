@@ -17,10 +17,14 @@ public class Shop {
     {
         for (int i = 0; i < 6; i++) {
             pets.add(new Pet(names[i], rand.nextInt(10),rand.nextInt(10),rand.nextInt(10),rand.nextInt(10)));
+            pets.get(i).setSpecies(Species.randomSpecies());
+            pets.get(i).setGender(Gender.randomGender());
+            pets.get(i).setMaturity(Maturity.randomMaturity());
+            pets.get(i).
         }
     }
     
-    public void storeMenu(ArrayList<Pet> petCollection)
+    public void availablePets(ArrayList<Pet> availablePets)
     {
         for(int i = 0; i < pets.size();++i)
         {

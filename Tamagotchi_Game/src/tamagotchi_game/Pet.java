@@ -145,5 +145,11 @@ public class Pet {
     public void setLastpatTime(long lastpatTime) {
         this.LastpatTime = lastpatTime;
     }
+    
+    public void computeValue(Pet p)
+    {
+        p.setValue(100 + p.stats.getEnergy() * 5);
+        
+    }
 
 }

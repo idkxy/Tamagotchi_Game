@@ -14,7 +14,7 @@ public class MenuLook {
         System.out.println("|    __________________________________________________________________    |");
         System.out.println("|   |  INTERACT (I) |  FEED (F) |  COMPETE (C) |  SHOP (S) | QUIT (Q)  |   |");
         System.out.println("|   |__________________________________________________________________|   |");
-        BearImage.checkStatus(Pet.currentPet);
+        Species.speciesRec(Pet.currentPet);
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|   | ENERGY: " + en + "  |  HUNGER: " + hu + "  |  THIRST: " + th + "  |  HAPPINESS: " + ha + "       |   |");
         System.out.println("|   |__________________________________________________________________|   |");

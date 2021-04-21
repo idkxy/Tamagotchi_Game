@@ -43,7 +43,7 @@ public class BearImage {
     
     
     static void checkStatus(Pet p){
-    if(p.stats.getHappiness() > 6)
+    if(p.stats.getHappiness() >= 6)
     {
         bear[2] = bearHappy[0];
         bear[3] = bearHappy[1];
@@ -52,7 +52,7 @@ public class BearImage {
             System.out.println("|   " +bear[i] + "   |");
         }
     }
-    else if(p.stats.getHappiness() < 3)
+    else if(p.stats.getHappiness() <= 3)
     {
         bear[2] = bearSad[0];
         bear[3] = bearSad[1];

@@ -36,13 +36,13 @@ public class SharkImage {
     "|                      \\______o   \\/ |   \\  /                      |",    };
 
     static void checkStatus(Pet p) {
-        if (p.stats.getHappiness() > 6) {
+        if (p.stats.getHappiness() >= 6) {
             shark[2] = sharkHappy[0];
             shark[3] = sharkHappy[1];
             for (int i = 0; i < shark.length; ++i) {
                 System.out.println("|   " +shark[i] + "   |");
             }
-        } else if (p.stats.getHappiness() < 3) {
+        } else if (p.stats.getHappiness() <= 3) {
             shark[2] = sharkSad[0];
             shark[3] = sharkSad[1];
             for (int i = 0; i < shark.length; ++i) {
