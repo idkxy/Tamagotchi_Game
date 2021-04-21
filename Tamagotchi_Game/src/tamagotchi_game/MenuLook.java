@@ -10,11 +10,11 @@ public class MenuLook {
         //TODO: Add the pets look into large space in the middle as well as gender of pet/ maturity.
         
         System.out.println("____________________________________________________________________________");
-        System.out.println("| Name: " + Pet.currentPet.getName()+"                                     |");
+        System.out.println("| Name: " + Pet.currentPet.getName()+"                                                               |");
         System.out.println("|    __________________________________________________________________    |");
         System.out.println("|   |  INTERACT (I) |  FEED (F) |  COMPETE (C) |  SHOP (S) | QUIT (Q)  |   |");
         System.out.println("|   |__________________________________________________________________|   |");
-        MouseImage.checkStatus(Pet.currentPet);
+        BearImage.checkStatus(Pet.currentPet);
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|   | ENERGY: " + en + "  |  HUNGER: " + hu + "  |  THIRST: " + th + "  |  HAPPINESS: " + ha + "       |   |");
         System.out.println("|   |__________________________________________________________________|   |");

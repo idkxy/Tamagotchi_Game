@@ -60,6 +60,7 @@ public class Menu {
 
         System.out.println("You have selected " + Pet.currentPet.getName() + "!");
         System.out.println("You now own " + petCollection.size() + " pet" + (petCollection.size() > 1 ? "s." : "."));
+
          
     }
 
