@@ -37,7 +37,7 @@ public class Interact {
 
                     System.out.println("Please select desired pet");
                     input = InputValidation.regexValidate(scan, "0123456789");
-                    //TODO: what does this do?
+                    //TODO: FIX THIS - selects new pet but pretty broken 
                     Main.petCollection.set(Integer.parseInt(input), Pet.currentPet.stats);
                 } else {
                     System.out.println("Player requires more than one pet to use this function.");
