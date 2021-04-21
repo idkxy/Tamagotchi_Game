@@ -1,11 +1,13 @@
 package tamagotchi_game;
 
 public class MenuLook {
-    public static void look(int EN, int HU, int TH, int HA){
-        String en = String.format("%02d", EN);
-        String hu = String.format("%02d", HU);
-        String th = String.format("%02d", TH);
-        String ha = String.format("%02d", HA);
+    public static void look(){
+        String en = String.format("%02d", Pet.currentPet.stats.getEnergy());
+        String hu = String.format("%02d", Pet.currentPet.stats.getHunger());
+        String th = String.format("%02d", Pet.currentPet.stats.getThirst());
+        String ha = String.format("%02d", Pet.currentPet.stats.getHappiness());
+              
+        
         
         //TODO: Add the pets look into large space in the middle as well as gender of pet/ maturity.
         
@@ -44,10 +46,11 @@ public class MenuLook {
         //TODO: add a print or something to indicate competitions progress, finish and/ or start.
     }
     
-    public static void selectionS(int playerCurrency, int foodAmount, int waterAmount){
-        String pC = String.format("%05d", playerCurrency);
-        String fA = String.format("%02d", foodAmount);
-        String wA = String.format("%02d", waterAmount);
+    public static void selectionS(){
+        String pC = String.format("%05d", Player.player.getCurrency());
+        String fA = String.format("%02d", Player.player.getFoodAmount());
+        String wA = String.format("%02d", Player.player.getWaterAmount());
+       
         
         System.out.println("____________________________________________________________________________");
         System.out.println("|    __________________________________________________________________    |");
@@ -55,13 +58,13 @@ public class MenuLook {
         System.out.println("|   |                                                                  |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|   |                                                                  |   |");
-        System.out.println("|   | PURCHACE FOOD x01  | (1)                                COST: 01 |   |");
-        System.out.println("|   | FILL FOOD x" + (99 - Integer.parseInt(fA)) + "      | (2)                                COST: " + (99 - Integer.parseInt(wA)) + " |   |");
+        System.out.println("|   | PURCHACE FOOD x01  | (1)                                COST:" + Shop.shop.getFOOD_COST() +   "|   |");
+        System.out.println("|   | FILL FOOD x" + (99 - Integer.parseInt(fA)) + "      | (2)                                COST: " + ((99 - Integer.parseInt(wA)) * Shop.shop.getFOOD_COST())+ " |   |");
         System.out.println("|   |                                                                  |   |");
-        System.out.println("|   | PURCHACE WATER x01 | (3)                                COST: 01 |   |");
-        System.out.println("|   | FILL WATER x" + (99 - Integer.parseInt(wA)) + "     | (4)                                COST: " + (99 - Integer.parseInt(wA)) + " |   |");
+        System.out.println("|   | PURCHACE WATER x01 | (3)                                COST:" + Shop.shop.getWATER_COST() + "|   |");
+        System.out.println("|   | FILL WATER x" + (99 - Integer.parseInt(wA)) + "     | (4)                                COST: " + ((99 - Integer.parseInt(wA)) * Shop.shop.getWATER_COST()) + " |   |");
         System.out.println("|   |                                                                  |   |");
-        System.out.println("|   | PURCHACE PET (RANDOM STATS) x01 (5)                     cost: 99 |   |");
+        System.out.println("|   | PURCHACE PET (RANDOM STATS) x 1 (5)                              |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|__________________________________________________________________________|");
     }
