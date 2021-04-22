@@ -1,6 +1,7 @@
 package tamagotchi_game;
 
 import java.time.LocalDateTime;
+import java.time.Month;
 
 public class Pet {
 
@@ -12,7 +13,7 @@ public class Pet {
     private LocalDateTime created;
     private Maturity maturity = Maturity.BABY;
     private Gender gender;
-    private long LastpatTime = 0;
+    private LocalDateTime LastpatTime = LocalDateTime.of(1, 1, 1, 1, 1);
 
     public Pet(String name, int hunger, int thirst, int happiness, int energy) {
         this.name = name;
@@ -94,8 +95,7 @@ public class Pet {
      * @param created the created to set
      */
     public void setCreated(LocalDateTime created) {
-        created = LocalDateTime.now();
-        this.created = created;
+        this.created = LocalDateTime.now();
     }
 
     //this gotta be fixed perhaps, could probably just use tthe getters for info if we need it
@@ -130,14 +130,14 @@ public class Pet {
     /**
      * @return the lastpatTime
      */
-    public long getLastpatTime() {
+    public LocalDateTime getLastpatTime() {
         return LastpatTime;
     }
 
     /**
      * @param lastpatTime the lastpatTime to set
      */
-    public void setLastpatTime(long lastpatTime) {
+    public void setLastpatTime(LocalDateTime lastpatTime) {
         this.LastpatTime = lastpatTime;
     }
     

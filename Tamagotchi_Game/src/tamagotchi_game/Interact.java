@@ -13,13 +13,12 @@ public class Interact {
         switch (userInput) {
             case 1:
                 //Will increase pet happiness by 1
-                long currentTime = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
-                if (Pet.currentPet.getLastpatTime() <= currentTime - 3600000) {
+                if (Time.getDiff(Pet.currentPet.getLastpatTime()) >= 60) {
                     Pet.currentPet.stats.setHappiness(Pet.currentPet.stats.getHappiness() + 1);
-                    Pet.currentPet.setLastpatTime(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
+                    Pet.currentPet.setLastpatTime(LocalDateTime.now());
                 } else {
                     //TODO:fix this time 
-                    System.out.println(TimeUnit.MILLISECONDS.toMinutes(Pet.currentPet.getLastpatTime()) + "minutes till next happiness increase through petting!");
+                    System.out.println(60 - Time.getDiff(Pet.currentPet.getLastpatTime()) + "minutes till next happiness increase through petting!");
                 }
                 break;
             case 2:

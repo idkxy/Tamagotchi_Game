@@ -1,34 +1,17 @@
 package tamagotchi_game;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 
 public class Time {
 
     private static LocalDateTime currentTime = LocalDateTime.now();
-    private static long createdFor;
-    private static long dInSec;
-    private static long dInMin;
-    private static long dInHr;
-    private static long dInDay;
-
-    public static long computeDifference(LocalDateTime time) {
-
-        //setCreatedFor(Duration.between(created, getCurrentTime()).toMillis());
-        return ChronoUnit.SECONDS.between(LocalDateTime.now(), time);
-//        setdInSec((getCreatedFor() / 1000) % 60);
-//        setdInMin((getCreatedFor() / (100 * 60)) % 60);
-//        setdInHr((getCreatedFor() / (100 * 60 * 60)) % 24);
-//        setdInDay((getCreatedFor() / (100 * 60 * 60 * 24)) % 365);
-        
-    }
-
-    @Override
-    public String toString()
+    
+    public static long getDiff(LocalDateTime d1)
     {
-        return "The pet has been created for: " + getdInDay() + "days, "+ getdInHr() + "hours, " + getdInMin() +"minutes, "+ getdInSec() + "seconds";
+        return Duration.between(d1, LocalDateTime.now()).toMinutes();
     }
-
+    
     /**
      * @return the currentTime
      */
@@ -41,75 +24,5 @@ public class Time {
      */
     public static void setCurrentTime(LocalDateTime aCurrentTime) {
         currentTime = aCurrentTime;
-    }
-
-    /**
-     * @return the createdFor
-     */
-    public static long getCreatedFor() {
-        return createdFor;
-    }
-
-    /**
-     * @param aCreatedFor the createdFor to set
-     */
-    public static void setCreatedFor(long aCreatedFor) {
-        createdFor = aCreatedFor;
-    }
-
-    /**
-     * @return the dInSec
-     */
-    public static long getdInSec() {
-        return dInSec;
-    }
-
-    /**
-     * @param adInSec the dInSec to set
-     */
-    public static void setdInSec(long adInSec) {
-        dInSec = adInSec;
-    }
-
-    /**
-     * @return the dInMin
-     */
-    public static long getdInMin() {
-        return dInMin;
-    }
-
-    /**
-     * @param adInMin the dInMin to set
-     */
-    public static void setdInMin(long adInMin) {
-        dInMin = adInMin;
-    }
-
-    /**
-     * @return the dInHr
-     */
-    public static long getdInHr() {
-        return dInHr;
-    }
-
-    /**
-     * @param adInHr the dInHr to set
-     */
-    public static void setdInHr(long adInHr) {
-        dInHr = adInHr;
-    }
-
-    /**
-     * @return the dInDay
-     */
-    public static long getdInDay() {
-        return dInDay;
-    }
-
-    /**
-     * @param adInDay the dInDay to set
-     */
-    public static void setdInDay(long adInDay) {
-        dInDay = adInDay;
     }
 }
