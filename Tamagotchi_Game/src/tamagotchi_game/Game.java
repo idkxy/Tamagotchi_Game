@@ -33,7 +33,6 @@ public class Game {
                     break;
                 case "s":
                     Interface.menuShop();
-                    user = InputValidation.regexValidate(scan, "12345");
                     ShopOption.shopOption.shopInteract();
                     break;
                 case "q":

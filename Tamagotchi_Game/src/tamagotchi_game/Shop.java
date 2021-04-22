@@ -38,9 +38,7 @@ public class Shop {
         
         for(int i = 0; i < getPets().size();++i)
         {
-            getPets().get(i).computeValue(pets.get(0));
-            System.out.println((i +1) + ". " + pets.get(i));
-            System.out.println("ok");
+            System.out.println((i+1) + ". " + pets.get(i));
         }
     }
     
