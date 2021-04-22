@@ -29,7 +29,7 @@ public class Breed {
                     }
                     petChosen = input.nextInt();
                     if (!petList.get(petChosen).getName().equals(mine.getName()) ) {
-                        System.out.println("Details of the pet chosen: " + petList.get(petChosen).toString() + "Maturity stats: " + petList.get(petChosen).isMaturity());
+                        System.out.println("Details of the pet chosen: " + petList.get(petChosen).toString() + "Maturity stats: " + petList.get(petChosen).getMaturity());
                         System.out.println("Are you sure you want to choose this pet for breeding? Y/N");
                         check = input.next();
                         if (choice.trim().equalsIgnoreCase("y")) {
