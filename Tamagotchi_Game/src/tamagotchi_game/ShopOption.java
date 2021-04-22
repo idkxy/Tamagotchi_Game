@@ -39,6 +39,8 @@ public class ShopOption extends Shop {
                 shop.availablePets();
                 petChoice();
                 break;
+            default:
+                break;
         }
             
     }
@@ -84,7 +86,7 @@ public class ShopOption extends Shop {
     {
         Scanner sc = new Scanner(System.in);
         String input = InputValidation.regexValidate(sc, "12345");
-        int petChosen = Integer.parseInt(input);
+        int petChosen = Integer.parseInt(input) - 1;
         String confirmation = "";
         System.out.println("Pet " + shop.getPets().get(petChosen - 1).getName() + "is chosen" );
         System.out.println("Do you wish to purchase the pet? Y/N");

@@ -51,7 +51,7 @@ public class MainMenu {
         int count = 1;
         //TODO: tidy this up
         for (Pet x : starterPet) {
-            System.out.printf(count + ".  " + x.getName() + "    " + String.format("%1$2s", x.getSpecies()) + "      " + x.getGender() + "        " + x.getMaturity() + "       " + x.stats.getHunger() + "        " + x.stats.getThirst() + "        " + x.stats.getEnergy() + "\n");
+            System.out.printf(count + ".  " + x.getName() + "    " + String.format("%1$5s", x.getSpecies()) + "    " + String.format("%1$5s",x.getGender()) + (x.getGender()== Gender.MALE? "     " : "    " ) + String.format("%1$5s",x.getMaturity()) + "        " + x.stats.getHunger() + "        " + x.stats.getThirst() + "        " + x.stats.getEnergy() + "\n");
             count++;
         }
         input = InputValidation.regexValidate(scan, "123");

@@ -22,7 +22,7 @@ public class Shop {
     //TODO: can go out of bounds
     public void generatePet()
     {
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
 
             pets.add(new Pet(names[i], rand.nextInt(10),rand.nextInt(10),rand.nextInt(10),rand.nextInt(10)));
             pets.get(i).setSpecies(Species.randomSpecies());
@@ -35,10 +35,12 @@ public class Shop {
     
     public void availablePets()
     {
+        
         for(int i = 0; i < getPets().size();++i)
         {
             getPets().get(i).computeValue(pets.get(0));
-            System.out.println((i +1) + ". " + pets.get(i).toString());
+            System.out.println((i +1) + ". " + pets.get(i));
+            System.out.println("ok");
         }
     }
     
