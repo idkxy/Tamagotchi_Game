@@ -2,6 +2,10 @@ package tamagotchi_game;
 
 public class FeedOption {
     
+    /**
+     *
+     * @param userInput
+     */
     public static void Feed(int userInput){
         switch(userInput) {
                 case 1:
@@ -79,7 +83,7 @@ public class FeedOption {
                   break;
                 case 5:
                   //Fill water
-                    if (Player.player.getWaterAmount()>= (10 - Player.player.getWaterAmount()) && Pet.currentPet.stats.getThirst()< 10){
+                    if (Player.player.getWaterAmount() >= (10 - Player.player.getWaterAmount()) && Pet.currentPet.stats.getThirst()< 10){
                         Player.player.setWaterAmount(Player.player.getWaterAmount() - (10 - Player.player.getWaterAmount()));
                         Pet.currentPet.stats.setThirst(10);
                         System.out.println("The thirst level of the pet has reached max! You get 1 engergy as a bonus!");
@@ -91,7 +95,7 @@ public class FeedOption {
                   break;
                 case 6:
                   //Fill both
-                    if (((Player.player.getFoodAmount() > 0 || Pet.currentPet.stats.getHunger() < 10) )&& ((Player.player.getWaterAmount()> 0 || Pet.currentPet.stats.getThirst()< 10))){
+                    if (((Player.player.getFoodAmount() > 0 || Pet.currentPet.stats.getHunger() < 10) ) && ((Player.player.getWaterAmount()> 0 || Pet.currentPet.stats.getThirst()< 10))){
                         //Fills food at a cost.
                         if((Player.player.getFoodAmount() - (10 - Pet.currentPet.stats.getHunger()) > 0 )&& (Player.player.getWaterAmount() - (10 - Pet.currentPet.stats.getThirst()) > 0))
                         {
