@@ -6,7 +6,7 @@ public class Breed {
 
     private Pet mine;
     private Pet breed;
-    ArrayList<Pet> petList = new ArrayList<>();
+    ArrayList<Pet> petList = Main.petCollection;
     Scanner input = new Scanner(System.in);
     Random rand = new Random();
     String choice = "";
@@ -16,6 +16,7 @@ public class Breed {
     private int petChosen;
 
     public void create() {
+        petList.get(petChosen).
         System.out.println("Do you wish to breed? Y/N");
         choice = input.next();
         if (choice.trim().equalsIgnoreCase("y")) {
