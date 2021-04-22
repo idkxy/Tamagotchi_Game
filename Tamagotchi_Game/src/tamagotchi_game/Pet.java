@@ -101,9 +101,8 @@ public class Pet {
     //this gotta be fixed perhaps, could probably just use tthe getters for info if we need it
     @Override
     public String toString() {
-        return ("Name: " + currentPet.getName() + "Energy: " + currentPet.stats.getEnergy() + "Hunger: "
-                + currentPet.stats.getHunger() + "Thirst: " + currentPet.stats.getThirst() + "Happiness: " + currentPet.stats.getHappiness()
-                + "Price: " + currentPet.getValue());
+        return (String.format( "%-31s", String.format(" " + "%-5s",getName()) +  "      "+ String.format("%-5s",getSpecies()) + "     " + String.format("%1$5s",getGender()) + (getGender()== Gender.MALE? "        " : "       " ) + String.format("%1$5s",getMaturity())) + "        " 
+                + stats.getHunger() + "        " + stats.getThirst()  + "        " +stats.getEnergy() + "      " +  "$" + getValue());
     }
 
     /**

@@ -35,7 +35,7 @@ public class Shop {
     
     public void availablePets()
     {
-        
+        System.out.println("  |  Name  |  Species |  Gender  |  Maturity  | Hunger | Thirst | Energy | Price |");
         for(int i = 0; i < getPets().size();++i)
         {
             System.out.println((i+1) + ". " + pets.get(i));

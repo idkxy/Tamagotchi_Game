@@ -13,8 +13,8 @@ public class Interface {
 
         //TODO: Add the pets dashBoard into large space in the middle as well as gender of pet/ maturity.
         System.out.println("____________________________________________________________________________");
-        System.out.println("| Name: " + Pet.currentPet.getName() +                    "                                                               |");
-        System.out.println("|" + String.format("%-49s",(" Gender: " + gender + " | Maturity: " + maturity + " |" + " Spieces: " + species )) + "                         |");
+        System.out.println("| Pet Name: " + Pet.currentPet.getName() + "                         Currency: $" + Player.player.getCurrency() + "  Food: " +Player.player.getFoodAmount() +  "  Water: " + Player.player.getWaterAmount()     +    " |");
+        System.out.println("|" + String.format("%-49s",(" Gender: " + gender + " | Maturity: " + maturity + " |" + " Species: " + species )) + "                         |");
         System.out.println("|    __________________________________________________________________    |");                     
         System.out.println("|   |  INTERACT (I) |  FEED (F) |  COMPETE (C) |  SHOP (S) | QUIT (Q)  |   |");
         System.out.println("|   |__________________________________________________________________|   |");
@@ -47,20 +47,19 @@ public class Interface {
     }
 
     public static void menuShop() {
-        String pC = String.format("%05d", Player.player.getCurrency());
+        String pC = String.format("%-5d", Player.player.getCurrency());
         String fA = String.format("%02d", Player.player.getFoodAmount());
         String wA = String.format("%02d", Player.player.getWaterAmount());
 
         System.out.println("____________________________________________________________________________");
         System.out.println("|    __________________________________________________________________    |");
-        System.out.println("|   |    PLAYER CURRENCY: " + pC + " | FOOD AMOUNT: " + fA + " | WATER AMOUNT: " + wA + "   |   |");
-        System.out.println("|   |                                                                  |   |");
+        System.out.println("|   | PLAYER CURRENCY: $" + pC + " | FOOD AMOUNT: " + fA + " | WATER AMOUNT: " + wA + "     |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|   |                                                                  |   |");
-        System.out.println("|   | PURCHACE FOOD x01  | (Press 1)                       COST:" + Shop.shop.getFOOD_COST() + "     |   |");
+        System.out.println("|   | PURCHACE FOOD x 1  | (Press 1)                       COST: " + Shop.shop.getFOOD_COST() + "    |   |");
         System.out.println("|   | FILL FOOD x" + (99 - Integer.parseInt(fA)) + "      | (Press 2)                       COST: " + ((99 - Integer.parseInt(wA)) * Shop.shop.getFOOD_COST()) + "  |   |");
         System.out.println("|   |                                                                  |   |");
-        System.out.println("|   | PURCHACE WATER x01 | (Press 3)                       COST:" + Shop.shop.getWATER_COST() + "     |   |");
+        System.out.println("|   | PURCHACE WATER x 1 | (Press 3)                       COST: " + Shop.shop.getWATER_COST() + "    |   |");
         System.out.println("|   | FILL WATER x" + (99 - Integer.parseInt(wA)) + "     | (Press 4)                       COST: " + ((99 - Integer.parseInt(wA)) * Shop.shop.getWATER_COST()) + "   |   |");
         System.out.println("|   |                                                                  |   |");
         System.out.println("|   | PURCHACE PET (RANDOM STATS) x 1 (Press 5)                        |   |");
