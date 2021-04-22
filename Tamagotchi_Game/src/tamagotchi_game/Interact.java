@@ -1,9 +1,8 @@
 package tamagotchi_game;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class Interact {
 
@@ -29,15 +28,19 @@ public class Interact {
                 //TODO: Change current pet if player has more than one pet
                 if (Main.petCollection.size() > 1) {
                     System.out.println("Player pets:");
-
-                    Main.petCollection.forEach((v) -> {
-                        System.out.println(v);
-                    });
+                    
+                    ArrayList<Pet> temp = Main.petCollection;
+                    String tempS = "";
+                    for (int i = 0; i < Main.petCollection.size(); i++)
+                    {
+                        temp.get(i).toString();
+                        tempS += String.valueOf(i + 1);
+                    }
 
                     System.out.println("Please select desired pet");
-                    input = InputValidation.regexValidate(scan, "0123456789");
+                    input = InputValidation.regexValidate(scan, tempS);
                     //TODO: FIX THIS - selects new pet but pretty broken 
-                    Main.petCollection.set(Integer.parseInt(input), Pet.currentPet.stats);
+                    Pet.setCurrentPet((Pet)Main.petCollection.get(Integer.parseInt(input)));
                 } else {
                     System.out.println("Player requires more than one pet to use this function.");
                 }
