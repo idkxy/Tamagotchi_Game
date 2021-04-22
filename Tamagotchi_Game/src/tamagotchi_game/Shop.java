@@ -1,7 +1,6 @@
 package tamagotchi_game;
 
 import java.util.ArrayList;
-import java.util.*;
 public class Shop {
 
     /**

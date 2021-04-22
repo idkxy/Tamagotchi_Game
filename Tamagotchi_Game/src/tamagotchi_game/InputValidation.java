@@ -15,6 +15,7 @@ public class InputValidation {
         String[] temp = values.split("");
         System.out.print("User (");
         for (int k = 0; k < temp.length; k++) {
+            temp[k] = temp[k].toUpperCase();
             System.out.print(temp[k] + (k == temp.length - 1 ? "" : ","));
         }
         System.out.print("):");
