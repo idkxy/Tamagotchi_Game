@@ -28,9 +28,12 @@ public class Game {
                     FeedOption.Feed(Integer.parseInt(user));
                     break;
                 case "c":
-                    Interface.menuCompetition();
-                    user = InputValidation.regexValidate(scan, "YynN");
                     Competition c = new Competition();
+                    c.setOpponent(Pet.PetGenerator());
+                    Interface.menuCompetition();
+                    
+                    user = InputValidation.regexValidate(scan, "YynN");
+                    
                     c.entryCheck();
                     System.out.println(c.toString());
                     break;

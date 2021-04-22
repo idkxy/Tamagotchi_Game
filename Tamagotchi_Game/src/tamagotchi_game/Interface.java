@@ -46,7 +46,7 @@ public class Interface {
         Competition comp = new Competition();
         System.out.println("____________________________________________________________________________");
         System.out.println("|    __________________________________________________________________    |");
-        System.out.println("|   | My Pet : " + String.format("%-8s",Pet.currentPet.getName() )+"            "    +    "|" +    " Opponent:    " + String.format("%8s",comp.getOpponent().getName())+ "              |   |");
+        System.out.println("|   | My Pet :   " + String.format("%-8s",Pet.currentPet.getName() )+"            "    +    "|" +    "  Opponent:   " + String.format("%8s",comp.getOpponent().getName())+ "           |   |");
         System.out.println("|   |                                                                  |   |");
         System.out.println("|   | Compete? Y / N                                                   |   |");
         System.out.println("|   |__________________________________________________________________|   |");

@@ -6,6 +6,20 @@ import java.util.Random;
 
 public class Pet {
 
+    /**
+     * @return the competition
+     */
+    public Competition getCompetition() {
+        return competition;
+    }
+
+    /**
+     * @param competition the competition to set
+     */
+    public void setCompetition(Competition competition) {
+        this.competition = competition;
+    }
+
     
     
     public static Pet currentPet = new Pet("", 0, 0, 0, 0);
@@ -17,6 +31,8 @@ public class Pet {
     private Maturity maturity = Maturity.BABY;
     private Gender gender;
     private LocalDateTime LastpatTime = LocalDateTime.of(1, 1, 1, 1, 1);
+    private Competition competition;
+   
 
     public Pet(String name, int hunger, int thirst, int happiness, int energy) {
         this.name = name;
@@ -25,6 +41,10 @@ public class Pet {
         species = Species.randomSpecies();
         gender = Gender.randomGender();
         maturity = Maturity.randomMaturity();
+        Competition.c.setCptEntered(0);
+        Competition.c.setWinCount(0);
+        Competition.c.setLoseCount(0);
+        setCompetition(Competition.c);
     }
 
     public static void setCurrentPet(Pet temp) {
@@ -36,6 +56,7 @@ public class Pet {
         currentPet.setSpecies(temp.species);
         currentPet.setGender(temp.gender);
         currentPet.setMaturity(temp.maturity);
+        currentPet.setCompetition(Competition.c);
     }
 
     public static Pet PetGenerator()
