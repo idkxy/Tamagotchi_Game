@@ -8,10 +8,10 @@ public class Game {
     public void mainGame() throws FileNotFoundException, InterruptedException {
         Scanner scan = new Scanner(System.in);
         String user;
+        boolean LOOP = true;
 
-        for (;;) {
+        while (LOOP) {
             Misc.clearConsole();
-
             Interface.dashBoard();
 
             user = InputValidation.regexValidate(scan, "ifcsq");
@@ -42,13 +42,14 @@ public class Game {
                     ShopOption.shopOption.shopInteract();
                     break;
                 case "q":
-                    Data.saveGame(Main.petCollection);
-                    System.out.println("Game ends. Bye!");
-                    System.exit(0);
+                    LOOP = false;
                     break;
                 default:
                     System.out.println("Something went wrong...");
             }
         }
+        Data.saveGame(Main.petCollection);
+        System.out.println("Game ends. Bye!");
+        System.exit(0);
     }
 }
