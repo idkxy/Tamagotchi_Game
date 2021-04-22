@@ -2,6 +2,7 @@ package tamagotchi_game;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -56,6 +57,7 @@ public class MainMenu {
         }
         input = InputValidation.regexValidate(scan, "123");
         //add choice to pet collection
+        Pet.currentPet.setCreated(LocalDateTime.now());
         Pet.setCurrentPet(starterPet[Integer.parseInt(input) - 1]);
         petCollection.add(Pet.currentPet);
 
