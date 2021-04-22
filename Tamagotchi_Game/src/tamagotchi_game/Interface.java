@@ -13,7 +13,7 @@ public class Interface {
 
         //TODO: Add the pets dashBoard into large space in the middle as well as gender of pet/ maturity.
         System.out.println("____________________________________________________________________________");
-        System.out.println("| Pet Name: " + Pet.currentPet.getName() + "                         Currency: $" + Player.player.getCurrency() + "  Food: " +Player.player.getFoodAmount() +  "  Water: " + Player.player.getWaterAmount()     +    " |");
+        System.out.println("| Pet Name: " + String.format("%-8s",Pet.currentPet.getName()) + "                    Currency: $" + Player.player.getCurrency() + "  Food: " +Player.player.getFoodAmount() +  "  Water: " + Player.player.getWaterAmount()     +    "  |");
         System.out.println("|" + String.format("%-49s",(" Gender: " + gender + " | Maturity: " + maturity + " |" + " Species: " + species )) + "                         |");
         System.out.println("|    __________________________________________________________________    |");                     
         System.out.println("|   |  INTERACT (I) |  FEED (F) |  COMPETE (C) |  SHOP (S) | QUIT (Q)  |   |");

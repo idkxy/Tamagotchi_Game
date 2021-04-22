@@ -1,5 +1,7 @@
 package tamagotchi_game;
 
+import java.util.Scanner;
+
 public class Competition {
 
     public static Competition c = new Competition();
@@ -64,12 +66,38 @@ public class Competition {
         this.opponent = opponent;
     }
 
+    public void confirmation() throws InterruptedException
+    {
+        Scanner scan = new Scanner(System.in);
+        String confirm = "";
+        confirm = InputValidation.regexValidate(scan, "YynN");
+        
+        if(confirm.equalsIgnoreCase("Y"))
+        {
+            entryCheck();
+            computeResult();
+            System.out.println(this.toString());
+            System.out.println("");
+            System.out.println("Going back to the previous menu....");
+            Thread.sleep(2000);
+        }
+        else
+        {
+            System.out.println("Going back to the previous menu....");
+            Thread.sleep(2000);
+        }
+        
+    }
     public void entryCheck() throws InterruptedException {
+        
         if(Player.player.getCurrency() > 0 && Pet.currentPet.stats.getEnergy() > 0 )
         {
             Pet.currentPet.getCompetition().setCptEntered(Pet.currentPet.getCompetition().getCptEntered()+1);
             computeResult();
             Pet.currentPet.stats.setEnergy(Pet.currentPet.stats.getEnergy() - 1);
+            Pet.currentPet.stats.setHappiness(Pet.currentPet.stats.getHappiness() - 1);
+            Pet.currentPet.stats.setHunger(Pet.currentPet.stats.getHunger() - 1);
+            Pet.currentPet.stats.setThirst(Pet.currentPet.stats.getThirst() - 1);
             Player.player.setCurrency(Player.player.getCurrency() - 100);
            
         }
@@ -94,17 +122,29 @@ public class Competition {
                 && Pet.currentPet.stats.getHunger() > opponent.stats.getHunger() && Pet.currentPet.stats.getThirst() > opponent.stats.getThirst()) {
             Pet.currentPet.getCompetition().setCptEntered(Pet.currentPet.getCompetition().winCount++);
             System.out.println("Congrats! " + Pet.currentPet.getName() + " wins! :)");
+            System.out.println("You've earned $200!");
+            System.out.println("");
+            Player.player.setCurrency(Player.player.getCurrency() + 200);
+            
+        } 
+        else if ((Pet.currentPet.stats.getEnergy() + Pet.currentPet.stats.getHappiness() + Pet.currentPet.stats.getHunger() + Pet.currentPet.stats.getThirst())
+            == (opponent.stats.getEnergy() + opponent.stats.getHappiness() + opponent.stats.getHunger() +opponent.stats.getThirst()))
+           {
+            total ++;
+            System.out.println("Draw! You get your money back!");
             System.out.println("");
             //amount of currency earned from winning to be confirmed 
         } else {
             Pet.currentPet.getCompetition().setCptEntered(Pet.currentPet.getCompetition().loseCount++);
             System.out.println("Too bad " + Pet.currentPet.getName() + " loses! :(");
+            System.out.println("You will get $30 back!");
             System.out.println("");
+            Player.player.setCurrency(Player.player.getCurrency() + 10);
         }
     }
 
     public String toString() {
-        return (Pet.currentPet.getName() + " has entered " + this.total + " game(s). " + "Win " + this.getWinCount() + " times." + " Lost " + this.getLoseCount() + " times." + "\n");
+        return (Pet.currentPet.getName() + " has entered " + this.total + " game(s). " + "Win " + this.getWinCount() + " time(s)." + " Lost " + this.getLoseCount() + " time(s)." + "\n");
 
     }
 

@@ -11,7 +11,7 @@ public class Game {
         boolean LOOP = true;
 
         while (LOOP) {
-            Misc.clearConsole();
+            //Misc.clearConsole();
             Interface.dashBoard();
 
             user = InputValidation.regexValidate(scan, "ifcsq");
@@ -28,14 +28,9 @@ public class Game {
                     FeedOption.Feed(Integer.parseInt(user));
                     break;
                 case "c":
-                    Competition c = new Competition();
-                    c.setOpponent(Pet.PetGenerator());
+                    Competition.c.setOpponent(Pet.PetGenerator());
                     Interface.menuCompetition();
-                    
-                    user = InputValidation.regexValidate(scan, "YynN");
-                    
-                    c.entryCheck();
-                    System.out.println(c.toString());
+                    Competition.c.confirmation();      
                     break;
                 case "s":
                     Interface.menuShop();

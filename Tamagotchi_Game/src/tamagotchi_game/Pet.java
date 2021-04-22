@@ -145,7 +145,7 @@ public class Pet {
     public String printPetDetails()
     {
         return "Name: " + getName() + ", Species: " + getSpecies() + ", Gender: " + getGender() + ", Maturity: " + getMaturity() + ", Energy: "
-                + stats.getEnergy() + ",Hunger: " + stats.getHunger() + ", Thirst: " + stats.getThirst() + ", Happiness: " + stats.getEnergy();
+                + stats.getEnergy() + ", Hunger: " + stats.getHunger() + ", Thirst: " + stats.getThirst() + ", Happiness: " + stats.getEnergy();
                 
     }
     /**
