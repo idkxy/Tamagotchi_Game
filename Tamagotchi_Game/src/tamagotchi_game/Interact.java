@@ -13,7 +13,6 @@ public class Interact {
             case 1:
                 //Will increase pet happiness by 1
                 if (Time.getDiff(Pet.currentPet.getLastpatTime()) >= 60) {
-                    System.out.println("The happiness level of the current pet has gone up by one from patting!");
                     Pet.currentPet.stats.setHappiness(Pet.currentPet.stats.getHappiness() + 1);
                     Pet.currentPet.setLastpatTime(LocalDateTime.now());
                     if(Pet.currentPet.stats.getHappiness() >= 6)

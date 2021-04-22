@@ -3,7 +3,7 @@ package tamagotchi_game;
 public class FeedOption {
     
     /**
-     *The feed method will take in user's input representing the choice they make in feeding the pet
+     *
      * @param userInput
      */
     public static void Feed(int userInput){

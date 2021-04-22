@@ -9,7 +9,7 @@ public class Player{
     private int waterAmount = 0;
     
     public Player() {
-        this.currency = 1000;
+        this.currency = 200;
         this.foodAmount = 5;
         this.waterAmount = 5;
     }
