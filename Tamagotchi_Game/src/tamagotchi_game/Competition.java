@@ -67,16 +67,24 @@ public class Competition {
     }
 
     public void entryCheck() throws InterruptedException {
-        if (Pet.currentPet.stats.getEnergy() == 0) {
-            System.out.println("No energy left! Your pet can not enter game!");
-        } else {
+        if(Player.player.getCurrency() > 0 && Pet.currentPet.stats.getEnergy() > 0 )
+        {
             total ++;
             computeResult();
             Pet.currentPet.stats.setEnergy(Pet.currentPet.stats.getEnergy() - 1);
             Player.player.setCurrency(Player.player.getCurrency() - 100);
            
-
         }
+        else if(Player.player.getCurrency() <= 0)
+        {
+            System.out.println("Insufficient fund! Can not enter competition");
+        }
+        else if (Pet.currentPet.stats.getEnergy() <= 0) {
+            System.out.println("No energy left! Your pet can not enter game!");
+        } 
+           
+
+        
     }
 
     public void computeResult() throws InterruptedException {
