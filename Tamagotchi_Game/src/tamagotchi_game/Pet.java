@@ -2,23 +2,8 @@ package tamagotchi_game;
 
 import java.time.LocalDateTime;
 import java.time.Month;
-import java.util.ArrayList;
 
 public class Pet {
-
-    /**
-     * @return the childrenList
-     */
-    public ArrayList<Breed> getChildrenList() {
-        return childrenList;
-    }
-
-    /**
-     * @param childrenList the childrenList to set
-     */
-    public void setChildrenList(ArrayList<Breed> childrenList) {
-        this.childrenList = childrenList;
-    }
 
     public static Pet currentPet = new Pet("", 0, 0, 0, 0);
     private Species species;
@@ -29,7 +14,7 @@ public class Pet {
     private Maturity maturity = Maturity.BABY;
     private Gender gender;
     private LocalDateTime LastpatTime = LocalDateTime.of(1, 1, 1, 1, 1);
-    private ArrayList<Breed> childrenList = new ArrayList<>();
+
     public Pet(String name, int hunger, int thirst, int happiness, int energy) {
         this.name = name;
         stats = new Stats(hunger, thirst, happiness, energy);
