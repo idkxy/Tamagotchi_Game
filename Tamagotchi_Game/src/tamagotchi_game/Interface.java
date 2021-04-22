@@ -13,15 +13,14 @@ public class Interface {
 
         //TODO: Add the pets dashBoard into large space in the middle as well as gender of pet/ maturity.
         System.out.println("____________________________________________________________________________");
-        System.out.println("| Name: " + Pet.currentPet.getName() + "                                                               |");
-        System.out.println("|    __________________________________________________________________    |");
+        System.out.println("| Name: " + Pet.currentPet.getName() +                    "                                                               |");
+        System.out.println("|" + String.format("%-49s",(" Gender: " + gender + " | Maturity: " + maturity + " |" + " Spieces: " + species )) + "                         |");
+        System.out.println("|    __________________________________________________________________    |");                     
         System.out.println("|   |  INTERACT (I) |  FEED (F) |  COMPETE (C) |  SHOP (S) | QUIT (Q)  |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         SpeciesArt.checkStatus(Pet.currentPet);
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|   | ENERGY: " + energy + "  |  HUNGER: " + hunger + "  |  THIRST: " + thirst + "  |  HAPPINESS: " + happiness + "       |   |");
-        System.out.println("|   |__________________________________________________________________|   |");
-        System.out.println("|   |    " + gender + "   |    " + maturity + "      |     " + species + "      |                      |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|__________________________________________________________________________|");
     }
@@ -58,13 +57,13 @@ public class Interface {
         System.out.println("|   |                                                                  |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|   |                                                                  |   |");
-        System.out.println("|   | PURCHACE FOOD x01  | (1)                                COST:" + Shop.shop.getFOOD_COST() + "|   |");
-        System.out.println("|   | FILL FOOD x" + (99 - Integer.parseInt(fA)) + "      | (2)                                COST: " + ((99 - Integer.parseInt(wA)) * Shop.shop.getFOOD_COST()) + " |   |");
+        System.out.println("|   | PURCHACE FOOD x01  | (Press 1)                       COST:" + Shop.shop.getFOOD_COST() + "     |   |");
+        System.out.println("|   | FILL FOOD x" + (99 - Integer.parseInt(fA)) + "      | (Press 2)                       COST: " + ((99 - Integer.parseInt(wA)) * Shop.shop.getFOOD_COST()) + "  |   |");
         System.out.println("|   |                                                                  |   |");
-        System.out.println("|   | PURCHACE WATER x01 | (3)                                COST:" + Shop.shop.getWATER_COST() + "|   |");
-        System.out.println("|   | FILL WATER x" + (99 - Integer.parseInt(wA)) + "     | (4)                                COST: " + ((99 - Integer.parseInt(wA)) * Shop.shop.getWATER_COST()) + " |   |");
+        System.out.println("|   | PURCHACE WATER x01 | (Press 3)                       COST:" + Shop.shop.getWATER_COST() + "     |   |");
+        System.out.println("|   | FILL WATER x" + (99 - Integer.parseInt(wA)) + "     | (Press 4)                       COST: " + ((99 - Integer.parseInt(wA)) * Shop.shop.getWATER_COST()) + "   |   |");
         System.out.println("|   |                                                                  |   |");
-        System.out.println("|   | PURCHACE PET (RANDOM STATS) x 1 (5)                              |   |");
+        System.out.println("|   | PURCHACE PET (RANDOM STATS) x 1 (Press 5)                        |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|__________________________________________________________________________|");
     }
