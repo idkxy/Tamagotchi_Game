@@ -22,8 +22,8 @@ public class Interact {
                 }
                 break;
             case 2:
-                //TODO: Will ask user to select another pet to breed with current pet.
-
+                Breed breed = new Breed();
+                breed.create();
                 break;
             case 3:
                 //TODO: Change current pet if player has more than one pet
