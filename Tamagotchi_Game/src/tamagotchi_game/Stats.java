@@ -13,6 +13,7 @@ class Stats {
         this.energy = energy;
     }
 
+    
     public int getHunger() {
         return hunger;
     }

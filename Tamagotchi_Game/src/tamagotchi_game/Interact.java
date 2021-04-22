@@ -15,6 +15,16 @@ public class Interact {
                 if (Time.getDiff(Pet.currentPet.getLastpatTime()) >= 60) {
                     Pet.currentPet.stats.setHappiness(Pet.currentPet.stats.getHappiness() + 1);
                     Pet.currentPet.setLastpatTime(LocalDateTime.now());
+                    if(Pet.currentPet.stats.getHappiness() >= 6)
+                    {
+                        System.out.println("Pet is now happy! You will get $100 from patting the pet!");
+                        Player.player.setCurrency(Player.player.getCurrency() + 100);
+                        if(Pet.currentPet.stats.getHappiness() == Stats.MAX_HAPPINESS) 
+                        {
+                            System.out.println("The happiness of the pet has reached max! You get 1 engergy as a bonus!");
+                            Pet.currentPet.stats.setEnergy(Pet.currentPet.stats.getEnergy() + 1);
+                        }
+                    }
                 } else {
                     //TODO:fix this time 
                     System.out.println(60 - Time.getDiff(Pet.currentPet.getLastpatTime()) + "minutes till next happiness increase through petting!");
