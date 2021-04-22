@@ -16,9 +16,7 @@ public class Competition {
     public int getWinCount() {
         return winCount;
     }
-
     
-            
     /**
      * @param winCount the winCount to set
      */
@@ -94,7 +92,8 @@ public class Competition {
         
         if(Player.player.getCurrency() > 0 && Pet.currentPet.stats.getEnergy() > 0 )
         {
-            total ++;
+            Pet.currentPet.getCompetition().setCptEntered(Pet.currentPet.getCompetition().getCptEntered()+1);
+            computeResult();
             Pet.currentPet.stats.setEnergy(Pet.currentPet.stats.getEnergy() - 1);
             Pet.currentPet.stats.setHappiness(Pet.currentPet.stats.getHappiness() - 1);
             Pet.currentPet.stats.setHunger(Pet.currentPet.stats.getHunger() - 1);
@@ -108,21 +107,20 @@ public class Competition {
         }
         else if (Pet.currentPet.stats.getEnergy() <= 0) {
             System.out.println("No energy left! Your pet can not enter game!");
-        } 
+        }
     }
 
     public void computeResult() throws InterruptedException {
         System.out.println(Pet.currentPet.getName() + " is now competing against " + opponent.getName() + " ......");
         System.out.println("");
-        Thread.sleep(1000);
+        //Thread.sleep(2000);
         System.out.println("Details of your pet: " + "\n" + Pet.currentPet.printPetDetails());
         System.out.println("");
         System.out.println("Opponent's Details: " + "\n" + opponent.printPetDetails());
         System.out.println("");
-        if ((Pet.currentPet.stats.getEnergy() + Pet.currentPet.stats.getHappiness() + Pet.currentPet.stats.getHunger() + Pet.currentPet.stats.getThirst())
-            > (opponent.stats.getEnergy() + opponent.stats.getHappiness() + opponent.stats.getHunger() +opponent.stats.getThirst()))
-           {
-            winCount ++;
+        if (Pet.currentPet.stats.getEnergy() > opponent.stats.getEnergy() && Pet.currentPet.stats.getHappiness() > opponent.stats.getHappiness()
+                && Pet.currentPet.stats.getHunger() > opponent.stats.getHunger() && Pet.currentPet.stats.getThirst() > opponent.stats.getThirst()) {
+            Pet.currentPet.getCompetition().setCptEntered(Pet.currentPet.getCompetition().winCount++);
             System.out.println("Congrats! " + Pet.currentPet.getName() + " wins! :)");
             System.out.println("You've earned $200!");
             System.out.println("");
@@ -135,11 +133,9 @@ public class Competition {
             total ++;
             System.out.println("Draw! You get your money back!");
             System.out.println("");
-            Player.player.setCurrency(Player.player.getCurrency() + 100);
-            
-        } 
-        else {
-            loseCount++;
+            //amount of currency earned from winning to be confirmed 
+        } else {
+            Pet.currentPet.getCompetition().setCptEntered(Pet.currentPet.getCompetition().loseCount++);
             System.out.println("Too bad " + Pet.currentPet.getName() + " loses! :(");
             System.out.println("You will get $30 back!");
             System.out.println("");

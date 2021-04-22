@@ -92,10 +92,11 @@ public class MainMenu {
                         pet.setGender(Gender.valueOf(pets[5]));
                         pet.setMaturity(Maturity.valueOf(pets[6]));
                         pet.setSpecies(Species.valueOf(pets[7]));
-                        Competition.c.setCptEntered((Integer.parseInt(pets[8])));
-                        Competition.c.setWinCount((Integer.parseInt(pets[9])));
-                        Competition.c.setLoseCount((Integer.parseInt(pets[10])));
-                        pet.setCompetition(Competition.c);
+                        Competition comp = new Competition();
+                        pet.setCompetition(comp);
+                        pet.getCompetition().setCptEntered((Integer.parseInt(pets[8])));
+                        pet.getCompetition().setWinCount((Integer.parseInt(pets[9])));
+                        pet.getCompetition().setLoseCount((Integer.parseInt(pets[10])));
                 
                         Main.petCollection.add(pet);
                     }

@@ -1,7 +1,6 @@
 package tamagotchi_game;
 
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.Random;
 
 public class Pet {
@@ -57,6 +56,9 @@ public class Pet {
         currentPet.setGender(temp.gender);
         currentPet.setMaturity(temp.maturity);
         currentPet.setCompetition(Competition.c);
+        currentPet.competition.setCptEntered(temp.competition.getCptEntered());
+        currentPet.competition.setWinCount(temp.competition.getWinCount());
+        currentPet.competition.setLoseCount(temp.competition.getLoseCount());
     }
 
     public static Pet PetGenerator()
