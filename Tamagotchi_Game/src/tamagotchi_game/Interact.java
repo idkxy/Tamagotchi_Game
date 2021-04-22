@@ -33,14 +33,14 @@ public class Interact {
                     String tempS = "";
                     for (int i = 0; i < Main.petCollection.size(); i++)
                     {
-                        temp.get(i).toString();
+                        System.out.println(temp.get(i).toString());
                         tempS += String.valueOf(i + 1);
                     }
 
                     System.out.println("Please select desired pet");
                     input = InputValidation.regexValidate(scan, tempS);
                     //TODO: FIX THIS - selects new pet but pretty broken 
-                    Pet.setCurrentPet((Pet)Main.petCollection.get(Integer.parseInt(input)));
+                    Pet.setCurrentPet((Pet)Main.petCollection.get(Integer.parseInt(input)-1));
                 } else {
                     System.out.println("Player requires more than one pet to use this function.");
                 }
