@@ -59,8 +59,8 @@ public class ShopOption extends Shop {
                 }
                 break;
                 case "5":
-                    shop.generatePet();
-                    shop.availablePets();
+                    shop.PetInShop();
+                    shop.PrintAvailablePets();
                     petChoice();
                     break;
                 case "x":

@@ -2,9 +2,12 @@ package tamagotchi_game;
 
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.Random;
 
 public class Pet {
 
+    
+    
     public static Pet currentPet = new Pet("", 0, 0, 0, 0);
     private Species species;
     private int value;
@@ -35,6 +38,17 @@ public class Pet {
         currentPet.setMaturity(temp.maturity);
     }
 
+    public static Pet PetGenerator()
+    {
+        String[] namesCompetition = {"Lolly","Hopper","Dove","April","Bishop","Jack","Jett","Mittens",};
+        Random rand = new Random();
+        Pet p = new Pet(namesCompetition[rand.nextInt(namesCompetition.length)],rand.nextInt(10),rand.nextInt(10),rand.nextInt(10),rand.nextInt(10));
+        p.setSpecies(Species.randomSpecies());
+        p.setGender(Gender.randomGender());
+        p.setMaturity(Maturity.randomMaturity());
+        
+        return p;
+    }
     /**
      * @return the name
      */
@@ -104,7 +118,13 @@ public class Pet {
         return (String.format( "%-31s", String.format(" " + "%-5s",getName()) +  "      "+ String.format("%-5s",getSpecies()) + "     " + String.format("%1$5s",getGender()) + (getGender()== Gender.MALE? "        " : "       " ) + String.format("%1$5s",getMaturity())) + "        " 
                 + stats.getHunger() + "        " + stats.getThirst()  + "        " +stats.getEnergy() + "      " +  "$" + getValue());
     }
-
+    
+    public String printPetDetails()
+    {
+        return "Name: " + getName() + ", Species: " + getSpecies() + ", Gender: " + getGender() + ", Maturity: " + getMaturity() + ", Energy: "
+                + stats.getEnergy() + ",Hunger: " + stats.getHunger() + ", Thirst: " + stats.getThirst() + ", Happiness: " + stats.getEnergy();
+                
+    }
     /**
      * @return the gender
      */

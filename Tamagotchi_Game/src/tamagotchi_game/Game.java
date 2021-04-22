@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Game {
 
-    public void mainGame() throws FileNotFoundException {
+    public void mainGame() throws FileNotFoundException, InterruptedException {
         Scanner scan = new Scanner(System.in);
         String user;
 
@@ -29,7 +29,10 @@ public class Game {
                     break;
                 case "c":
                     Interface.menuCompetition();
-                    user = InputValidation.regexValidate(scan, "PLACEHOLDER");
+                    user = InputValidation.regexValidate(scan, "YynN");
+                    Competition c = new Competition();
+                    c.entryCheck();
+                    System.out.println(c.toString());
                     break;
                 case "s":
                     Interface.menuShop();

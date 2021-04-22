@@ -2,19 +2,12 @@ package tamagotchi_game;
 
 public class Competition {
 
+    
     private int total;
-    private Pet myPet;
-    private Pet opponent;
+    private Pet opponent = Pet.PetGenerator();
     private int winCount = 0 ;
     private int loseCount= 0;
 
-    
-    
-    public Competition(Pet petA, Pet petB)
-    {
-        this.myPet = petA;
-        this.opponent = petB;
-    }
     
     /**
      * @return the cptEntered
@@ -30,19 +23,6 @@ public class Competition {
         this.total= cptEntered;
     }
 
-    /**
-     * @return the myPet
-     */
-    public Pet getMyPet() {
-        return myPet;
-    }
-
-    /**
-     * @param myPet the myPet to set
-     */
-    public void setMyPet(Pet myPet) {
-        this.myPet = myPet;
-    }
 
     /**
      * @return the opponent
@@ -60,14 +40,14 @@ public class Competition {
 
     public void entryCheck() throws InterruptedException
     {
-        if(myPet.stats.getEnergy() == 0)
+        if(Pet.currentPet.stats.getEnergy() == 0)
         {
             System.out.println("No energy left! Your pet can not enter game!");
         }
         else
         {
             computeResult();
-            myPet.stats.setEnergy(myPet.stats.getEnergy()-1);
+            Pet.currentPet.stats.setEnergy(Pet.currentPet.stats.getEnergy()-1);
             Player.player.setCurrency(Player.player.getCurrency() - 100);
             total ++;
             
@@ -76,24 +56,28 @@ public class Competition {
     
     public void computeResult() throws InterruptedException
     {
-        System.out.println(myPet.getName() + " is now competing against " + opponent.getName() + " ......");
+        System.out.println(Pet.currentPet.getName() + " is now competing against " + opponent.getName() + " ......");
         Thread.sleep(2000);
-        if (this.myPet.stats.getEnergy() > this.opponent.stats.getEnergy() && this.myPet.stats.getHappiness()> this.opponent.stats.getHappiness() && this.myPet.stats.getHunger()> this.opponent.stats.getHunger() && this.myPet.stats.getThirst()> this.opponent.stats.getThirst())
+        System.out.println("Details of your pet: " + "\n" + Pet.currentPet.printPetDetails());
+        System.out.println("");
+        System.out.println("Opponent's Details: " + "\n" + opponent.printPetDetails() );
+        if (Pet.currentPet.stats.getEnergy() > this.opponent.stats.getEnergy() && Pet.currentPet.stats.getHappiness()> this.opponent.stats.getHappiness() 
+                && Pet.currentPet.stats.getHunger()> this.opponent.stats.getHunger() && Pet.currentPet.stats.getThirst()> this.opponent.stats.getThirst())
         {
             this.winCount++;
-            System.out.println("Congrats! " + myPet.getName() + " wins! :)");
+            System.out.println("Congrats! " + Pet.currentPet.getName() + " wins! :)");
             //amount of currency earned from winning to be confirmed 
         }
         else
         {
             this.loseCount++;
-            System.out.println("Too bad " + opponent.getName() + " wins! :(");
+            System.out.println("Too bad " + Pet.currentPet.getName() + " loses! :(");
         }
     }
     
     public String toString()
     {
-        return (myPet.getName() + " has entered " + this.total+ " games. " + "Win " + this.winCount + " times." + " Lost " + this.loseCount + "times." + "\n" + "Current stats: " + myPet.toString());
+        return (Pet.currentPet.getName() + " has entered " + this.total+ " games. " + "Win " + this.winCount + " times." + " Lost " + this.loseCount + "times." + "\n");
         
     }
     

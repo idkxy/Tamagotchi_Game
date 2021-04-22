@@ -41,7 +41,8 @@ public class Breed {
                                 name = input.nextLine();
                                 breed = new Pet(name, rand.nextInt(10), rand.nextInt(10), rand.nextInt(10), rand.nextInt(10));
                                 petList.add(breed);
-                                System.out.println("Details of the breed: " + breed.toString());
+                                System.out.println("Details of the breed: ");
+                                System.out.println(breed.printPetDetails());
                                 run = false;
                             } else {
                                 System.out.println("The chosen pet isnt mature. Please try again!");

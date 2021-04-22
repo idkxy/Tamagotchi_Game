@@ -14,26 +14,23 @@ public class Shop {
     public static Shop shop = new Shop();
      
     private ArrayList<Pet> pets = new ArrayList<Pet>();
-    String[] names = {"Mocha","Lucky","Ginko","Dolby","Levi"};
-    Random rand = new Random();
+    String[] namesShop = {"Mocha","Lucky","Ginko","Dolby","Levi"};
+   
     private final int WATER_COST = 10;
     private final int FOOD_COST = 18;
     
-    //TODO: can go out of bounds
-    public void generatePet()
+    
+    
+    public void PetInShop()
     {
         for (int i = 0; i < 5; i++) {
-
-            pets.add(new Pet(names[i], rand.nextInt(10),rand.nextInt(10),rand.nextInt(10),rand.nextInt(10)));
-            pets.get(i).setSpecies(Species.randomSpecies());
-            pets.get(i).setGender(Gender.randomGender());
-            pets.get(i).setMaturity(Maturity.randomMaturity());
+            
+            pets.add(Pet.PetGenerator());
             pets.get(i).computeValue(pets.get(i));
-
         }
     }
     
-    public void availablePets()
+    public void PrintAvailablePets()
     {
         System.out.println("  |  Name  |  Species |  Gender  |  Maturity  | Hunger | Thirst | Energy | Price |");
         for(int i = 0; i < getPets().size();++i)
