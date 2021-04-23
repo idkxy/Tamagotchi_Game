@@ -33,7 +33,7 @@ public class Pet {
         gender = Gender.randomGender();
         maturity = Maturity.randomMaturity();
         //This sets the details of the games that the pet has entered
-        
+        competition = new Competition();
         competition.setCptEntered(competition.getCptEntered());
         competition.setWinCount(competition.getWinCount());
         competition.setLoseCount(competition.getLoseCount());

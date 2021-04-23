@@ -66,8 +66,6 @@ public class Data {
         } else {
             try {
                 Scanner scan = new Scanner(file);
-                String[] pets;
-                String[] stats;
 
                 while (scan.hasNextLine()) {
                     String line = scan.nextLine();

@@ -13,12 +13,12 @@ import java.util.Scanner;
 public class Competition {
 
     public static Competition c = new Competition();
-    private static int total = 0;
+    private int total = 0;
     private static Pet opponent = Pet.PetGenerator();
 
-    private static int winCount = 0;
-    private static int loseCount = 0;
-    private static int drawCount = 0;
+    private int winCount = 0;
+    private int loseCount = 0;
+    private int drawCount = 0;
 
     public int getWinCount() {
         return winCount;

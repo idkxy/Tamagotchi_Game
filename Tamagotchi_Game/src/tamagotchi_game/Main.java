@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    private Engine game = new Engine();
-
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
 
         Menu menu = new Menu();
