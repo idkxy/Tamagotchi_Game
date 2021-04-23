@@ -4,19 +4,23 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 /**
- *  This class will be used to compare the difference between the current time
-    and a time specified by the user
-
+ * This class will be used to compare the difference between the current time
+ * and a time specified by the user
+ * 
+ * @author DaisyXiao - 1392836
+ * @author Liam Yates - 18016696
+ * @author Liam Rimmer - 18040246
  */
-   
 public class Time {
 
     private static LocalDateTime currentTime = LocalDateTime.now();
 
     /**
-     * This method will be returning the difference between the local time
-     * and the time specified by the user. The result will be shown in minutes
-     * @param d1 is the time specified by the user to be compared with the local time
+     * This method will be returning the difference between the local time and
+     * the time specified by the user. The result will be shown in minutes
+     *
+     * @param d1 is the time specified by the user to be compared with the local
+     * time
      * @return the difference between the local time and the user specified time
      * in minutes
      */

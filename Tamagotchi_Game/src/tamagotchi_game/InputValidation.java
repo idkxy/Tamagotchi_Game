@@ -2,13 +2,19 @@ package tamagotchi_game;
 
 import java.util.Scanner;
 
+ /* 
+ * @author DaisyXiao - 1392836
+ * @author Liam Yates - 18016696
+ * @author Liam Rimmer - 18040246
+ */
 public class InputValidation {
 
     /**
      * Validates input through the power of regex
      *
      * @param scan The scanner which is taking input.
-     * @param values The only valid inputs the scanner should take. Case insensitive.
+     * @param values The only valid inputs the scanner should take. Case
+     * insensitive.
      * @return the input value
      */
     public static String regexValidate(Scanner scan, String values) {

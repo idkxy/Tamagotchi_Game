@@ -1,9 +1,12 @@
 package tamagotchi_game;
 
 /**
- * This class stores the ASCII art to be printed according to pet's species
- * and their stats level
- * @author DaisyXiao
+ * This class stores the ASCII art to be printed according to pet's species and
+ * their stats level
+ *
+ * @author DaisyXiao - 1392836
+ * @author Liam Yates - 18016696
+ * @author Liam Rimmer - 18040246
  */
 public class SpeciesArt {
 
@@ -84,12 +87,12 @@ public class SpeciesArt {
         "|                     \\       -  \\  /|  \\ \\/ /                     |",
         "|                      \\______o   \\/ |   \\  /                      |",};
 
-    
     /**
-     * This method will print the correlated ASCII art base on the species 
-     * of the pet passed in the parameter 
+     * This method will print the correlated ASCII art base on the species of
+     * the pet passed in the parameter
+     *
      * @param p is the pet whose species will be identified when passing through
-     * the method and correlated ASCII art will be printed 
+     * the method and correlated ASCII art will be printed
      */
     public static void printPet(Pet p) {
 
@@ -107,8 +110,9 @@ public class SpeciesArt {
     }
 
     /**
-     * This method is used to determine the face to be printed for the bear 
+     * This method is used to determine the face to be printed for the bear
      * according to the happiness level of the bear pet
+     *
      * @param p is used to retrieve the happiness level of the bear pet
      */
     private static void bearExpressions(Pet p) {
@@ -134,8 +138,9 @@ public class SpeciesArt {
     }
 
     /**
-     * This method is used to determine the face to be printed for the mouse 
+     * This method is used to determine the face to be printed for the mouse
      * according to the happiness level of the bear pet
+     *
      * @param p is used to retrieve the happiness level of the mouse pet
      */
     private static void mouseExpressions(Pet p) {
@@ -161,8 +166,9 @@ public class SpeciesArt {
     }
 
     /**
-     * This method is used to determine the face to be printed for the bear 
+     * This method is used to determine the face to be printed for the bear
      * according to the happiness level of the bear pet
+     *
      * @param p is used to retrieve the happiness level of the bear pet
      */
     private static void sharkExpressions(Pet p) {

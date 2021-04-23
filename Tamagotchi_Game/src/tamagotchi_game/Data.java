@@ -6,17 +6,22 @@ import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
- * This class is  for loading, saving and creating new game
+ * This class is for loading, saving and creating new game
+ * 
  * @author DaisyXiao - 1392836
+ * @author Liam Yates - 18016696
+ * @author Liam Rimmer - 18040246 
  */
 public class Data {
-    
+
     /**
      * Create a new game by asking the user to choose from the available pets
+     *
      * @throws FileNotFoundException
-     * @throws InterruptedException 
+     * @throws InterruptedException
      */
     public void newGame() throws FileNotFoundException, InterruptedException {
         String input;
@@ -47,11 +52,12 @@ public class Data {
 
     }
 
-   /**
-    * Load the game from reading information stored in save.txt
-    * @throws FileNotFoundException
-    * @throws InterruptedException 
-    */
+    /**
+     * Load the game from reading information stored in save.txt
+     *
+     * @throws FileNotFoundException
+     * @throws InterruptedException
+     */
     public void loadGame() throws FileNotFoundException, InterruptedException {
         File file = new File("save.txt");
         if (file.length() == 0) {
@@ -68,30 +74,29 @@ public class Data {
                     // store player stats in array
                     if (line.equals("@P_STATS")) {
                         line = scan.nextLine();
-                        stats = line.split(",");
-                        Player.player.setCurrency(Integer.parseInt(stats[0]));
-                        Player.player.setFoodAmount(Integer.parseInt(stats[1]));
-                        Player.player.setWaterAmount(Integer.parseInt(stats[2]));
-
+                        StringTokenizer st = new StringTokenizer(line, ",");
+                        Player.player.setCurrency(Integer.parseInt(st.nextToken()));
+                        Player.player.setFoodAmount(Integer.parseInt(st.nextToken()));
+                        Player.player.setWaterAmount(Integer.parseInt(st.nextToken()));
                     }
                     // store player pets in array
                     if (line.equals("@PETS")) {
                         int count = 0;
                         while (scan.hasNextLine()) {
                             line = scan.nextLine();
-                            pets = line.split(",");
-                            Pet pet = new Pet(pets[0], Integer.parseInt(pets[1]), Integer.parseInt(pets[2]), Integer.parseInt(pets[3]), Integer.parseInt(pets[4]));
-                            pet.setGender(Gender.valueOf(pets[5]));
-                            pet.setMaturity(Maturity.valueOf(pets[6]));
-                            pet.setSpecies(Species.valueOf(pets[7]));
+                            StringTokenizer st = new StringTokenizer(line, ",");
+                            Pet pet = new Pet(st.nextToken(), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+                            pet.setGender(Gender.valueOf(st.nextToken()));
+                            pet.setMaturity(Maturity.valueOf(st.nextToken()));
+                            pet.setSpecies(Species.valueOf(st.nextToken()));
                             Competition comp = new Competition();
                             pet.setCompetition(comp);
-                            pet.getCompetition().setCptEntered((Integer.parseInt(pets[8])));
-                            pet.getCompetition().setWinCount((Integer.parseInt(pets[9])));
-                            pet.getCompetition().setLoseCount((Integer.parseInt(pets[10])));
-                            pet.getCompetition().setDrawCount(Integer.parseInt(pets[11]));
-                            LocalDateTime created = LocalDateTime.parse(pets[12]);
-                            LocalDateTime lastpet = LocalDateTime.parse(pets[13]);
+                            pet.getCompetition().setCptEntered((Integer.parseInt(st.nextToken())));
+                            pet.getCompetition().setWinCount((Integer.parseInt(st.nextToken())));
+                            pet.getCompetition().setLoseCount((Integer.parseInt(st.nextToken())));
+                            pet.getCompetition().setDrawCount(Integer.parseInt(st.nextToken()));
+                            LocalDateTime created = LocalDateTime.parse(st.nextToken());
+                            LocalDateTime lastpet = LocalDateTime.parse(st.nextToken());
                             pet.setCreated(created);
                             pet.setLastpatTime(lastpet);
                             count++;
@@ -110,7 +115,8 @@ public class Data {
 
     /**
      * Print the game progress to save.txt
-     * @throws FileNotFoundException 
+     *
+     * @throws FileNotFoundException
      */
     public void saveGame() throws FileNotFoundException {
         String fileName = "save.txt";

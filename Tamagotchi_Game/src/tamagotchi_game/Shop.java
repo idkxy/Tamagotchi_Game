@@ -3,11 +3,14 @@ package tamagotchi_game;
 import java.util.ArrayList;
 
 /**
- * This class stores the pet to be displayed in the shop 
- * @author DaisyXiao -1392836
+ * This class stores the pet to be displayed in the shop
+ * 
+ * @author DaisyXiao - 1392836
+ * @author Liam Yates - 18016696
+ * @author Liam Rimmer - 18040246
  */
 public class Shop {
-    
+
     public static Shop shop = new Shop();
 
     private ArrayList<Pet> pets = new ArrayList<Pet>();
@@ -24,7 +27,7 @@ public class Shop {
             pets.add(Pet.PetGenerator());
             pets.get(i).computeValue(pets.get(i));
             System.out.println((i + 1) + ". " + pets.get(i));
-        
+
         }
     }
 
@@ -34,6 +37,7 @@ public class Shop {
     public ArrayList<Pet> getPets() {
         return pets;
     }
+
     /**
      * @return the WATER_COST
      */

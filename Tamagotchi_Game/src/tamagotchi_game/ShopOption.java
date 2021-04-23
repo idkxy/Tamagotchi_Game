@@ -3,14 +3,17 @@ package tamagotchi_game;
 import java.util.Scanner;
 
 /**
- * This is the class that handles all the choice made in the Shop class 
+ * This is the class that handles all the choice made in the Shop class
+ * 
  * @author DaisyXiao - 1392836
+ * @author Liam Yates - 18016696
+ * @author Liam Rimmer - 18040246
  */
 public class ShopOption extends Shop {
 
     /**
-     * This method handles all the choice made in the Shop class according to the 
-     * available options 
+     * This method handles all the choice made in the Shop class according to
+     * the available options
      */
     public static ShopOption shopOption = new ShopOption();
     Scanner s = new Scanner(System.in);
@@ -27,15 +30,12 @@ public class ShopOption extends Shop {
                     if (Player.player.getCurrency() - Shop.shop.getFOOD_COST() >= 0 && Player.player.getFoodAmount() < 99) {
                         Player.player.setCurrency(Player.player.getCurrency() - Shop.shop.getFOOD_COST());
                         Player.player.setFoodAmount(Player.player.getFoodAmount() + 1);
-                        Interface.menuShop();
+                        Menu.menuShop();
                         System.out.println("Purchase completed! You now have " + Player.player.getFoodAmount() + " units of food!");
                     } else {
-                        if(Player.player.getFoodAmount() == 99)
-                        {
+                        if (Player.player.getFoodAmount() == 99) {
                             System.out.println("Food amount has reached maximum! Purchase can not be completed!");
-                        }
-                        else if(Player.player.getCurrency() - Shop.shop.getFOOD_COST() < 0)
-                        {
+                        } else if (Player.player.getCurrency() - Shop.shop.getFOOD_COST() < 0) {
                             System.out.println("Insufficient funds! Purchase could not be completed!");
                         }
                         LOOP = false;
@@ -50,17 +50,14 @@ public class ShopOption extends Shop {
                         Player.player.setCurrency(Player.player.getCurrency() - Shop.shop.getFOOD_COST() * (99 - Player.player.getFoodAmount()));
                         Player.player.setFoodAmount(99);
                         System.out.println("Purchase completed! The number of food reaches max now!");
-                        Interface.menuShop();
+                        Menu.menuShop();
                     } else {
-                        if(Player.player.getFoodAmount() == 99)
-                        {
+                        if (Player.player.getFoodAmount() == 99) {
                             System.out.println("Water amount has reached maximum! Purchase can not be completed!");
+                        } else if (Player.player.getCurrency() - Shop.shop.getFOOD_COST() * (99 - Player.player.getFoodAmount()) < 0) {
+                            System.out.println("Insufficient funds! Purchase could not be completed!");
                         }
-                        else if(Player.player.getCurrency() - Shop.shop.getFOOD_COST() * (99 - Player.player.getFoodAmount()) < 0)
-                                {
-                                    System.out.println("Insufficient funds! Purchase could not be completed!");
-                                }
-                        
+
                         LOOP = false;
                         System.out.println("Going back to previous menu...");
                         Thread.sleep(1000);
@@ -72,20 +69,17 @@ public class ShopOption extends Shop {
                     if (Player.player.getCurrency() - Shop.shop.getWATER_COST() >= 0 && Player.player.getWaterAmount() < 99) {
                         Player.player.setCurrency(Player.player.getCurrency() - Shop.shop.getFOOD_COST());
                         Player.player.setWaterAmount(Player.player.getWaterAmount() + 1);
-                        Interface.menuShop();
+                        Menu.menuShop();
                         System.out.println("Purchase completed! You now have " + Player.player.getWaterAmount() + " units of water!");
                         LOOP = false;
                         System.out.println("Going back to previous menu...");
                         Thread.sleep(1000);
                     } else {
-                        
-                       if(Player.player.getWaterAmount() == 99)
-                        {
+
+                        if (Player.player.getWaterAmount() == 99) {
                             System.out.println("Food amount has reached maximum! Purchase can not be completed!");
-                        }
-                        else if(Player.player.getCurrency() - Shop.shop.getWATER_COST() < 0)
-                        {
-                             System.out.println("Insufficient funds! Purchase could not be completed!");
+                        } else if (Player.player.getCurrency() - Shop.shop.getWATER_COST() < 0) {
+                            System.out.println("Insufficient funds! Purchase could not be completed!");
                         }
                         LOOP = false;
                         System.out.println("Going back to previous menu...");
@@ -98,24 +92,17 @@ public class ShopOption extends Shop {
                     if (Player.player.getCurrency() - Shop.shop.getWATER_COST() * (99 - Player.player.getWaterAmount()) > 0 && Player.player.getWaterAmount() < 99) {
                         Player.player.setCurrency(Player.player.getCurrency() - Shop.shop.getWATER_COST() * (99 - Player.player.getWaterAmount()));
                         Player.player.setWaterAmount(99);
-                        Interface.menuShop();
+                        Menu.menuShop();
                         System.out.println("Purchase completed! The number of water reaches max now!");
                         LOOP = false;
-                        System.out.println("Going back to previous menu...");
-                        Thread.sleep(1000);
                     } else {
-                        if(Player.player.getWaterAmount() == 99)
-                        {
+                        if (Player.player.getWaterAmount() == 99) {
                             System.out.println("Food amount has reached maximum! Purchase can not be completed!");
+                        } else if (Player.player.getCurrency() - Shop.shop.getWATER_COST() * (99 - Player.player.getWaterAmount()) < 0) {
+                            System.out.println("Insufficient funds! Purchase could not be completed!");
                         }
-                        else if(Player.player.getCurrency() - Shop.shop.getWATER_COST() * (99 - Player.player.getWaterAmount()) < 0 )
-                        {
-                             System.out.println("Insufficient funds! Purchase could not be completed!");
-                        }
-                       
+
                         LOOP = false;
-                        System.out.println("Going back to previous menu...");
-                        Thread.sleep(1000);
                     }
                 }
                 break;
@@ -123,15 +110,11 @@ public class ShopOption extends Shop {
                 case "5":
                     shop.PetInShop();
                     petChoice();
-                    System.out.println("Going back to previous menu...");
-                    Thread.sleep(1000);
                     LOOP = false;
                     break;
                 //Quit from current menu and go back to the main menu
                 case "x":
                     LOOP = false;
-                    System.out.println("Going back to the previous menu...");
-                    Thread.sleep(1000);
                     break;
                 default:
                     break;
@@ -140,8 +123,8 @@ public class ShopOption extends Shop {
     }
 
     /**
-     * This method handles the user's choice of pet among the pets available in shop
-     * and interact with the user accordingly
+     * This method handles the user's choice of pet among the pets available in
+     * shop and interact with the user accordingly
      */
     public void petChoice() {
 

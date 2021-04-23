@@ -1,8 +1,12 @@
 package tamagotchi_game;
 
 /**
- * This class contains the details of the player: currency, water and food amount 
+ * This class contains the details of the player: currency, water and food
+ * amount
+ * 
  * @author DaisyXiao - 1392836
+ * @author Liam Yates - 18016696
+ * @author Liam Rimmer - 18040246
  */
 public class Player {
 
