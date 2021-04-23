@@ -78,7 +78,6 @@ public class ShopOption extends Shop {
                 break;
                 case "5":
                     shop.PetInShop();
-                    shop.PrintAvailablePets();
                     petChoice();
                     System.out.println("Going back to previous menu...");
                     Thread.sleep(1000);
