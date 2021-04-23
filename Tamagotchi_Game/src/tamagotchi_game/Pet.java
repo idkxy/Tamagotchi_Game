@@ -2,12 +2,13 @@ package tamagotchi_game;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Pet {
     
     public static Pet currentPet = new Pet("", 0, 0, 0, 0);
-    private static ArrayList<Pet> petCollection = new ArrayList<Pet>();
+    public static HashMap<Integer, Pet> petCollection = new HashMap<Integer, Pet>();
     private Species species;
     private int value;
     private String name;
@@ -17,7 +18,7 @@ public class Pet {
     private Gender gender;
     private LocalDateTime LastpatTime = LocalDateTime.of(1, 1, 1, 1, 1);
     private Competition competition;
-    public static int index = 0;
+    private static int index = 0;
 
     public Pet(String name, int hunger, int thirst, int happiness, int energy) {
         this.name = name;
@@ -61,7 +62,7 @@ public class Pet {
     
     public static void updatePet()
     {
-        getPetCollection().set(getPetCollection().indexOf(Pet.currentPet)+1, Pet.currentPet);
+        //getPetCollection().set(getPetCollection().indexOf(0), Pet.petCollection.get(Pet.getIndex()));
     }
     
     /**
@@ -141,7 +142,6 @@ public class Pet {
         this.created = created;
     }
 
-    //this gotta be fixed perhaps, could probably just use tthe getters for info if we need it
     @Override
     public String toString() {
         return (" " + String.format("%-33s", String.format("%-7s", getName()) + "    " + String.format("%-5s", getSpecies()) + "    " + String.format("%-5s", getGender()) + (getGender() == Gender.MALE ? "        " : "       ") + String.format("%-7s", getMaturity())) + "       "
@@ -194,12 +194,11 @@ public class Pet {
 
     }
 
-    public static ArrayList<Pet> getPetCollection() {
-        return petCollection;
+    public static int getIndex() {
+        return index;
     }
 
-    public static void setPetCollection(ArrayList<Pet> aPetCollection) {
-        petCollection = aPetCollection;
+    public static void setIndex(int aIndex) {
+        index = aIndex;
     }
-
 }

@@ -3,9 +3,7 @@ package tamagotchi_game;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Scanner;
-import javafx.util.converter.LocalDateTimeStringConverter;
 
 public class MainMenu {
 
@@ -16,7 +14,7 @@ public class MainMenu {
         System.out.println("-------------------------\n\n");
     }
 
-    public static void mainMenu(ArrayList<Pet> petCollection) throws FileNotFoundException, InterruptedException {
+    public static void mainMenu() throws FileNotFoundException, InterruptedException {
 
         System.out.println("-----   MAIN MENU   -----");
         System.out.println("1. New Game\n2. Load Game");
@@ -57,12 +55,14 @@ public class MainMenu {
         }
         input = InputValidation.regexValidate(scan, "123");
         //add choice to pet collection
-        Pet.setCurrentPet(starterPet[Integer.parseInt(input) - 1]);
-        Pet.currentPet.setCreated(LocalDateTime.now());
-        Pet.getPetCollection().add(Pet.currentPet);
+        Pet.setIndex(0);
+        Pet.petCollection.put(Pet.getIndex(), starterPet[Integer.parseInt(input)-1]);
+        //Pet.setCurrentPet(starterPet[Integer.parseInt(input) - 1], 0);
+        Pet.petCollection.get(Pet.getIndex()).setCreated(LocalDateTime.now());
+        //Pet.petCollection.add(Pet.petCollection.get(Pet.getIndex()));
 
-        System.out.println("You have selected " + Pet.currentPet.getName() + "!");
-        System.out.println("You now own " + Pet.getPetCollection().size() + " pet" + (Pet.getPetCollection().size() > 1 ? "s." : "."));
+        System.out.println("You have selected " + Pet.petCollection.get(Pet.getIndex()).getName() + "!");
+        System.out.println("You now own " + Pet.petCollection.size() + " pet" + (Pet.petCollection.size() > 1 ? "s." : "."));
 
     }
 
@@ -90,6 +90,7 @@ public class MainMenu {
                     }
                     // store player pets in array
                     if (line.equals("@PETS")) {
+                        int count = 0;
                         while (scan.hasNextLine()) {
                             line = scan.nextLine();
                             pets = line.split(",");
@@ -106,14 +107,14 @@ public class MainMenu {
                             LocalDateTime lastpet = LocalDateTime.parse(pets[12]);
                             pet.setCreated(created);
                             pet.setLastpatTime(lastpet);
-
-                            Pet.getPetCollection().add(pet);
+                            count++;
+                            Pet.petCollection.put(count, pet);
                         }
                     }
                 }
                 scan.close();
                 // set first saved pet to current pet
-                Pet.setCurrentPet((Pet) Pet.getPetCollection().get(0));
+                Pet.setIndex(1);
             } catch (FileNotFoundException e) {
                 System.out.println("No save games found in " + file + "!");
             }

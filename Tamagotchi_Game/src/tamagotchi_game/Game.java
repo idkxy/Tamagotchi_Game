@@ -46,7 +46,7 @@ public class Game {
                     break;
             }
         }
-        Data.saveGame(Pet.getPetCollection());
+        Data.saveGame();
         System.out.println("Game ends. Bye!");
         System.exit(0);
     }

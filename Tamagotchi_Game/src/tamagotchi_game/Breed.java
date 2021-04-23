@@ -10,7 +10,7 @@ public class Breed {
 
     private Pet breed;
 
-    ArrayList<Pet> petList = Pet.getPetCollection();
+    HashMap<Integer, Pet> petList = Pet.petCollection;
     Scanner scan = new Scanner(System.in);
     Random rand = new Random();
     String input;
@@ -34,14 +34,14 @@ public class Breed {
                 }
                 input = InputValidation.regexValidate(scan, temp);
                 int choice = Integer.parseInt(input) - 1;
-                if (!petList.get(choice).getName().equals(Pet.currentPet.getName())) {
+                if (!petList.get(choice).getName().equals(Pet.petCollection.get(Pet.getIndex()).getName())) {
                     if (petList.get(choice).getMaturity() == Maturity.ADULT) {
                         System.out.println("Great! A new pet has been created!");
                         System.out.println("Please give the new pet a name: ");
                         name = scan.nextLine();
                         breed = new Pet(name, rand.nextInt(10), rand.nextInt(10), rand.nextInt(10), rand.nextInt(10));
                         breed.setMaturity(Maturity.BABY);
-                        petList.add(breed);
+                        petList.put(Pet.petCollection.size() + 1, breed);
                         System.out.println("Details of the breed: " + breed.toString());
                         LOOP = false;
                     } else {

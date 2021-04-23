@@ -13,7 +13,7 @@ public class Main {
         MainMenu.intro();
         //Thread.sleep(2000);
 
-        MainMenu.mainMenu(Pet.getPetCollection());
+        MainMenu.mainMenu();
 
         game.mainGame();
 
