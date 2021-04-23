@@ -3,24 +3,28 @@ package tamagotchi_game;
 public class Interface {
 
     public static void dashBoard() {
-        String energy = String.format("%02d", Pet.currentPet.stats.getEnergy());
-        String hunger = String.format("%02d", Pet.currentPet.stats.getHunger());
-        String thirst = String.format("%02d", Pet.currentPet.stats.getThirst());
-        String happiness = String.format("%02d", Pet.currentPet.stats.getHappiness());
-        String gender = Pet.currentPet.getGender().name();
-        String maturity = Pet.currentPet.getMaturity().name();
-        String species = Pet.currentPet.getSpecies().name();
+        String energy = String.format("%02d", Pet.petCollection.get(Pet.getIndex()).stats.getEnergy());
+        String hunger = String.format("%02d", Pet.petCollection.get(Pet.getIndex()).stats.getHunger());
+        String thirst = String.format("%02d", Pet.petCollection.get(Pet.getIndex()).stats.getThirst());
+        String happiness = String.format("%02d", Pet.petCollection.get(Pet.getIndex()).stats.getHappiness());
+        String gender = Pet.petCollection.get(Pet.getIndex()).getGender().name();
+        String maturity = Pet.petCollection.get(Pet.getIndex()).getMaturity().name();
+        String species = Pet.petCollection.get(Pet.getIndex()).getSpecies().name();
 
         //TODO: Add the pets dashBoard into large space in the middle as well as gender of pet/ maturity.
         System.out.println("____________________________________________________________________________");
+<<<<<<< Updated upstream
         System.out.println("| Pet Name: " + String.format("%-9s", Pet.petCollection.get(Pet.getIndex()).getName()) + "                 Currency: $" + String.format("%-5s", Player.player.getCurrency()) + "  Food: " + String.format("%-2s", Player.player.getFoodAmount()) + "  Water: " + String.format("%-2s", Player.player.getWaterAmount()) + " |");
+=======
+        System.out.println("| Pet Name: " + String.format("%-8s", Pet.petCollection.get(Pet.getIndex()).getName()) + "                 Currency: $" + String.format("%-5s", Player.player.getCurrency()) + "  Food: " + String.format("%-2s", Player.player.getFoodAmount()) + "  Water: " + String.format("%-2s", Player.player.getWaterAmount()) + " |");
+>>>>>>> Stashed changes
         System.out.println("|" + String.format("%-49s", (" Gender: " + gender + " | Maturity: " + maturity + " |" + " Species: " + species)) + "                         |");
         System.out.println("|    __________________________________________________________________    |");
         System.out.println("|   |  INTERACT (I) |  FEED (F) |  COMPETE (C) |  SHOP (S) | QUIT (Q)  |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|   | Total Pets: " + Pet.petCollection.size() + "                                                    |   |");
         System.out.println("|   |                                                                  |   |");
-        SpeciesArt.printPet(Pet.currentPet);
+        SpeciesArt.printPet(Pet.petCollection.get(Pet.getIndex()));
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|   | ENERGY: " + energy + "/" + Stats.MAX_ENERGY + " | HUNGER: " + hunger + "/" + Stats.MAX_HUNGER + " | THIRST: " + thirst + "/" + Stats.MAX_THIRST + " | HAPPINESS: " + happiness + "/" + Stats.MAX_HAPPINESS + " |   |");
         System.out.println("|   |__________________________________________________________________|   |");
@@ -48,7 +52,7 @@ public class Interface {
         Competition comp = new Competition();
         System.out.println("____________________________________________________________________________");
         System.out.println("|    __________________________________________________________________    |");
-        System.out.println("|   | My Pet :   " + String.format("%-8s", Pet.currentPet.getName()) + "            " + "|" + "  Opponent:   " + String.format("%8s", comp.getOpponent().getName()) + "           |   |");
+        System.out.println("|   | My Pet :   " + String.format("%-8s", Pet.petCollection.get(Pet.getIndex()).getName()) + "            " + "|" + "  Opponent:   " + String.format("%8s", comp.getOpponent().getName()) + "           |   |");
         System.out.println("|   |                                                                  |   |");
         System.out.println("|   |                 $100 to enter.  Compete?  Y / N                  |   |");
         System.out.println("|   |__________________________________________________________________|   |");

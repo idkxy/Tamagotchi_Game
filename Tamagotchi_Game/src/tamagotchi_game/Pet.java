@@ -7,7 +7,6 @@ import java.util.Random;
 
 public class Pet {
 
-    public static Pet currentPet = Pet.petCollection.get(Pet.getIndex());
     public static HashMap<Integer, Pet> petCollection = new HashMap<Integer, Pet>();
     private Species species;
     private int value;

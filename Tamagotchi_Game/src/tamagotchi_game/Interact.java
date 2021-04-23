@@ -12,20 +12,20 @@ public class Interact {
         switch (userInput) {
             case 1:
                 //Will increase pet happiness by 1
-                if (Time.getDiff(Pet.currentPet.getLastpatTime()) >= 60) {
+                if (Time.getDiff(Pet.petCollection.get(Pet.getIndex()).getLastpatTime()) >= 60) {
                     System.out.println("The happiness level of the current pet has gone up by one from patting!");
-                    Pet.currentPet.stats.setHappiness(Pet.currentPet.stats.getHappiness() + 1);
-                    Pet.currentPet.setLastpatTime(LocalDateTime.now());
-                    if (Pet.currentPet.stats.getHappiness() >= 6) {
+                    Pet.petCollection.get(Pet.getIndex()).stats.setHappiness(Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() + 1);
+                    Pet.petCollection.get(Pet.getIndex()).setLastpatTime(LocalDateTime.now());
+                    if (Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() >= 6) {
                         System.out.println("Pet is now happy! You will get $100 from patting the pet!");
                         Player.player.setCurrency(Player.player.getCurrency() + 100);
-                        if (Pet.currentPet.stats.getHappiness() == Stats.MAX_HAPPINESS) {
+                        if (Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() == Stats.MAX_HAPPINESS) {
                             System.out.println("The happiness of the pet has reached max! You get 1 engergy as a bonus!");
-                            Pet.currentPet.stats.setEnergy(Pet.currentPet.stats.getEnergy() + 1);
+                            Pet.petCollection.get(Pet.getIndex()).stats.setEnergy(Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() + 1);
                         }
                     }
                 } else {
-                    System.out.println(60 - Time.getDiff(Pet.currentPet.getLastpatTime()) + " minutes till next happiness increase through petting!");
+                    System.out.println(60 - Time.getDiff(Pet.petCollection.get(Pet.getIndex()).getLastpatTime()) + " minutes till next happiness increase through petting!");
                 }
                 break;
             case 2:
