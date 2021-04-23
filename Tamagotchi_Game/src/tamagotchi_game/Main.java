@@ -2,20 +2,39 @@ package tamagotchi_game;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
-
-    static Game game = new Game();
+    private Engine game = new Engine();
 
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
 
-        MainMenu.intro();
+        Interface menu = new Interface();
+        Engine engine = new Engine();
+        System.out.println("\n\nWelcome to Magic Hand Eventually Extended to Sausage!");
+        System.out.println("\nDesigned and Developed by:\nLiam Yates\nDaisy Xiao\nLiam Rimmer\n");
+        System.out.println("-------------------------\n\n");
         //Thread.sleep(2000);
 
-        MainMenu.mainMenu();
+        menu.mainMenu();
 
-        game.mainGame();
+        Data data = new Data();
+        Scanner scan = new Scanner(System.in);
+        String input = InputValidation.regexValidate(scan, "12");
 
+        switch (input) {
+            case "1":
+                data.newGame();
+                break;
+            case "2":
+                data.loadGame();
+                break;
+        }
+        engine.Game();
+
+        data.saveGame();
+        System.out.println("Game ends. Bye!");
+        System.exit(0);
     }
 }

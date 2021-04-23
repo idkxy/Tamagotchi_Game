@@ -118,6 +118,7 @@ public void entryCheck() throws InterruptedException {
                 == (opponent.stats.getEnergy() + opponent.stats.getHappiness() + opponent.stats.getHunger() + opponent.stats.getThirst())) {
             System.out.println("Draw! You get your money back!");
             System.out.println("");
+            Player.player.setCurrency(Player.player.getCurrency() + 100);
             Pet.petCollection.get(Pet.getIndex()).getCompetition().setDrawCount(Pet.petCollection.get(Pet.getIndex()).getCompetition().getDrawCount() + 1);
             //amount of currency earned from winning to be confirmed 
         } else {
@@ -125,7 +126,7 @@ public void entryCheck() throws InterruptedException {
             System.out.println("Too bad " + Pet.petCollection.get(Pet.getIndex()).getName() + " loses! :(");
             System.out.println("You will get $30 back!");
             System.out.println("");
-            Player.player.setCurrency(Player.player.getCurrency() + 10);
+            Player.player.setCurrency(Player.player.getCurrency() + 30);
         }
 
     }

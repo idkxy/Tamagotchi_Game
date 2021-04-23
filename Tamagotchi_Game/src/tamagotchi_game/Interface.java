@@ -11,13 +11,8 @@ public class Interface {
         String maturity = Pet.petCollection.get(Pet.getIndex()).getMaturity().name();
         String species = Pet.petCollection.get(Pet.getIndex()).getSpecies().name();
 
-        //TODO: Add the pets dashBoard into large space in the middle as well as gender of pet/ maturity.
         System.out.println("____________________________________________________________________________");
-<<<<<<< Updated upstream
         System.out.println("| Pet Name: " + String.format("%-9s", Pet.petCollection.get(Pet.getIndex()).getName()) + "                 Currency: $" + String.format("%-5s", Player.player.getCurrency()) + "  Food: " + String.format("%-2s", Player.player.getFoodAmount()) + "  Water: " + String.format("%-2s", Player.player.getWaterAmount()) + " |");
-=======
-        System.out.println("| Pet Name: " + String.format("%-8s", Pet.petCollection.get(Pet.getIndex()).getName()) + "                 Currency: $" + String.format("%-5s", Player.player.getCurrency()) + "  Food: " + String.format("%-2s", Player.player.getFoodAmount()) + "  Water: " + String.format("%-2s", Player.player.getWaterAmount()) + " |");
->>>>>>> Stashed changes
         System.out.println("|" + String.format("%-49s", (" Gender: " + gender + " | Maturity: " + maturity + " |" + " Species: " + species)) + "                         |");
         System.out.println("|    __________________________________________________________________    |");
         System.out.println("|   |  INTERACT (I) |  FEED (F) |  COMPETE (C) |  SHOP (S) | QUIT (Q)  |   |");
@@ -78,5 +73,10 @@ public class Interface {
         System.out.println("|   | PURCHACE PET (RANDOM STATS) x 1 (Press 5)                        |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|__________________________________________________________________________|");
+    }
+
+    public void mainMenu() {
+        System.out.println("-----   MAIN MENU   -----");
+        System.out.println("1. New Game\n2. Load Game");
     }
 }
