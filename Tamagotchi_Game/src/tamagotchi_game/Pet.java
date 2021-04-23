@@ -19,8 +19,6 @@ public class Pet {
         this.competition = competition;
     }
 
-    
-    
     public static Pet currentPet = new Pet("", 0, 0, 0, 0);
     private Species species;
     private int value;
@@ -31,7 +29,6 @@ public class Pet {
     private Gender gender;
     private LocalDateTime LastpatTime = LocalDateTime.of(1, 1, 1, 1, 1);
     private Competition competition;
-   
 
     public Pet(String name, int hunger, int thirst, int happiness, int energy) {
         this.name = name;
@@ -61,17 +58,17 @@ public class Pet {
         currentPet.competition.setLoseCount(temp.competition.getLoseCount());
     }
 
-    public static Pet PetGenerator()
-    {
-        String[] namesCompetition = {"Lolly","Hopper","Dove","April","Bishop","Jack","Jett","Mittens",};
+    public static Pet PetGenerator() {
+        String[] namesCompetition = {"Lolly", "Hopper", "Dove", "April", "Bishop", "Jack", "Jett", "Mittens",};
         Random rand = new Random();
-        Pet p = new Pet(namesCompetition[rand.nextInt(namesCompetition.length)],rand.nextInt(10),rand.nextInt(10),rand.nextInt(10),rand.nextInt(10));
+        Pet p = new Pet(namesCompetition[rand.nextInt(namesCompetition.length)], rand.nextInt(10), rand.nextInt(10), rand.nextInt(10), rand.nextInt(10));
         p.setSpecies(Species.randomSpecies());
         p.setGender(Gender.randomGender());
         p.setMaturity(Maturity.randomMaturity());
-        
+
         return p;
     }
+
     /**
      * @return the name
      */
@@ -138,16 +135,16 @@ public class Pet {
     //this gotta be fixed perhaps, could probably just use tthe getters for info if we need it
     @Override
     public String toString() {
-        return (" " + String.format( "%-33s", String.format("%-7s",getName()) +  "    "+ String.format("%-5s",getSpecies()) + "    " + String.format("%-5s",getGender()) + (getGender()== Gender.MALE? "        " : "       " ) + String.format("%-7s",getMaturity())) + "       " 
-                + stats.getHunger() + "        " + stats.getThirst()  + "        " +stats.getEnergy() + "      " +  "$" + getValue());
+        return (" " + String.format("%-33s", String.format("%-7s", getName()) + "    " + String.format("%-5s", getSpecies()) + "    " + String.format("%-5s", getGender()) + (getGender() == Gender.MALE ? "        " : "       ") + String.format("%-7s", getMaturity())) + "       "
+                + stats.getHunger() + "        " + stats.getThirst() + "        " + stats.getEnergy() + "      " + "$" + getValue());
     }
-    
-    public String printPetDetails()
-    {
+
+    public String printPetDetails() {
         return "Name: " + getName() + ", Species: " + getSpecies() + ", Gender: " + getGender() + ", Maturity: " + getMaturity() + ", Energy: "
                 + stats.getEnergy() + ", Hunger: " + stats.getHunger() + ", Thirst: " + stats.getThirst() + ", Happiness: " + stats.getEnergy();
-                
+
     }
+
     /**
      * @return the gender
      */
@@ -182,11 +179,10 @@ public class Pet {
     public void setLastpatTime(LocalDateTime lastpatTime) {
         this.LastpatTime = lastpatTime;
     }
-    
-    public void computeValue(Pet p)
-    {
+
+    public void computeValue(Pet p) {
         p.setValue(100 + (p.stats.getEnergy() * 5));
-        
+
     }
 
 }

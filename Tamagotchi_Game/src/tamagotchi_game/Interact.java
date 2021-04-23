@@ -16,12 +16,10 @@ public class Interact {
                     System.out.println("The happiness level of the current pet has gone up by one from patting!");
                     Pet.currentPet.stats.setHappiness(Pet.currentPet.stats.getHappiness() + 1);
                     Pet.currentPet.setLastpatTime(LocalDateTime.now());
-                    if(Pet.currentPet.stats.getHappiness() >= 6)
-                    {
+                    if (Pet.currentPet.stats.getHappiness() >= 6) {
                         System.out.println("Pet is now happy! You will get $100 from patting the pet!");
                         Player.player.setCurrency(Player.player.getCurrency() + 100);
-                        if(Pet.currentPet.stats.getHappiness() == Stats.MAX_HAPPINESS) 
-                        {
+                        if (Pet.currentPet.stats.getHappiness() == Stats.MAX_HAPPINESS) {
                             System.out.println("The happiness of the pet has reached max! You get 1 engergy as a bonus!");
                             Pet.currentPet.stats.setEnergy(Pet.currentPet.stats.getEnergy() + 1);
                         }
@@ -39,11 +37,10 @@ public class Interact {
                 //TODO: Change current pet if player has more than one pet
                 if (Main.petCollection.size() > 1) {
                     System.out.println("Player pets:");
-                    
+
                     ArrayList<Pet> temp = Main.petCollection;
                     String tempS = "";
-                    for (int i = 0; i < Main.petCollection.size(); i++)
-                    {
+                    for (int i = 0; i < Main.petCollection.size(); i++) {
                         System.out.println(temp.get(i).toString());
                         tempS += String.valueOf(i + 1);
                     }
@@ -51,7 +48,7 @@ public class Interact {
                     System.out.println("Please select desired pet");
                     input = InputValidation.regexValidate(scan, tempS);
                     //TODO: FIX THIS - selects new pet but pretty broken 
-                    Pet.setCurrentPet((Pet)Main.petCollection.get(Integer.parseInt(input)-1));
+                    Pet.setCurrentPet((Pet) Main.petCollection.get(Integer.parseInt(input) - 1));
                 } else {
                     System.out.println("Player requires more than one pet to use this function.");
                 }

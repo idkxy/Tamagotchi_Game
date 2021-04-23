@@ -4,16 +4,14 @@ class Stats {
 
     private int hunger, thirst, happiness, energy;
     public static final int MAX_HUNGER = 10, MAX_THIRST = 10, MAX_HAPPINESS = 10, MAX_ENERGY = 10;
-    
-    public Stats(int hunger, int thirst, int happiness, int energy)
-    {
+
+    public Stats(int hunger, int thirst, int happiness, int energy) {
         this.hunger = hunger;
         this.thirst = thirst;
         this.happiness = happiness;
         this.energy = energy;
     }
 
-    
     public int getHunger() {
         return hunger;
     }

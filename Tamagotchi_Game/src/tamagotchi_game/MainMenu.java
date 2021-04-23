@@ -52,7 +52,7 @@ public class MainMenu {
         int count = 1;
         //TODO: tidy this up
         for (Pet x : starterPet) {
-            System.out.printf(count + ".  " + x.getName() + "    " + String.format("%-5s", x.getSpecies()) + "    " + String.format("%1$5s",x.getGender()) + (x.getGender()== Gender.MALE? "     " : "    " ) + String.format("%1$5s",x.getMaturity()) + "        " + x.stats.getHunger() + "        " + x.stats.getThirst() + "        " + x.stats.getEnergy() + "\n");
+            System.out.printf(count + ".  " + x.getName() + "    " + String.format("%-5s", x.getSpecies()) + "    " + String.format("%1$5s", x.getGender()) + (x.getGender() == Gender.MALE ? "     " : "    ") + String.format("%1$5s", x.getMaturity()) + "        " + x.stats.getHunger() + "        " + x.stats.getThirst() + "        " + x.stats.getEnergy() + "\n");
             count++;
         }
         input = InputValidation.regexValidate(scan, "123");
@@ -97,13 +97,13 @@ public class MainMenu {
                         pet.getCompetition().setCptEntered((Integer.parseInt(pets[8])));
                         pet.getCompetition().setWinCount((Integer.parseInt(pets[9])));
                         pet.getCompetition().setLoseCount((Integer.parseInt(pets[10])));
-                
+
                         Main.petCollection.add(pet);
                     }
                 }
             }
             scan.close();
-            Pet.setCurrentPet((Pet)Main.petCollection.get(0));
+            Pet.setCurrentPet((Pet) Main.petCollection.get(0));
         } catch (FileNotFoundException e) {
             System.out.println("No save games found in " + file + "!");
         }

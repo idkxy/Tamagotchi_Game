@@ -34,7 +34,7 @@ public class Game {
                 case "c":
                     Competition.c.setOpponent(Pet.PetGenerator());
                     Interface.menuCompetition();
-                    Competition.c.confirmation();   
+                    Competition.c.confirmation();
 
                     break;
                 case "s":

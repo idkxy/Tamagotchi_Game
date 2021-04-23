@@ -13,12 +13,14 @@ public class InputValidation {
      */
     public static String regexValidate(Scanner scan, String values) {
         String[] temp = values.split("");
+        // prints accepted input on cli
         System.out.print("User (");
         for (int k = 0; k < temp.length; k++) {
             temp[k] = temp[k].toUpperCase();
             System.out.print(temp[k] + (k == temp.length - 1 ? "" : ","));
         }
         System.out.print("):");
+
         // builds regex string
         String regex = "(?i)^";
         String input = scan.nextLine();
@@ -29,6 +31,7 @@ public class InputValidation {
             }
         }
         regex += "{1}$";
+
         //polls for valid input
         while (!input.matches(regex)) {
             System.out.print("invalid input! try again: ");
