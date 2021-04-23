@@ -20,19 +20,16 @@ public class Shop {
     private final int FOOD_COST = 18;
 
     public void PetInShop() {
+        System.out.println("  |  Name  |  Species |  Gender  |  Maturity  | Hunger | Thirst | Energy | Price |");
         for (int i = 0; i < 5; i++) {
-
             pets.add(Pet.PetGenerator());
             pets.get(i).computeValue(pets.get(i));
+            System.out.println((i + 1) + ". " + pets.get(i));
+        
         }
     }
 
-    public void PrintAvailablePets() {
-        System.out.println("  |  Name  |  Species |  Gender  |  Maturity  | Hunger | Thirst | Energy | Price |");
-        for (int i = 0; i < getPets().size(); ++i) {
-            System.out.println((i + 1) + ". " + pets.get(i));
-        }
-    }
+
 
     /**
      * @return the WATER_COST

@@ -144,7 +144,7 @@ public class Pet {
 
     @Override
     public String toString() {
-        return (" " + String.format("%-33s", String.format("%-7s", getName()) + "    " + String.format("%-5s", getSpecies()) + "    " + String.format("%-5s", getGender()) + (getGender() == Gender.MALE ? "        " : "       ") + String.format("%-7s", getMaturity())) + "       "
+        return (" " + String.format("%-33s", String.format("%-9s", getName()) + "  " + String.format("%-5s", getSpecies()) + "     " + String.format("%-5s", getGender()) + (getGender() == Gender.MALE ? "        " : "       ") + String.format("%-7s", getMaturity())) + "      "
                 + stats.getHunger() + "        " + stats.getThirst() + "        " + stats.getEnergy() + "      " + "$" + getValue());
     }
 

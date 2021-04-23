@@ -47,10 +47,10 @@ public class MainMenu {
         System.out.println("Creating a new game...\n");
         System.out.println("Select starting pet:");
         System.out.println("--------------------");
-        System.out.println("  | Name | Species | Gender | Maturity | Hunger | Thirst | Energy |");
+        System.out.println("  |    Name    |  Species |  Gender  | Maturity | Hunger | Thirst | Energy |");
         int count = 1;
         for (Pet x : starterPet) {
-            System.out.printf(count + ".  " + x.getName() + "    " + String.format("%-5s", x.getSpecies()) + "    " + String.format("%1$5s", x.getGender()) + (x.getGender() == Gender.MALE ? "     " : "    ") + String.format("%1$5s", x.getMaturity()) + "        " + x.stats.getHunger() + "        " + x.stats.getThirst() + "        " + x.stats.getEnergy() + "\n");
+            System.out.printf(count + ".    " + String.format("%-9s",x.getName()) + "    " + String.format("%-5s", x.getSpecies()) + "     " + String.format("%1$5s", x.getGender()) + (x.getGender() == Gender.MALE ? "      " : "     ") + String.format("%1$5s", x.getMaturity()) + "        " + x.stats.getHunger() + "        " + x.stats.getThirst() + "        " + x.stats.getEnergy() + "\n");
             count++;
         }
         input = InputValidation.regexValidate(scan, "123");
