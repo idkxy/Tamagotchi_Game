@@ -6,12 +6,12 @@ public class FeedOption {
      * The feed method will take in user's input representing the choice they
      * make in feeding the pet
      *
-     * @param userInput
+     * @param DaisyXiao - 1392836
      */
     public static void Feed(int userInput) {
         switch (userInput) {
             case 1:
-                //Food
+                //Feed the pet with food
                 if (Player.player.getFoodAmount() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getHunger() < 10) {
                     Player.player.setFoodAmount(Player.player.getFoodAmount() - 1);
                     Pet.petCollection.get(Pet.getIndex()).stats.setHunger(Pet.petCollection.get(Pet.getIndex()).stats.getHunger() + 1);
@@ -23,7 +23,7 @@ public class FeedOption {
                 }
                 break;
             case 2:
-                //Water
+                //Feed the pet with water 
                 if (Player.player.getWaterAmount() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getThirst() < 10) {
                     Player.player.setWaterAmount(Player.player.getWaterAmount() - 1);
                     Pet.petCollection.get(Pet.getIndex()).stats.setThirst(Pet.petCollection.get(Pet.getIndex()).stats.getThirst() + 1);
@@ -35,7 +35,7 @@ public class FeedOption {
                 }
                 break;
             case 3:
-                //Both
+                //Feed the pet with both water and food
                 if ((Player.player.getFoodAmount() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getHunger() < 10) || (Player.player.getWaterAmount() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getThirst() < 10)) {
 
                     Player.player.setFoodAmount(Player.player.getFoodAmount() - 1);
@@ -58,7 +58,7 @@ public class FeedOption {
                 }
                 break;
             case 4:
-                //Fill food
+                //Feed pet with enough food that maximize the hunger level
                 if (Player.player.getFoodAmount() >= (10 - Player.player.getFoodAmount()) && Pet.petCollection.get(Pet.getIndex()).stats.getHunger() < 10) {
                     Player.player.setFoodAmount(Player.player.getFoodAmount() - (10 - Player.player.getFoodAmount()));
                     Pet.petCollection.get(Pet.getIndex()).stats.setHunger(10);
@@ -71,7 +71,7 @@ public class FeedOption {
                 }
                 break;
             case 5:
-                //Fill water
+                 //Feed pet with enough water that maximize the thirst level
                 if (Player.player.getWaterAmount() >= (10 - Player.player.getWaterAmount()) && Pet.petCollection.get(Pet.getIndex()).stats.getThirst() < 10) {
                     Player.player.setWaterAmount(Player.player.getWaterAmount() - (10 - Player.player.getWaterAmount()));
                     Pet.petCollection.get(Pet.getIndex()).stats.setThirst(10);
@@ -82,10 +82,9 @@ public class FeedOption {
                 }
                 break;
             case 6:
-                //Fill both
+                 //Feed pet with enough food and water that maximize the hunger and thrist level
                 if (((Player.player.getFoodAmount() > 0 || Pet.petCollection.get(Pet.getIndex()).stats.getHunger() < 10)) && ((Player.player.getWaterAmount() > 0 || Pet.petCollection.get(Pet.getIndex()).stats.getThirst() < 10))) {
-                    //Fills food at a cost.
-                    if ((Player.player.getFoodAmount() - (10 - Pet.petCollection.get(Pet.getIndex()).stats.getHunger()) > 0) && (Player.player.getWaterAmount() - (10 - Pet.petCollection.get(Pet.getIndex()).stats.getThirst()) > 0)) {
+                        if ((Player.player.getFoodAmount() - (10 - Pet.petCollection.get(Pet.getIndex()).stats.getHunger()) > 0) && (Player.player.getWaterAmount() - (10 - Pet.petCollection.get(Pet.getIndex()).stats.getThirst()) > 0)) {
                         Pet.petCollection.get(Pet.getIndex()).stats.setHunger(10);
                         Pet.petCollection.get(Pet.getIndex()).stats.setThirst(10);
                         Player.player.setFoodAmount(Player.player.getFoodAmount() - (10 - Pet.petCollection.get(Pet.getIndex()).stats.getHunger()));

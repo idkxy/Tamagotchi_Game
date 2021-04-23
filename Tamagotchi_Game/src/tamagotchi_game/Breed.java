@@ -18,7 +18,7 @@ public class Breed {
     boolean LOOP = true;
 
     /**
-     *  
+     *  This method will create a breed from the current pet if the required conditions are met
      */
     public void create() {
         if (petList.size() == 1) {
@@ -32,6 +32,7 @@ public class Breed {
                     System.out.println(petList.get(i).toString());
                     temp += String.valueOf(i + 1);
                 }
+                //checks if the pet in the specified index of the petList is mature to breed
                 input = InputValidation.regexValidate(scan, temp);
                 int choice = Integer.parseInt(input) - 1;
                 if (!petList.get(choice).getName().equals(Pet.petCollection.get(Pet.getIndex()).getName())) {

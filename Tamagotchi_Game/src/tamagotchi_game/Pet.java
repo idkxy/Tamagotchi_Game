@@ -23,6 +23,7 @@ public class Pet {
     private Competition competition;
     private static int index = 0;
 
+    
     public Pet(String name, int hunger, int thirst, int happiness, int energy) {
         this.name = name;
         stats = new Stats(hunger, thirst, happiness, energy);
@@ -30,6 +31,7 @@ public class Pet {
         species = Species.randomSpecies();
         gender = Gender.randomGender();
         maturity = Maturity.randomMaturity();
+        //This sets the details of the games that the pet has entered
         Competition.c.setCptEntered(Competition.c.getCptEntered());
         Competition.c.setWinCount(Competition.c.getWinCount());
         Competition.c.setLoseCount(Competition.c.getLoseCount());
@@ -37,6 +39,10 @@ public class Pet {
         setCompetition(Competition.c);
     }
 
+    /**
+     * This method will randomly generate a pet that has random stats but the name of which will be among the names
+     * @return a randomly generated pet
+     */
     public static Pet PetGenerator() {
         String[] namesCompetition = {"Lolly", "Hopper", "Dove", "April", "Bishop", "Jack", "Jett", "Mittens",};
         Random rand = new Random();

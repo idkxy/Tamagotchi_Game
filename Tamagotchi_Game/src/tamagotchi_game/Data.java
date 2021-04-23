@@ -7,8 +7,17 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
+/**
+ * This class is  for loading, saving and creating new game
+ * @author DaisyXiao - 1392836
+ */
 public class Data {
-
+    
+    /**
+     * Create a new game by asking the user to choose from the available pets
+     * @throws FileNotFoundException
+     * @throws InterruptedException 
+     */
     public void newGame() throws FileNotFoundException, InterruptedException {
         String input;
         Scanner scan = new Scanner(System.in);
@@ -38,6 +47,11 @@ public class Data {
 
     }
 
+   /**
+    * Load the game from reading information stored in save.txt
+    * @throws FileNotFoundException
+    * @throws InterruptedException 
+    */
     public void loadGame() throws FileNotFoundException, InterruptedException {
         File file = new File("save.txt");
         if (file.length() == 0) {
@@ -94,6 +108,10 @@ public class Data {
         }
     }
 
+    /**
+     * Print the game progress to save.txt
+     * @throws FileNotFoundException 
+     */
     public void saveGame() throws FileNotFoundException {
         String fileName = "save.txt";
         PrintWriter pw = new PrintWriter(new FileOutputStream(fileName));

@@ -2,8 +2,14 @@ package tamagotchi_game;
 
 import java.util.Scanner;
 
+/**
+ * This class contains all the details of the pet's competition with a method that checks if 
+ * the pet is eligible to enter the game
+ * @author DaisyXiao - 1392836
+ */
 public class Competition {
 
+    
     public static Competition c = new Competition();
     private static int total = 0;
     private static Pet opponent;
@@ -44,7 +50,8 @@ public class Competition {
     }
 
     /**
-     *
+     * Ask if the user wants to enter the competition and print corresponding information
+     * when y/n is pressed 
      * @throws InterruptedException
      */
     public void confirmation() throws InterruptedException {
@@ -57,42 +64,44 @@ public class Competition {
             computeResult();
             System.out.println(Pet.petCollection.get(Pet.getIndex()).getCompetition());
             System.out.println("");
-            System.out.println("Going back to the previous menu....");
-            Thread.sleep(2000);
-        } else {
-            System.out.println("Going back to the previous menu....");
-            Thread.sleep(2000);
-        }
+        } 
+            
 
     }
 
     /**
-     *
+     * This method checks if the pet is eligible to enter a competition
      * @throws InterruptedException
      */
 public void entryCheck() throws InterruptedException {
-
-        if (Player.player.getCurrency() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getHunger() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getThirst() > 0) {
+        //check if the player has sufficient fund and all the pet's stats are greater than 1
+        if (Player.player.getCurrency() <= 0) {
+                    System.out.println("Insufficient fund! Can not enter competition");
+                   
+                }
+        else
+        {
+            if (Player.player.getCurrency() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getHunger() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getThirst() > 0) {
             {
                 if ((Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() - 1) > 0 && (Pet.petCollection.get(Pet.getIndex()).stats.getHappiness()) - 1 > 0 && (Pet.petCollection.get(Pet.getIndex()).stats.getHunger()) - 1 > 0 && (Pet.petCollection.get(Pet.getIndex()).stats.getThirst()) - 1 > 0) {
-                     Pet.petCollection.get(Pet.getIndex()).stats.setHappiness(Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() - 1);
+                     Pet.petCollection.get(Pet.getIndex()).stats.setEnergy(Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() - 1); 
+                    Pet.petCollection.get(Pet.getIndex()).stats.setHappiness(Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() - 1);
                 Pet.petCollection.get(Pet.getIndex()).stats.setHunger(Pet.petCollection.get(Pet.getIndex()).stats.getHunger() - 1);
                 Pet.petCollection.get(Pet.getIndex()).stats.setThirst(Pet.petCollection.get(Pet.getIndex()).stats.getThirst() - 1);
                 Player.player.setCurrency(Player.player.getCurrency() - 100);
-                if (Player.player.getCurrency() < 0) {
-                    System.out.println("Insufficient fund! Can not enter competition");
-                    Pet.petCollection.get(Pet.getIndex()).stats.setEnergy(Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() - 1);
-                }
+                
 
         } else if (Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() <= 0 || Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() <= 0 || Pet.petCollection.get(Pet.getIndex()).stats.getHunger() <= 0 || Pet.petCollection.get(Pet.getIndex()).stats.getThirst() <= 0) {
             System.out.println("Required stats level is not met ! Your pet can not enter game!");
         }
+        }
+        
        
     }
     }}
 
     /**
-     *
+     * Compute the result of the competition according to the pet's stats
      * @throws InterruptedException
      */
     public void computeResult() throws InterruptedException {

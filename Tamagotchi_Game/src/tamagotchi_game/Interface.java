@@ -1,5 +1,9 @@
 package tamagotchi_game;
 
+/**
+ * Print the menus for all sections of the game
+ * @author DaisyXiao - 1392836
+ */
 public class Interface {
 
     public static void dashBoard() {

@@ -28,8 +28,6 @@ public class Shop {
         }
     }
 
-
-
     /**
      * @return the pets
      */

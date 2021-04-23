@@ -15,10 +15,10 @@ public class Time {
 
     /**
      * This method will be returning the difference between the local time
-     * and the time specified by the user. The result will be shown in milliseconds
+     * and the time specified by the user. The result will be shown in minutes
      * @param d1 is the time specified by the user to be compared with the local time
      * @return the difference between the local time and the user specified time
-     * in milliseconds
+     * in minutes
      */
     public static long getDiff(LocalDateTime d1) {
         return Duration.between(d1, LocalDateTime.now()).toMinutes();
