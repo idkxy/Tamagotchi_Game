@@ -34,7 +34,7 @@ public class Breed {
                 }
                 input = InputValidation.regexValidate(scan, temp);
                 int choice = Integer.parseInt(input) - 1;
-                if (!petList.get(choice).getName().equals(Pet.petCollection.get(Pet.getIndex()).getName())) {
+                if (!petList.get(choice).getName().equals(Pet.currentPet.getName())) {
                     if (petList.get(choice).getMaturity() == Maturity.ADULT) {
                         System.out.println("Great! A new pet has been created!");
                         System.out.println("Please give the new pet a name: ");

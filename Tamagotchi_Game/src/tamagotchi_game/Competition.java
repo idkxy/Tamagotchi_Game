@@ -9,6 +9,7 @@ public class Competition {
     private static Pet opponent;
     private static int winCount = 0;
     private static int loseCount = 0;
+    private static int drawCount = 0;
 
     public int getWinCount() {
         return winCount;
@@ -54,7 +55,7 @@ public class Competition {
         if (confirm.equalsIgnoreCase("Y")) {
             entryCheck();
             computeResult();
-            System.out.println(Pet.petCollection.get(Pet.getIndex()).getCompetition());
+            System.out.println(Pet.currentPet.getCompetition());
             System.out.println("");
             System.out.println("Going back to the previous menu....");
             Thread.sleep(2000);
@@ -69,21 +70,26 @@ public class Competition {
      *
      * @throws InterruptedException
      */
-    public void entryCheck() throws InterruptedException {
+public void entryCheck() throws InterruptedException {
 
-        if (Player.player.getCurrency() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getHunger() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getThirst() > 0) {
-            Pet.petCollection.get(Pet.getIndex()).stats.setEnergy(Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() - 1);
-            Pet.petCollection.get(Pet.getIndex()).stats.setHappiness(Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() - 1);
-            Pet.petCollection.get(Pet.getIndex()).stats.setHunger(Pet.petCollection.get(Pet.getIndex()).stats.getHunger() - 1);
-            Pet.petCollection.get(Pet.getIndex()).stats.setThirst(Pet.petCollection.get(Pet.getIndex()).stats.getThirst() - 1);
-            Player.player.setCurrency(Player.player.getCurrency() - 100);
-            total++;
-        } else if (Player.player.getCurrency() <= 0) {
-            System.out.println("Insufficient fund! Can not enter competition");
-        } else if (Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() <= 0) {
-            System.out.println("No energy left! Your pet can not enter game!");
+        if (Player.player.getCurrency() > 0 && Pet.currentPet.stats.getEnergy() > 0 && Pet.currentPet.stats.getHappiness() > 0 && Pet.currentPet.stats.getHunger() > 0 && Pet.currentPet.stats.getThirst() > 0) {
+            {
+                if ((Pet.currentPet.stats.getEnergy() - 1) > 0 && (Pet.currentPet.stats.getHappiness()) - 1 > 0 && (Pet.currentPet.stats.getHunger()) - 1 > 0 && (Pet.currentPet.stats.getThirst()) - 1 > 0) {
+                     Pet.currentPet.stats.setHappiness(Pet.currentPet.stats.getHappiness() - 1);
+                Pet.currentPet.stats.setHunger(Pet.currentPet.stats.getHunger() - 1);
+                Pet.currentPet.stats.setThirst(Pet.currentPet.stats.getThirst() - 1);
+                Player.player.setCurrency(Player.player.getCurrency() - 100);
+                if (Player.player.getCurrency() < 0) {
+                    System.out.println("Insufficient fund! Can not enter competition");
+                    Pet.currentPet.stats.setEnergy(Pet.currentPet.stats.getEnergy() - 1);
+                }
+
+        } else if (Pet.currentPet.stats.getEnergy() <= 0 || Pet.currentPet.stats.getHappiness() <= 0 || Pet.currentPet.stats.getHunger() <= 0 || Pet.currentPet.stats.getThirst() <= 0) {
+            System.out.println("Required stats level is not met ! Your pet can not enter game!");
         }
+       
     }
+    }}
 
     /**
      *
@@ -91,30 +97,33 @@ public class Competition {
      */
     public void computeResult() throws InterruptedException {
 
-        System.out.println(Pet.petCollection.get(Pet.getIndex()).getName() + " is now competing against " + opponent.getName() + " ......");
+        System.out.println(Pet.currentPet.getName() + " is now competing against " + opponent.getName() + " ......");
         System.out.println("");
-        System.out.println("Details of your pet: " + "\n" + Pet.petCollection.get(Pet.getIndex()).printPetDetails());
+        System.out.println("Details of your pet: " + "\n" + Pet.currentPet.printPetDetails());
         System.out.println("");
         System.out.println("Opponent's Details: " + "\n" + opponent.printPetDetails());
         System.out.println("");
-
-        if ((Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() + Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() + Pet.petCollection.get(Pet.getIndex()).stats.getHunger() + Pet.petCollection.get(Pet.getIndex()).stats.getThirst())
+        Pet.currentPet.getCompetition().setCptEntered(Pet.currentPet.getCompetition().getCptEntered()+ 1);
+;
+        if ((Pet.currentPet.stats.getEnergy() + Pet.currentPet.stats.getHappiness() + Pet.currentPet.stats.getHunger() + Pet.currentPet.stats.getThirst())
                 > (opponent.stats.getEnergy() + opponent.stats.getHappiness() + opponent.stats.getHunger() + opponent.stats.getThirst())) {
 
-            System.out.println("Congrats! " + Pet.petCollection.get(Pet.getIndex()).getName() + " wins! :)");
-            winCount++;
+            System.out.println("Congrats! " + Pet.currentPet.getName() + " wins! :)");
+            Pet.currentPet.getCompetition().setWinCount(Pet.currentPet.getCompetition().getWinCount() + 1);
             System.out.println("You've earned $200!");
             System.out.println("");
             Player.player.setCurrency(Player.player.getCurrency() + 200);
-        } else if ((Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() + Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() + Pet.petCollection.get(Pet.getIndex()).stats.getHunger() + Pet.petCollection.get(Pet.getIndex()).stats.getThirst())
+        }
+        else if ((Pet.currentPet.stats.getEnergy() + Pet.currentPet.stats.getHappiness() + Pet.currentPet.stats.getHunger() + Pet.currentPet.stats.getThirst())
                 == (opponent.stats.getEnergy() + opponent.stats.getHappiness() + opponent.stats.getHunger() + opponent.stats.getThirst())) {
             System.out.println("Draw! You get your money back!");
             System.out.println("");
+            Pet.currentPet.getCompetition().setDrawCount(Pet.currentPet.getCompetition().getDrawCount());
+            Pet.currentPet.getCompetition().setDrawCount(Pet.currentPet.getCompetition().getDrawCount() + 1);
             //amount of currency earned from winning to be confirmed 
         } else {
-
-            loseCount++;
-            System.out.println("Too bad " + Pet.petCollection.get(Pet.getIndex()).getName() + " loses! :(");
+            Pet.currentPet.getCompetition().setLoseCount(Pet.currentPet.getCompetition().getLoseCount() + 1);
+            System.out.println("Too bad " + Pet.currentPet.getName() + " loses! :(");
             System.out.println("You will get $30 back!");
             System.out.println("");
             Player.player.setCurrency(Player.player.getCurrency() + 10);
@@ -123,8 +132,22 @@ public class Competition {
     }
 
     public String toString() {
-        return (Pet.petCollection.get(Pet.getIndex()).getName() + " has entered " + total + " game(s). " + "Win " + winCount + " time(s)." + " Lost " + loseCount + " time(s)." + "\n");
+        return (Pet.currentPet.getName() + " has entered " + total + " game(s). " + "Win " + winCount + " time(s)." + " Lost " + loseCount + " time(s)." + "\n");
 
+    }
+
+    /**
+     * @return the drawCount
+     */
+    public int getDrawCount() {
+        return drawCount;
+    }
+
+    /**
+     * @param aDrawCount the drawCount to set
+     */
+    public void setDrawCount(int aDrawCount) {
+        drawCount = aDrawCount;
     }
 
 }

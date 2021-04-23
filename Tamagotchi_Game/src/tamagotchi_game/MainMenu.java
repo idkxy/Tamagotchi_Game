@@ -58,10 +58,10 @@ public class MainMenu {
         Pet.setIndex(0);
         Pet.petCollection.put(Pet.getIndex(), starterPet[Integer.parseInt(input)-1]);
         //Pet.setCurrentPet(starterPet[Integer.parseInt(input) - 1], 0);
-        Pet.petCollection.get(Pet.getIndex()).setCreated(LocalDateTime.now());
-        //Pet.petCollection.add(Pet.petCollection.get(Pet.getIndex()));
+        Pet.currentPet.setCreated(LocalDateTime.now());
+        //Pet.petCollection.add(Pet.currentPet);
 
-        System.out.println("You have selected " + Pet.petCollection.get(Pet.getIndex()).getName() + "!");
+        System.out.println("You have selected " + Pet.currentPet.getName() + "!");
         System.out.println("You now own " + Pet.petCollection.size() + " pet" + (Pet.petCollection.size() > 1 ? "s." : "."));
 
     }

@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Pet {
-    
-    public static Pet currentPet = new Pet("", 0, 0, 0, 0);
+
+    public static Pet currentPet = Pet.petCollection.get(Pet.getIndex());
     public static HashMap<Integer, Pet> petCollection = new HashMap<Integer, Pet>();
     private Species species;
     private int value;
@@ -27,27 +27,11 @@ public class Pet {
         species = Species.randomSpecies();
         gender = Gender.randomGender();
         maturity = Maturity.randomMaturity();
-        Competition.c.setCptEntered(0);
-        Competition.c.setWinCount(0);
-        Competition.c.setLoseCount(0);
+        Competition.c.setCptEntered(Competition.c.getCptEntered());
+        Competition.c.setWinCount(Competition.c.getWinCount());
+        Competition.c.setLoseCount(Competition.c.getLoseCount());
+        Competition.c.setDrawCount(Competition.c.getDrawCount());
         setCompetition(Competition.c);
-    }
-
-    public static void setCurrentPet(Pet temp) {
-        currentPet.name = temp.name;
-        currentPet.stats.setEnergy(temp.stats.getEnergy());
-        currentPet.stats.setHappiness(temp.stats.getHappiness());
-        currentPet.stats.setHunger(temp.stats.getHunger());
-        currentPet.stats.setThirst(temp.stats.getThirst());
-        currentPet.setSpecies(temp.species);
-        currentPet.setGender(temp.gender);
-        currentPet.setMaturity(temp.maturity);
-        currentPet.setCompetition(Competition.c);
-        currentPet.competition.setCptEntered(temp.competition.getCptEntered());
-        currentPet.competition.setWinCount(temp.competition.getWinCount());
-        currentPet.competition.setLoseCount(temp.competition.getLoseCount());
-        currentPet.setCreated(temp.getCreated());
-        currentPet.setLastpatTime(temp.getLastpatTime());
     }
 
     public static Pet PetGenerator() {
@@ -59,12 +43,7 @@ public class Pet {
         p.setMaturity(Maturity.randomMaturity());
         return p;
     }
-    
-    public static void updatePet()
-    {
-        //getPetCollection().set(getPetCollection().indexOf(0), Pet.petCollection.get(Pet.getIndex()));
-    }
-    
+
     /**
      * @return the competition
      */
