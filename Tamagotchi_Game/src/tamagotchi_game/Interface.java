@@ -18,11 +18,11 @@ public class Interface {
         System.out.println("|    __________________________________________________________________    |");
         System.out.println("|   |  INTERACT (I) |  FEED (F) |  COMPETE (C) |  SHOP (S) | QUIT (Q)  |   |");
         System.out.println("|   |__________________________________________________________________|   |");
-        System.out.println("|   |Current number of pet(s): " + Main.petCollection.size() + "                                       |   |");
+        System.out.println("|   | Total Pets: " + Pet.getPetCollection().size() + "                                                    |   |");
         System.out.println("|   |                                                                  |   |");
-        SpeciesArt.checkStatus(Pet.currentPet);
+        SpeciesArt.printPet(Pet.currentPet);
         System.out.println("|   |__________________________________________________________________|   |");
-        System.out.println("|   | ENERGY: " + energy + "  |  HUNGER: " + hunger + "  |  THIRST: " + thirst + "  |  HAPPINESS: " + happiness + "       |   |");
+        System.out.println("|   | ENERGY: " + energy + "/" + Stats.MAX_ENERGY + " | HUNGER: " + hunger + "/" + Stats.MAX_HUNGER + " | THIRST: " + thirst + "/" + Stats.MAX_THIRST + " | HAPPINESS: " + happiness + "/" + Stats.MAX_HAPPINESS + " |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|__________________________________________________________________________|");
     }
@@ -30,7 +30,7 @@ public class Interface {
     public static void menuInteract() {
         System.out.println("____________________________________________________________________________");
         System.out.println("|    __________________________________________________________________    |");
-        System.out.println("|   |       PAT (1) | BREED (2) | SELECT PET (3) | SELL PET (4)        |   |");
+        System.out.println("|   |              PAT (1) | BREED (2) | SELECT PET (3)                |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|__________________________________________________________________________|");
     }
@@ -38,8 +38,8 @@ public class Interface {
     public static void menuFeed() {
         System.out.println("____________________________________________________________________________");
         System.out.println("|    __________________________________________________________________    |");
-        System.out.println("|   | SINGLE USE:      FOOD (1) | WATER (2) | BOTH (3)                 |   |");
-        System.out.println("|   | FILL ATTRIBUTE:  FOOD (4) | WATER (5) | BOTH (6)                 |   |");
+        System.out.println("|   |         SINGLE USE:      FOOD (1) | WATER (2) | BOTH (3)         |   |");
+        System.out.println("|   |         FILL ATTRIBUTE:  FOOD (4) | WATER (5) | BOTH (6)         |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|__________________________________________________________________________|");
     }
@@ -50,7 +50,7 @@ public class Interface {
         System.out.println("|    __________________________________________________________________    |");
         System.out.println("|   | My Pet :   " + String.format("%-8s", Pet.currentPet.getName()) + "            " + "|" + "  Opponent:   " + String.format("%8s", comp.getOpponent().getName()) + "           |   |");
         System.out.println("|   |                                                                  |   |");
-        System.out.println("|   | $100 to enter.  Compete?  Y / N                                  |   |");
+        System.out.println("|   |                 $100 to enter.  Compete?  Y / N                  |   |");
         System.out.println("|   |__________________________________________________________________|   |");
         System.out.println("|__________________________________________________________________________|");
     }

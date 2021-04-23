@@ -1,34 +1,23 @@
 package tamagotchi_game;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Pet {
-
-    /**
-     * @return the competition
-     */
-    public Competition getCompetition() {
-        return competition;
-    }
-
-    /**
-     * @param competition the competition to set
-     */
-    public void setCompetition(Competition competition) {
-        this.competition = competition;
-    }
-
+    
     public static Pet currentPet = new Pet("", 0, 0, 0, 0);
+    private static ArrayList<Pet> petCollection = new ArrayList<Pet>();
     private Species species;
     private int value;
     private String name;
     Stats stats;
-    private LocalDateTime created;
+    private LocalDateTime created = LocalDateTime.of(1, 1, 1, 1, 1);
     private Maturity maturity = Maturity.BABY;
     private Gender gender;
     private LocalDateTime LastpatTime = LocalDateTime.of(1, 1, 1, 1, 1);
     private Competition competition;
+    public static int index = 0;
 
     public Pet(String name, int hunger, int thirst, int happiness, int energy) {
         this.name = name;
@@ -56,6 +45,8 @@ public class Pet {
         currentPet.competition.setCptEntered(temp.competition.getCptEntered());
         currentPet.competition.setWinCount(temp.competition.getWinCount());
         currentPet.competition.setLoseCount(temp.competition.getLoseCount());
+        currentPet.setCreated(temp.getCreated());
+        currentPet.setLastpatTime(temp.getLastpatTime());
     }
 
     public static Pet PetGenerator() {
@@ -65,8 +56,26 @@ public class Pet {
         p.setSpecies(Species.randomSpecies());
         p.setGender(Gender.randomGender());
         p.setMaturity(Maturity.randomMaturity());
-
         return p;
+    }
+    
+    public static void updatePet()
+    {
+        getPetCollection().set(getPetCollection().indexOf(Pet.currentPet)+1, Pet.currentPet);
+    }
+    
+    /**
+     * @return the competition
+     */
+    public Competition getCompetition() {
+        return competition;
+    }
+
+    /**
+     * @param competition the competition to set
+     */
+    public void setCompetition(Competition competition) {
+        this.competition = competition;
     }
 
     /**
@@ -129,7 +138,7 @@ public class Pet {
      * @param created the created to set
      */
     public void setCreated(LocalDateTime created) {
-        this.created = LocalDateTime.now();
+        this.created = created;
     }
 
     //this gotta be fixed perhaps, could probably just use tthe getters for info if we need it
@@ -183,6 +192,14 @@ public class Pet {
     public void computeValue(Pet p) {
         p.setValue(100 + (p.stats.getEnergy() * 5));
 
+    }
+
+    public static ArrayList<Pet> getPetCollection() {
+        return petCollection;
+    }
+
+    public static void setPetCollection(ArrayList<Pet> aPetCollection) {
+        petCollection = aPetCollection;
     }
 
 }

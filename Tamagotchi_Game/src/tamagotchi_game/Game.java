@@ -7,35 +7,32 @@ public class Game {
 
     public void mainGame() throws FileNotFoundException, InterruptedException {
         Scanner scan = new Scanner(System.in);
-        String user;
+        String input;
         boolean LOOP = true;
 
         while (LOOP) {
             //Misc.clearConsole();
             Interface.dashBoard();
-
-            user = InputValidation.regexValidate(scan, "ifcsq");
-
-            switch (user.toLowerCase()) {
+            input = InputValidation.regexValidate(scan, "ifcsq");
+            switch (input) {
                 case "i":
                     Interface.menuInteract();
-                    user = InputValidation.regexValidate(scan, "1234");
-                    Interact.Interact(Integer.parseInt(user));
-                    System.out.println("Going back to previoud menu...");
+                    input = InputValidation.regexValidate(scan, "123");
+                    Interact.Interact(Integer.parseInt(input));
+                    System.out.println("Going back to previous menu...");
                     Thread.sleep(1000);
                     break;
                 case "f":
                     Interface.menuFeed();
-                    user = InputValidation.regexValidate(scan, "123456");
-                    FeedOption.Feed(Integer.parseInt(user));
-                    System.out.println("Going back to previoud menu...");
+                    input = InputValidation.regexValidate(scan, "123456");
+                    FeedOption.Feed(Integer.parseInt(input));
+                    System.out.println("Going back to previous menu...");
                     Thread.sleep(1000);
                     break;
                 case "c":
                     Competition.c.setOpponent(Pet.PetGenerator());
                     Interface.menuCompetition();
                     Competition.c.confirmation();
-
                     break;
                 case "s":
                     Interface.menuShop();
@@ -46,9 +43,10 @@ public class Game {
                     break;
                 default:
                     System.out.println("Something went wrong...");
+                    break;
             }
         }
-        Data.saveGame(Main.petCollection);
+        Data.saveGame(Pet.getPetCollection());
         System.out.println("Game ends. Bye!");
         System.exit(0);
     }

@@ -10,66 +10,46 @@ public class Competition {
     private static int winCount = 0;
     private static int loseCount = 0;
 
-    /**
-     * @return the winCount
-     */
     public int getWinCount() {
         return winCount;
     }
 
-    /**
-     * @param winCount the winCount to set
-     */
     public void setWinCount(int winCount) {
         Competition.winCount = winCount;
     }
 
-    /**
-     * @return the loseCount
-     */
     public int getLoseCount() {
         return loseCount;
     }
 
-    /**
-     * @param loseCount the loseCount to set
-     */
     public void setLoseCount(int loseCount) {
         Competition.loseCount = loseCount;
     }
 
-    /**
-     * @return the cptEntered
-     */
     public int getCptEntered() {
         return total;
     }
 
-    /**
-     * @param cptEntered the cptEntered to set
-     */
     public void setCptEntered(int cptEntered) {
         Competition.total = cptEntered;
     }
 
-    /**
-     * @return the opponent
-     */
     public Pet getOpponent() {
         return opponent;
     }
 
-    /**
-     * @param opponent the opponent to set
-     */
     public void setOpponent(Pet opponent) {
         Competition.opponent = opponent;
     }
 
+    /**
+     *
+     * @throws InterruptedException
+     */
     public void confirmation() throws InterruptedException {
         Scanner scan = new Scanner(System.in);
         String confirm = "";
-        confirm = InputValidation.regexValidate(scan, "YynN");
+        confirm = InputValidation.regexValidate(scan, "yn");
 
         if (confirm.equalsIgnoreCase("Y")) {
             entryCheck();
@@ -85,6 +65,10 @@ public class Competition {
 
     }
 
+    /**
+     *
+     * @throws InterruptedException
+     */
     public void entryCheck() throws InterruptedException {
 
         if (Player.player.getCurrency() > 0 && Pet.currentPet.stats.getEnergy() > 0 && Pet.currentPet.stats.getHappiness() > 0 && Pet.currentPet.stats.getHunger() > 0 && Pet.currentPet.stats.getThirst() > 0) {
@@ -101,11 +85,14 @@ public class Competition {
         }
     }
 
+    /**
+     *
+     * @throws InterruptedException
+     */
     public void computeResult() throws InterruptedException {
 
         System.out.println(Pet.currentPet.getName() + " is now competing against " + opponent.getName() + " ......");
         System.out.println("");
-        //Thread.sleep(2000);
         System.out.println("Details of your pet: " + "\n" + Pet.currentPet.printPetDetails());
         System.out.println("");
         System.out.println("Opponent's Details: " + "\n" + opponent.printPetDetails());

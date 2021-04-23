@@ -2,17 +2,24 @@ package tamagotchi_game;
 
 import java.util.*;
 
+/**
+ * This method is used to breed pets.
+ * requires 2 separate gendered pets.
+ */
 public class Breed {
 
     private Pet breed;
 
-    ArrayList<Pet> petList = Main.petCollection;
+    ArrayList<Pet> petList = Pet.getPetCollection();
     Scanner scan = new Scanner(System.in);
     Random rand = new Random();
     String input;
     String name = "";
     boolean LOOP = true;
 
+    /**
+     *  
+     */
     public void create() {
         if (petList.size() == 1) {
             System.out.println("Sorry you can not breed! You need two pets to breed!");

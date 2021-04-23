@@ -79,7 +79,7 @@ public class SpeciesArt {
         "|                     \\       -  \\  /|  \\ \\/ /                     |",
         "|                      \\______o   \\/ |   \\  /                      |",};
 
-    public static void checkStatus(Pet p) {
+    public static void printPet(Pet p) {
 
         switch (p.getSpecies()) {
             case BEAR:

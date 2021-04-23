@@ -14,9 +14,9 @@ public class Data {
         pw.println(Player.player.getCurrency() + "," + Player.player.getFoodAmount() + "," + Player.player.getWaterAmount());
         pw.println("@PETS");
         petCollection.forEach((v) -> pw.println(v.getName() + "," + v.stats.getHunger() + "," + v.stats.getThirst() + ","
-                + v.stats.getEnergy() + "," + v.stats.getHappiness() + "," + v.getGender() + "," + v.getMaturity()
+                + v.stats.getHappiness() + "," + v.stats.getEnergy()+ "," + v.getGender() + "," + v.getMaturity()
                 + "," + v.getSpecies() + "," + v.getCompetition().getCptEntered() + "," + v.getCompetition().getWinCount() + ","
-                + v.getCompetition().getLoseCount()));
+                + v.getCompetition().getLoseCount() + "," + v.getCreated() + "," + v.getLastpatTime()));
         pw.close();
     }
 }

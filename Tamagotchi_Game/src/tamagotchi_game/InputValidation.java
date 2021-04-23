@@ -8,7 +8,7 @@ public class InputValidation {
      * Validates input through the power of regex
      *
      * @param scan The scanner which is taking input.
-     * @param values The only valid inputs the scanner should take.
+     * @param values The only valid inputs the scanner should take. Case insensitive.
      * @return the input value
      */
     public static String regexValidate(Scanner scan, String values) {

@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javafx.util.converter.LocalDateTimeStringConverter;
 
 public class MainMenu {
 
@@ -25,7 +26,7 @@ public class MainMenu {
 
         switch (input) {
             case "1":
-                newGame(petCollection);
+                newGame();
                 break;
             case "2":
                 loadGame();
@@ -36,13 +37,13 @@ public class MainMenu {
         }
     }
 
-    private static void newGame(ArrayList<Pet> petCollection) throws FileNotFoundException, InterruptedException {
+    private static void newGame() throws FileNotFoundException, InterruptedException {
         String input;
         Scanner scan = new Scanner(System.in);
         //create starter pets
         Pet[] starterPet = new Pet[3];
         for (int i = 0; i < starterPet.length; i++) {
-            starterPet[i] = new Pet("pet" + i, Misc.RNG(1, Stats.MAX_HUNGER - 5), Misc.RNG(1, Stats.MAX_THIRST - 5), Misc.RNG(1, Stats.MAX_ENERGY - 5), 5);
+            starterPet[i] = Pet.PetGenerator();
             starterPet[i].setMaturity(Maturity.BABY);
         }
         System.out.println("Creating a new game...\n");
@@ -50,62 +51,72 @@ public class MainMenu {
         System.out.println("--------------------");
         System.out.println("  | Name | Species | Gender | Maturity | Hunger | Thirst | Energy |");
         int count = 1;
-        //TODO: tidy this up
         for (Pet x : starterPet) {
             System.out.printf(count + ".  " + x.getName() + "    " + String.format("%-5s", x.getSpecies()) + "    " + String.format("%1$5s", x.getGender()) + (x.getGender() == Gender.MALE ? "     " : "    ") + String.format("%1$5s", x.getMaturity()) + "        " + x.stats.getHunger() + "        " + x.stats.getThirst() + "        " + x.stats.getEnergy() + "\n");
             count++;
         }
         input = InputValidation.regexValidate(scan, "123");
         //add choice to pet collection
-        Pet.currentPet.setCreated(LocalDateTime.now());
         Pet.setCurrentPet(starterPet[Integer.parseInt(input) - 1]);
-        petCollection.add(Pet.currentPet);
+        Pet.currentPet.setCreated(LocalDateTime.now());
+        Pet.getPetCollection().add(Pet.currentPet);
 
         System.out.println("You have selected " + Pet.currentPet.getName() + "!");
-        System.out.println("You now own " + petCollection.size() + " pet" + (petCollection.size() > 1 ? "s." : "."));
+        System.out.println("You now own " + Pet.getPetCollection().size() + " pet" + (Pet.getPetCollection().size() > 1 ? "s." : "."));
 
     }
 
-    private static void loadGame() throws FileNotFoundException {
+    private static void loadGame() throws FileNotFoundException, InterruptedException {
         File file = new File("save.txt");
-        try {
-            Scanner scan = new Scanner(file);
-            String[] pets;
-            String[] stats;
+        if (file.length() == 0) {
+            System.out.println("No saved games! create a new game first!");
+            newGame();
+        } else {
+            try {
+                Scanner scan = new Scanner(file);
+                String[] pets;
+                String[] stats;
 
-            //TODO: perhaps turn into a case for each section of data needed to load
-            while (scan.hasNextLine()) {
-                String line = scan.nextLine();
-                if (line.equals("@P_STATS")) {
-                    line = scan.nextLine();
-                    stats = line.split(",");
-                    Player.player.setCurrency(Integer.parseInt(stats[0]));
-                    Player.player.setFoodAmount(Integer.parseInt(stats[1]));
-                    Player.player.setWaterAmount(Integer.parseInt(stats[2]));
-
-                }
-                if (line.equals("@PETS")) {
-                    while (scan.hasNextLine()) {
+                while (scan.hasNextLine()) {
+                    String line = scan.nextLine();
+                    // store player stats in array
+                    if (line.equals("@P_STATS")) {
                         line = scan.nextLine();
-                        pets = line.split(",");
-                        Pet pet = new Pet(pets[0], Integer.parseInt(pets[1]), Integer.parseInt(pets[2]), Integer.parseInt(pets[3]), Integer.parseInt(pets[4]));
-                        pet.setGender(Gender.valueOf(pets[5]));
-                        pet.setMaturity(Maturity.valueOf(pets[6]));
-                        pet.setSpecies(Species.valueOf(pets[7]));
-                        Competition comp = new Competition();
-                        pet.setCompetition(comp);
-                        pet.getCompetition().setCptEntered((Integer.parseInt(pets[8])));
-                        pet.getCompetition().setWinCount((Integer.parseInt(pets[9])));
-                        pet.getCompetition().setLoseCount((Integer.parseInt(pets[10])));
+                        stats = line.split(",");
+                        Player.player.setCurrency(Integer.parseInt(stats[0]));
+                        Player.player.setFoodAmount(Integer.parseInt(stats[1]));
+                        Player.player.setWaterAmount(Integer.parseInt(stats[2]));
 
-                        Main.petCollection.add(pet);
+                    }
+                    // store player pets in array
+                    if (line.equals("@PETS")) {
+                        while (scan.hasNextLine()) {
+                            line = scan.nextLine();
+                            pets = line.split(",");
+                            Pet pet = new Pet(pets[0], Integer.parseInt(pets[1]), Integer.parseInt(pets[2]), Integer.parseInt(pets[3]), Integer.parseInt(pets[4]));
+                            pet.setGender(Gender.valueOf(pets[5]));
+                            pet.setMaturity(Maturity.valueOf(pets[6]));
+                            pet.setSpecies(Species.valueOf(pets[7]));
+                            Competition comp = new Competition();
+                            pet.setCompetition(comp);
+                            pet.getCompetition().setCptEntered((Integer.parseInt(pets[8])));
+                            pet.getCompetition().setWinCount((Integer.parseInt(pets[9])));
+                            pet.getCompetition().setLoseCount((Integer.parseInt(pets[10])));
+                            LocalDateTime created = LocalDateTime.parse(pets[11]);
+                            LocalDateTime lastpet = LocalDateTime.parse(pets[12]);
+                            pet.setCreated(created);
+                            pet.setLastpatTime(lastpet);
+
+                            Pet.getPetCollection().add(pet);
+                        }
                     }
                 }
+                scan.close();
+                // set first saved pet to current pet
+                Pet.setCurrentPet((Pet) Pet.getPetCollection().get(0));
+            } catch (FileNotFoundException e) {
+                System.out.println("No save games found in " + file + "!");
             }
-            scan.close();
-            Pet.setCurrentPet((Pet) Main.petCollection.get(0));
-        } catch (FileNotFoundException e) {
-            System.out.println("No save games found in " + file + "!");
         }
     }
 }

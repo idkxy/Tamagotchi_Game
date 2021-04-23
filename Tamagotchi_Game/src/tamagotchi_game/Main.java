@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static ArrayList petCollection = new ArrayList<Pet>();
 
     static Game game = new Game();
 
@@ -14,7 +13,7 @@ public class Main {
         MainMenu.intro();
         //Thread.sleep(2000);
 
-        MainMenu.mainMenu(petCollection);
+        MainMenu.mainMenu(Pet.getPetCollection());
 
         game.mainGame();
 
