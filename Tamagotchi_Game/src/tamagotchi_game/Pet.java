@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+/**
+ * This class contains the details of the pet owned by the user
+ * @author DaisyXiao - 1392836
+ */
 public class Pet {
     
     public static Pet currentPet = new Pet("", 0, 0, 0, 0);

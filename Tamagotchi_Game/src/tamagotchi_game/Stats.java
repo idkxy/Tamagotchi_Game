@@ -1,10 +1,24 @@
 package tamagotchi_game;
 
+/**
+ * This class stores the details of the stats of a pet and corresponding getters
+ * and setters for retrieving and setting the value of the stats of the pet
+ *
+ * @author DaisyXiao
+ */
 class Stats {
 
     private int hunger, thirst, happiness, energy;
     public static final int MAX_HUNGER = 10, MAX_THIRST = 10, MAX_HAPPINESS = 10, MAX_ENERGY = 10;
 
+    /**
+     * This is the constructor of the Stats class, the value of the stats 
+     * will be assigned to the pet according to the parameters 
+     * @param hunger represents the hunger value to be assigned to the pet
+     * @param thirst represents the thirst value to be assigned to the pet
+     * @param happiness represents the happiness value to be assigned to the pet
+     * @param energy represents the energy value to be assigned to the pet
+     */
     public Stats(int hunger, int thirst, int happiness, int energy) {
         this.hunger = hunger;
         this.thirst = thirst;

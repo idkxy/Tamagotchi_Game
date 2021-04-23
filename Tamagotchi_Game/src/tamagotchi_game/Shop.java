@@ -2,15 +2,12 @@ package tamagotchi_game;
 
 import java.util.ArrayList;
 
+/**
+ * This class stores the pet to be displayed in the shop 
+ * @author DaisyXiao -1392836
+ */
 public class Shop {
-
-    /**
-     * @return the pets
-     */
-    public ArrayList<Pet> getPets() {
-        return pets;
-    }
-
+    
     public static Shop shop = new Shop();
 
     private ArrayList<Pet> pets = new ArrayList<Pet>();
@@ -19,6 +16,8 @@ public class Shop {
     private final int WATER_COST = 10;
     private final int FOOD_COST = 18;
 
+    // This method will randomly generate 5 pets and compute the value according to the stats of the
+    // pet generated and print out the pets that are generated 
     public void PetInShop() {
         System.out.println("  |  Name  |  Species |  Gender  |  Maturity  | Hunger | Thirst | Energy | Price |");
         for (int i = 0; i < 5; i++) {
@@ -31,6 +30,12 @@ public class Shop {
 
 
 
+    /**
+     * @return the pets
+     */
+    public ArrayList<Pet> getPets() {
+        return pets;
+    }
     /**
      * @return the WATER_COST
      */

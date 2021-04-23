@@ -1,5 +1,9 @@
 package tamagotchi_game;
 
+/**
+ * This class contains the details of the player: currency, water and food amount 
+ * @author DaisyXiao - 1392836
+ */
 public class Player {
 
     public static Player player = new Player();

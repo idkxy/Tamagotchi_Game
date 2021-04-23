@@ -1,5 +1,10 @@
 package tamagotchi_game;
 
+/**
+ * This class stores the ASCII art to be printed according to pet's species
+ * and their stats level
+ * @author DaisyXiao
+ */
 public class SpeciesArt {
 
     static String[] bear = new String[]{
@@ -79,6 +84,13 @@ public class SpeciesArt {
         "|                     \\       -  \\  /|  \\ \\/ /                     |",
         "|                      \\______o   \\/ |   \\  /                      |",};
 
+    
+    /**
+     * This method will print the correlated ASCII art base on the species 
+     * of the pet passed in the parameter 
+     * @param p is the pet whose species will be identified when passing through
+     * the method and correlated ASCII art will be printed 
+     */
     public static void printPet(Pet p) {
 
         switch (p.getSpecies()) {
@@ -94,6 +106,11 @@ public class SpeciesArt {
         }
     }
 
+    /**
+     * This method is used to determine the face to be printed for the bear 
+     * according to the happiness level of the bear pet
+     * @param p is used to retrieve the happiness level of the bear pet
+     */
     private static void bearExpressions(Pet p) {
         if (p.stats.getHappiness() >= 6) {
             bear[2] = bearHappy[0];
@@ -116,6 +133,11 @@ public class SpeciesArt {
         }
     }
 
+    /**
+     * This method is used to determine the face to be printed for the mouse 
+     * according to the happiness level of the bear pet
+     * @param p is used to retrieve the happiness level of the mouse pet
+     */
     private static void mouseExpressions(Pet p) {
         if (p.stats.getHappiness() >= 6) {
             mouse[2] = mouseHappy[0];
@@ -138,6 +160,11 @@ public class SpeciesArt {
         }
     }
 
+    /**
+     * This method is used to determine the face to be printed for the bear 
+     * according to the happiness level of the bear pet
+     * @param p is used to retrieve the happiness level of the bear pet
+     */
     private static void sharkExpressions(Pet p) {
         if (p.stats.getHappiness() >= 6) {
             shark[2] = sharkHappy[0];
