@@ -59,7 +59,7 @@ public class MainMenu {
         Pet.petCollection.put(Pet.getIndex(), starterPet[Integer.parseInt(input)-1]);
         //Pet.setCurrentPet(starterPet[Integer.parseInt(input) - 1], 0);
         Pet.petCollection.get(Pet.getIndex()).setCreated(LocalDateTime.now());
-        //Pet.petCollection.add(Pet.petCollection.get(Pet.getIndex()));
+        //Pet.petCollection.add(Pet.currentPet);
 
         System.out.println("You have selected " + Pet.petCollection.get(Pet.getIndex()).getName() + "!");
         System.out.println("You now own " + Pet.petCollection.size() + " pet" + (Pet.petCollection.size() > 1 ? "s." : "."));
@@ -103,8 +103,9 @@ public class MainMenu {
                             pet.getCompetition().setCptEntered((Integer.parseInt(pets[8])));
                             pet.getCompetition().setWinCount((Integer.parseInt(pets[9])));
                             pet.getCompetition().setLoseCount((Integer.parseInt(pets[10])));
-                            LocalDateTime created = LocalDateTime.parse(pets[11]);
-                            LocalDateTime lastpet = LocalDateTime.parse(pets[12]);
+                            pet.getCompetition().setDrawCount(Integer.parseInt(pets[11]));
+                            LocalDateTime created = LocalDateTime.parse(pets[12]);
+                            LocalDateTime lastpet = LocalDateTime.parse(pets[13]);
                             pet.setCreated(created);
                             pet.setLastpatTime(lastpet);
                             count++;

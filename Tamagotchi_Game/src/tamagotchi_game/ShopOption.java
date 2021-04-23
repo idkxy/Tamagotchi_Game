@@ -152,21 +152,19 @@ public class ShopOption extends Shop {
             int petChosen = Integer.parseInt(input) - 1;
             System.out.println("Pet " + shop.getPets().get(petChosen).getName() + " is chosen");
             System.out.println("Do you wish to purchase the pet? Y/N");
-            String purchase = InputValidation.regexValidate(sc, "YyNn");
-            if (purchase.equalsIgnoreCase("Y")) {
+            input = InputValidation.regexValidate(sc, "yn");
+            if (input.equalsIgnoreCase("Y")) {
                 System.out.println("Purchase completed! The pet cost you $" + shop.getPets().get(petChosen).getValue());
                 Player.player.setCurrency(Player.player.getCurrency() - shop.getPets().get(petChosen).getValue());
                 System.out.println("Current Balance: $" + Player.player.getCurrency());
-                Pet.petCollection.put(Pet.petCollection.size()+1, shop.getPets().get(petChosen));
-                shop.getPets().remove(shop.getPets().get(petChosen));
+                Pet.petCollection.put(Pet.petCollection.size() + 1, shop.getPets().get(petChosen));
+                //shop.getPets().remove(shop.getPets().get(petChosen));
                 shop.getPets().remove(petChosen);
                 run = false;
             } else {
                 System.out.println("Do you wish to purchase another pet?");
-                String purchaseAnother = InputValidation.regexValidate(sc, "YyNn");
-                if (purchaseAnother.equalsIgnoreCase("Y")) {
-
-                } else {
+                input = InputValidation.regexValidate(sc, "yn");
+                if (input.equalsIgnoreCase("n")) {
                     run = false;
                 }
             }

@@ -9,6 +9,7 @@ public class Competition {
     private static Pet opponent;
     private static int winCount = 0;
     private static int loseCount = 0;
+    private static int drawCount = 0;
 
     public int getWinCount() {
         return winCount;
@@ -69,21 +70,26 @@ public class Competition {
      *
      * @throws InterruptedException
      */
-    public void entryCheck() throws InterruptedException {
+public void entryCheck() throws InterruptedException {
 
         if (Player.player.getCurrency() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getHunger() > 0 && Pet.petCollection.get(Pet.getIndex()).stats.getThirst() > 0) {
-            Pet.petCollection.get(Pet.getIndex()).stats.setEnergy(Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() - 1);
-            Pet.petCollection.get(Pet.getIndex()).stats.setHappiness(Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() - 1);
-            Pet.petCollection.get(Pet.getIndex()).stats.setHunger(Pet.petCollection.get(Pet.getIndex()).stats.getHunger() - 1);
-            Pet.petCollection.get(Pet.getIndex()).stats.setThirst(Pet.petCollection.get(Pet.getIndex()).stats.getThirst() - 1);
-            Player.player.setCurrency(Player.player.getCurrency() - 100);
-            total++;
-        } else if (Player.player.getCurrency() <= 0) {
-            System.out.println("Insufficient fund! Can not enter competition");
-        } else if (Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() <= 0) {
-            System.out.println("No energy left! Your pet can not enter game!");
+            {
+                if ((Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() - 1) > 0 && (Pet.petCollection.get(Pet.getIndex()).stats.getHappiness()) - 1 > 0 && (Pet.petCollection.get(Pet.getIndex()).stats.getHunger()) - 1 > 0 && (Pet.petCollection.get(Pet.getIndex()).stats.getThirst()) - 1 > 0) {
+                     Pet.petCollection.get(Pet.getIndex()).stats.setHappiness(Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() - 1);
+                Pet.petCollection.get(Pet.getIndex()).stats.setHunger(Pet.petCollection.get(Pet.getIndex()).stats.getHunger() - 1);
+                Pet.petCollection.get(Pet.getIndex()).stats.setThirst(Pet.petCollection.get(Pet.getIndex()).stats.getThirst() - 1);
+                Player.player.setCurrency(Player.player.getCurrency() - 100);
+                if (Player.player.getCurrency() < 0) {
+                    System.out.println("Insufficient fund! Can not enter competition");
+                    Pet.petCollection.get(Pet.getIndex()).stats.setEnergy(Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() - 1);
+                }
+
+        } else if (Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() <= 0 || Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() <= 0 || Pet.petCollection.get(Pet.getIndex()).stats.getHunger() <= 0 || Pet.petCollection.get(Pet.getIndex()).stats.getThirst() <= 0) {
+            System.out.println("Required stats level is not met ! Your pet can not enter game!");
         }
+       
     }
+    }}
 
     /**
      *
@@ -97,23 +103,25 @@ public class Competition {
         System.out.println("");
         System.out.println("Opponent's Details: " + "\n" + opponent.printPetDetails());
         System.out.println("");
-
+        Pet.petCollection.get(Pet.getIndex()).getCompetition().setCptEntered(Pet.petCollection.get(Pet.getIndex()).getCompetition().getCptEntered()+ 1);
+;
         if ((Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() + Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() + Pet.petCollection.get(Pet.getIndex()).stats.getHunger() + Pet.petCollection.get(Pet.getIndex()).stats.getThirst())
                 > (opponent.stats.getEnergy() + opponent.stats.getHappiness() + opponent.stats.getHunger() + opponent.stats.getThirst())) {
 
             System.out.println("Congrats! " + Pet.petCollection.get(Pet.getIndex()).getName() + " wins! :)");
-            winCount++;
+            Pet.petCollection.get(Pet.getIndex()).getCompetition().setWinCount(Pet.petCollection.get(Pet.getIndex()).getCompetition().getWinCount() + 1);
             System.out.println("You've earned $200!");
             System.out.println("");
             Player.player.setCurrency(Player.player.getCurrency() + 200);
-        } else if ((Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() + Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() + Pet.petCollection.get(Pet.getIndex()).stats.getHunger() + Pet.petCollection.get(Pet.getIndex()).stats.getThirst())
+        }
+        else if ((Pet.petCollection.get(Pet.getIndex()).stats.getEnergy() + Pet.petCollection.get(Pet.getIndex()).stats.getHappiness() + Pet.petCollection.get(Pet.getIndex()).stats.getHunger() + Pet.petCollection.get(Pet.getIndex()).stats.getThirst())
                 == (opponent.stats.getEnergy() + opponent.stats.getHappiness() + opponent.stats.getHunger() + opponent.stats.getThirst())) {
             System.out.println("Draw! You get your money back!");
             System.out.println("");
+            Pet.petCollection.get(Pet.getIndex()).getCompetition().setDrawCount(Pet.petCollection.get(Pet.getIndex()).getCompetition().getDrawCount() + 1);
             //amount of currency earned from winning to be confirmed 
         } else {
-
-            loseCount++;
+            Pet.petCollection.get(Pet.getIndex()).getCompetition().setLoseCount(Pet.petCollection.get(Pet.getIndex()).getCompetition().getLoseCount() + 1);
             System.out.println("Too bad " + Pet.petCollection.get(Pet.getIndex()).getName() + " loses! :(");
             System.out.println("You will get $30 back!");
             System.out.println("");
@@ -125,6 +133,20 @@ public class Competition {
     public String toString() {
         return (Pet.petCollection.get(Pet.getIndex()).getName() + " has entered " + total + " game(s). " + "Win " + winCount + " time(s)." + " Lost " + loseCount + " time(s)." + "\n");
 
+    }
+
+    /**
+     * @return the drawCount
+     */
+    public int getDrawCount() {
+        return drawCount;
+    }
+
+    /**
+     * @param aDrawCount the drawCount to set
+     */
+    public void setDrawCount(int aDrawCount) {
+        drawCount = aDrawCount;
     }
 
 }

@@ -16,7 +16,7 @@ public class Data {
         Pet.petCollection.forEach((t, v) -> pw.println(v.getName() + "," + v.stats.getHunger() + "," + v.stats.getThirst() + ","
                 + v.stats.getHappiness() + "," + v.stats.getEnergy()+ "," + v.getGender() + "," + v.getMaturity()
                 + "," + v.getSpecies() + "," + v.getCompetition().getCptEntered() + "," + v.getCompetition().getWinCount() + ","
-                + v.getCompetition().getLoseCount() + "," + v.getCreated() + "," + v.getLastpatTime()));
+                + v.getCompetition().getLoseCount() + "," + v.getCompetition().getDrawCount() + "," + v.getCreated() + "," + v.getLastpatTime()));
         pw.close();
     }
 }

@@ -11,8 +11,6 @@ public class Interact {
         String input;
         switch (userInput) {
             case 1:
-                //System.out.println(Main.petCollection.indexOf(Pet.petCollection.get(Pet.getIndex()))+1);
-                Pet.updatePet();
                 //Will increase pet happiness by 1
                 if (Time.getDiff(Pet.petCollection.get(Pet.getIndex()).getLastpatTime()) >= 60) {
                     System.out.println("The happiness level of the current pet has gone up by one from patting!");
@@ -40,14 +38,14 @@ public class Interact {
                     //ArrayList<Pet> temp = Pet.petCollection;
                     String tempS = "";
                     for (int i = 0; i < Pet.petCollection.size(); i++) {
-                        System.out.println(Pet.petCollection.get(i+1).toString());
+                        System.out.print(i+1 + ". ");
+                        System.out.println(Pet.petCollection.get(i+1).printPetDetails());
                         tempS += String.valueOf(i + 1);
                     }
 
                     System.out.println("Please select desired pet");
                     input = InputValidation.regexValidate(scan, tempS);
                     Pet.setIndex(Integer.parseInt(input));
-                    Pet.setCurrentPet(Pet.petCollection.get(Pet.getIndex()));
                 } else {
                     System.out.println("Player requires more than one pet to use this function.");
                 }
