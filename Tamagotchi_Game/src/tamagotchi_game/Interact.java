@@ -52,13 +52,13 @@ public class Interact {
                     String tempS = "";
                     for (int i = 0; i < Pet.petCollection.size(); i++) {
                         System.out.print(i + 1 + ". ");
-                        System.out.println(Pet.petCollection.get(i).printPetDetails());
+                        System.out.println(Pet.petCollection.get(i+1).printPetDetails());
                         tempS += String.valueOf(i + 1);
                     }
 
                     System.out.println("Please select desired pet");
                     input = InputValidation.regexValidate(scan, tempS);
-                    Pet.setIndex(Integer.parseInt(input)-1);
+                    Pet.setIndex(Integer.parseInt(input));
                 } else {
                     System.out.println("Player requires more than one pet to use this function.");
                 }
