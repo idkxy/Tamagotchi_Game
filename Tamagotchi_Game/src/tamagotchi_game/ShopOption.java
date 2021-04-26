@@ -140,8 +140,7 @@ public class ShopOption extends Shop {
                 System.out.println("Purchase completed! The pet cost you $" + shop.getPets().get(petChosen).getValue());
                 Player.player.setCurrency(Player.player.getCurrency() - shop.getPets().get(petChosen).getValue());
                 System.out.println("Current Balance: $" + Player.player.getCurrency());
-                Pet.petCollection.put(Pet.petCollection.size(), shop.getPets().get(petChosen));
-                //shop.getPets().remove(shop.getPets().get(petChosen));
+                Pet.petCollection.put(Pet.getIndex()+1, shop.getPets().get(petChosen));
                 shop.getPets().remove(petChosen);
                 run = false;
             } else {

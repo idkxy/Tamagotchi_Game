@@ -50,12 +50,14 @@ public class Interact {
                 if (Pet.petCollection.size() > 1) {
                     System.out.println("Player pets:");
                     String tempS = "";
-                    for (int i = 0; i < Pet.petCollection.size(); i++) {
-                        System.out.print(i + 1 + ". ");
-                        System.out.println(Pet.petCollection.get(i+1).printPetDetails());
-                        tempS += String.valueOf(i + 1);
+                    int i = 1;
+                    for (Integer x : Pet.petCollection.keySet())
+                    {
+                        System.out.print(i + ". ");
+                        System.out.println(Pet.petCollection.get(x).printPetDetails());
+                        tempS += String.valueOf(i);
+                        i++;
                     }
-
                     System.out.println("Please select desired pet");
                     input = InputValidation.regexValidate(scan, tempS);
                     Pet.setIndex(Integer.parseInt(input));

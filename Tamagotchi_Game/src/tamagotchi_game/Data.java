@@ -43,7 +43,7 @@ public class Data {
         }
         input = InputValidation.regexValidate(scan, "123");
         //add choice to pet collection
-        Pet.setIndex(0);
+        Pet.setIndex(1);
         Pet.petCollection.put(Pet.getIndex(), starterPet[Integer.parseInt(input) - 1]);
         Pet.petCollection.get(Pet.getIndex()).setCreated(LocalDateTime.now());
 
